@@ -1,0 +1,4 @@
+// create json values and send to nextspetactivity
+                // cargamos los projects del usuario
+                UrlUploader.activity = NewProject.this;
+                new UrlUploader().execute(url);

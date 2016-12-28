@@ -1,0 +1,13 @@
+@font-face {
+    font-family: fontDefault;
+    src: url('../fonts/Ubuntu-Regular.ttf');
+}
+* {
+    padding:0;
+    margin:0;
+    font-family: fontDefault;
+}
+p {
+    text-align: justify;
+    color:#777;
+}
