@@ -38,7 +38,7 @@ define("COL_DIRECTORIO_ROOT", "directorio_root");
 define("HOME_IMG", "home_image");
 
 // Queries
-define("PaisesFindAll", "SELECT * FROM paises ORDER BY id ASC");
+define("PaisesFindAll", "SELECT * FROM paises ORDER BY nombre ASC");
 define("PaisesFindById", "SELECT * FROM paises WHERE id = :id_pais");
 define("UsuarioFindById", "SELECT u.* FROM usuario u WHERE u.id_usuario = :id_usuario");
 define("ProyectoFindById", "SELECT p.* FROM proyecto p JOIN rel_proyecto_usuario rpu ON rpu.id_proyecto = p.id_proyecto JOIN usuario u ON rpu.id_usuario = u.id_usuario WHERE u.id_usuario = :id_usuario AND rpu.id_proyecto = :id_proyecto");
