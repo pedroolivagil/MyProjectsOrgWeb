@@ -6,8 +6,8 @@ require_once('../db/Database.php');
 
 header('Content-type: application/json');
 // get solo para el desarrollo
-if ($_POST['id_usuario']) {
-    $params = array("id_usuario" => $_POST['id_usuario']);
+if ($_REQUEST['id_usuario']) {
+    $params = array("id_usuario" => $_REQUEST['id_usuario']);
     echo '{';
     Database::init_db();
     echo '"' . USUARIO . '":' . Database::preparedQueryToJSON(UsuarioFindById, $params);

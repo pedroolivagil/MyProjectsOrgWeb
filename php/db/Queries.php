@@ -1,7 +1,7 @@
 <?php
 
 // Constantes
-define("SERVER_ROOT", "localhost/myprojectsorg");
+define("SERVER_ROOT", "http://localhost/myprojectsorg");
 //define("SERVER_ROOT", $_SERVER['HTTP_HOST']);
 
 define("USUARIO", "usuario");
