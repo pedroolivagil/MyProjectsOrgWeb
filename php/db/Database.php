@@ -81,6 +81,10 @@ class Database/* extends mysqli */ {
                     $sentencia = self::$conexion->prepare($query);
                     $sentencia->execute($params);
                     $result_final = $sentencia->fetchAll(PDO::FETCH_CLASS);
+                } else if ($query != NULL && $params == NULL) {
+                    $sentencia = self::$conexion->prepare($query);
+                    $sentencia->execute();
+                    $result_final = $sentencia->fetchAll(PDO::FETCH_CLASS);
                 }
                 return json_encode($result_final);
             }
