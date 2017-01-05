@@ -13,13 +13,17 @@ html, body {
 body { padding-bottom: 70px; }
 
 /* CONTENEDORES */
-.container-login {
+.container-login, .container-signup {
     position: relative;
     left: 50%;
     width: 350px;
     height: auto;
     margin-left: -175px;
     margin-top: 50px;
+}
+.container-signup {
+    width: 400px;
+    margin-left: -200px;
 }
 
 /* ESTILOS */
