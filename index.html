@@ -17,28 +17,28 @@ $translator = new Translator('es');
 
         <link href="css/style.css" type="text/css" rel="stylesheet"/>
         <!-- Temporal hasta implementar el php -->
-        <script src="http://www.w3schools.com/lib/w3data.js"></script>
+        <!--<script src="http://www.w3schools.com/lib/w3data.js"></script>-->
     </head>
     <body>
         <div class="wrapper">
-            <header w3-include-html="templates/header.php"></header>
+            <header id="header_wrapper"></header>
 
-            <div class="container width100">
-                <div w3-include-html="templates/signup.php" class="width100"></div>
-            </div>
+            <section id="main_wrapper" class="container width100"></section>
 
-            <footer w3-include-html="templates/footer.php"></footer>
+            <footer id="footer_wrapper"></footer>
         </div>
 
 
 
 
-        <script>
+        <!-- Temporal hasta implementar el php -->
+        <!--<script>
             w3IncludeHTML();
-        </script>
+        </script>-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/functions.js" type="text/javascript"></script>
     </body>
 </html>

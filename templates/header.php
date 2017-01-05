@@ -11,9 +11,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#"><?php echo $translator->getText('HOME_PAGE'); ?></a></li>
-                <li><a href="#about"><?php echo $translator->getText('ABOUT_PAGE'); ?></a></li>
-                <li><a href="#contact"><?php echo $translator->getText('CONTACT_PAGE'); ?></a></li>
+                <li class="active"><a href="#" onclick="navigate('templates/home');"><?php echo $translator->getText('HOME_PAGE'); ?></a></li>
+                <li><a href="#" onclick="navigate('templates/about');"><?php echo $translator->getText('ABOUT_PAGE'); ?></a></li>
+                <li><a href="#" onclick="navigate('templates/contact');"><?php echo $translator->getText('CONTACT_PAGE'); ?></a></li>
                 <!--// <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
