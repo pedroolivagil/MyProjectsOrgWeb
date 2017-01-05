@@ -3,11 +3,10 @@
     src: url('../fonts/Ubuntu-Regular.ttf');
 }
 * {
-    padding:0;
-    margin:0;
-    font-family: fontDefault;
+    font-family: fontDefault !important;
 }
-p {
-    text-align: justify;
-    color:#777;
+
+html, body {
+    /*2,5*/
+    background: url("../img/bg5.png");
 }
