@@ -10,3 +10,84 @@ html, body {
     /*2,5*/
     background: url("../img/bg5.png");
 }
+
+/* CONTENEDORES */
+.container-login {
+    position: relative;
+    left: 50%;
+    width: 350px;
+    height: auto;
+    margin-left: -175px;
+    margin-top: 50px;
+}
+
+/* ESTILOS */
+.shadow {
+    box-shadow: rgba(0,0,0,.2) 0 0 5px;    
+}
+.shadow-5 {
+    box-shadow: rgba(0,0,0,.5) 0 0 5px;    
+}
+.translucid {
+    background: rgba(255,255,255,.5) !important;
+}
+.translucid-80 {
+    background: rgba(255,255,255,.8) !important;
+}
+.translucid-b {
+    background: rgba(0,0,0,.3) !important;
+}
+.translucid-b-80 {
+    background: rgba(0,0,0,.8) !important;
+}
+.title-dialog {
+    font-size: 1.2em;
+    color: rgba(255,255,255,1);
+    padding: 5px;
+}
+
+/* MEDIDAS */
+.width100 {
+    width: 100% !important;
+}
+/* PADDINGS */
+.pad5 {
+    padding: 5px;
+}
+.pad5-tb {
+    padding: 5px 0; 
+}
+.pad5-lr {
+    padding: 0 5px; 
+}
+
+.pad10 {
+    padding: 10px;
+}
+.pad10-tb {
+    padding: 10px 0; 
+}
+.pad10-lr {
+    padding: 0 10px; 
+}
+
+/* MARGINS */
+.mar5 {
+    margin: 5px;
+}
+.mar5-tb {
+    margin: 5px 0; 
+}
+.mar5-lr {
+    margin: 0 5px; 
+}
+
+.mar10 {
+    margin: 10px;
+}
+.mar10-tb {
+    margin: 10px 0; 
+}
+.mar10-lr {
+    margin: 0 10px; 
+}
