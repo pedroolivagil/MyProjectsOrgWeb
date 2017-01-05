@@ -1,5 +1,4 @@
-<?php
-
+<?php session_start();
 error_reporting(0);
 
 class Tools {
@@ -87,11 +86,16 @@ class Tools {
         return $this->user;
     }
 
+    public static function encrypt($string) {
+        return md5(CRYPT_KEY . '' . $string);
+    }
+
     public static function invalidPost($isApp) {
         if ($isApp) {
             echo '{}';
         } else {
-            header("Location: " . SERVER_ROOT . "/404.html");
+            //header("Location: " . SERVER_ROOT . "/404.html");
+            Tools::navigate("404");
         }
     }
 
@@ -103,6 +107,50 @@ class Tools {
 
     public static function crearIdUnico($leng) {
         return substr(md5(microtime()), 0, $leng);
+    }
+
+    public static function navigate($page) {
+        echo "<script>navigate('$page');</script>";
+    }
+
+    public static function navigateLogin() {
+        Tools::navigate("templates/login");
+    }
+
+    public static function login($user, $pass) {
+        $err = 0;
+        $id = Tools::encrypt($user);
+        $params = array(
+            COL_ID_USUARIO => $id
+        );
+        Database::init_db();
+        $usuario = Database::preparedQuery(UsuarioFindById, $params);
+        Database::close_db();
+        $pwd = Tools::encrypt($pass);
+        if ($usuario != NULL) {
+            $user_pass = $usuario[0]['user_pass'];
+            if ($pwd != $user_pass) {
+                $err++;
+            }
+        } else {
+            $err++;
+        }
+        if($err==0){
+            $_SESSION[SESSION_USUARIO] = $usuario[0];
+            $_SESSION[SESSION_AUTOLOGIN] = $usuario[0];
+            Tools::navigate("templates/home");
+        }else{
+            Tools::navigateLogin();
+        }
+    }
+
+    public static function logout() {
+        unset($_SESSION[SESSION_USUARIO]);
+        unset($_SESSION[SESSION_AUTOLOGIN]);
+    }
+    
+    public static function session_exists(){
+        return isset($_SESSION[SESSION_USUARIO]);
     }
 
 }
