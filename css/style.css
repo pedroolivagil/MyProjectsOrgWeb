@@ -6,11 +6,15 @@
     font-family: fontDefault !important;
 }
 
+.glyphicon {
+    font-family: 'Glyphicons Halflings' !important;
+}
+
 html, body {
     /*2,5*/
     background: url("../img/bg5.png");
 }
-body { padding-bottom: 70px; }
+body { padding-bottom: 50px; }
 
 /* CONTENEDORES */
 .container-login, .container-signup {
@@ -32,7 +36,7 @@ body { padding-bottom: 70px; }
     padding: 0 !important;
 }
 .shadow {
-    box-shadow: rgba(0,0,0,.2) 0 0 5px;    
+    box-shadow: rgba(0,0,0,.2) 0 0 2px;    
 }
 .shadow-5 {
     box-shadow: rgba(0,0,0,.5) 0 0 5px;    

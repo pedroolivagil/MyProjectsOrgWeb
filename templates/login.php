@@ -12,13 +12,13 @@
         </div>
         <div class="panel-body">
             <form class="form-inline" role="form">
-                <div class="form-group width100">
+                <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="login_email"><?php echo $translator->getText('LOGIN_PAGE_EMAIL'); ?></label>
-                    <input type="email" class="form-control width100" id="login_email" placeholder="<?php echo $translator->getText('LOGIN_PAGE_PLACEHOLDER_EMAIL'); ?>">
+                    <input type="email" class="form-control width100" name="login_email" id="login_email" placeholder="<?php echo $translator->getText('LOGIN_PAGE_PLACEHOLDER_EMAIL'); ?>">
                 </div>
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="password_login"><?php echo $translator->getText('LOGIN_PAGE_PASSWORD'); ?></label>
-                    <input type="password" class="form-control width100" id="password_login" placeholder="<?php echo $translator->getText('LOGIN_PAGE_PLACEHOLDER_PASS'); ?>">
+                    <input type="password" class="form-control width100" name="password_login" id="password_login" placeholder="<?php echo $translator->getText('LOGIN_PAGE_PLACEHOLDER_PASS'); ?>">
                 </div>
                 <div class="checkbox pad5-tb hidden">
                     <label>
