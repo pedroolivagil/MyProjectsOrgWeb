@@ -11,7 +11,7 @@
             <h4><?php echo $translator->getText('LOGIN_PAGE_TITLE'); ?></h4>
         </div>
         <div class="panel-body">
-            <form class="form-inline" role="form">
+            <form class="form-inline" role="form" method="post">
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="login_email"><?php echo $translator->getText('LOGIN_PAGE_EMAIL'); ?></label>
                     <input type="email" class="form-control width100" required name="login_email" id="login_email" placeholder="<?php echo $translator->getText('LOGIN_PAGE_PLACEHOLDER_EMAIL'); ?>">
