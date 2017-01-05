@@ -1,5 +1,5 @@
 <?php require_once('require_translator.php');
-if(1==1){
+if(!Tools::session_exists()){
     Tools::navigateLogin();
 }
 ?>
