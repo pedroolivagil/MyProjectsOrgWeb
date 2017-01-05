@@ -1,3 +1,6 @@
+http://getbootstrap.com/javascript/#tooltips
+http://getbootstrap.com/components/#alerts
+
 <?php echo $translator->getText(''); ?>
 
 GENERIC_TITLE
