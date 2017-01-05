@@ -5,7 +5,6 @@
 </ol>
 
 <!--// Content //-->
-
 <div class="container container-login">
     <div class="panel panel-primary">
         <div class="panel-heading">
