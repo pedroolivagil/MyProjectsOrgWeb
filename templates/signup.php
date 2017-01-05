@@ -1,3 +1,4 @@
+<?php require_once('require_translator.php'); ?>
 <!--// BreadCrumbs //-->
 <ol class="breadcrumb shadow translucid-80">
     <li><a href="#"><?php echo $translator->getText('HOME_PAGE'); ?></a></li>

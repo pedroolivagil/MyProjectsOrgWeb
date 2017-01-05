@@ -73,6 +73,28 @@ class Database/* extends mysqli */ {
         return $result_final;
     }
 
+    public static function preparedQuery($query, $params = NULL) {
+        $result_final = NULL;
+        try {
+            if (self::check()) {
+                if ($query != NULL && $params != NULL) {
+                    $sentencia = self::$conexion->prepare($query);
+                    $sentencia->execute($params);
+                    $result_final = $sentencia->fetchAll(PDO::FETCH_CLASS);
+                } else if ($query != NULL && $params == NULL) {
+                    $sentencia = self::$conexion->prepare($query);
+                    $sentencia->execute();
+                    $result_final = $sentencia->fetchAll(PDO::FETCH_CLASS);
+                }
+                return json_decode(json_encode($result_final, TRUE), TRUE);
+            }
+        } catch (PDOException $e) {
+            self::addProblem();
+            error_log($e->getMessage());
+        }
+        return $result_final;
+    }
+
     public static function preparedQueryToJSON($query = NULL, $params = NULL) {
         $result_final = NULL;
         try {
