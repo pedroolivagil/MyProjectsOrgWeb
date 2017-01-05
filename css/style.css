@@ -12,9 +12,10 @@
 
 html, body {
     /*2,5*/
-    background: url("../img/bg5.png");
+    background: url("../img/bg5.png") fixed;
 }
-body { padding-bottom: 50px; }
+
+body { padding-top: 70px; }
 
 /* CONTENEDORES */
 .wrapper{
