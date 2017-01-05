@@ -26,6 +26,14 @@
                 </div>
                 <hr/>
                 <div class="form-group pad5-tb width100">
+                    <label class="sr-only" for="signup_fullname"><?php echo $translator->getText('SIGN_UP_PAGE_FULLNAME'); ?></label>
+                    <input type="" class="form-control width100" name="signup_fullname" id="signup_fullname" placeholder="<?php echo $translator->getText('SIGN_UP_PAGE_PLACEHOLDER_FULLNAME'); ?>">
+                </div>
+                <div class="form-group pad5-tb width100">
+                    <label class="sr-only" for="signup_birthdate"><?php echo $translator->getText('SIGN_UP_PAGE_BIRTHDATE'); ?></label>
+                    <input type="" class="form-control width100" name="signup_birthdate" id="signup_birthdate" placeholder="<?php echo $translator->getText('SIGN_UP_PAGE_PLACEHOLDER_BIRTHDATE'); ?>">
+                </div>
+                <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_nif"><?php echo $translator->getText('SIGN_UP_PAGE_NIF'); ?></label>
                     <input type="" class="form-control width100" name="signup_nif" id="signup_nif" placeholder="<?php echo $translator->getText('SIGN_UP_PAGE_PLACEHOLDER_NIF'); ?>">
                 </div>
@@ -46,13 +54,19 @@
 
                 <a class="btn btn-default width100 mar5-tb">
                     <span class="glyphicon glyphicon-list-alt btn-lg clean-pad-mar" aria-hidden="true"></span>
-                    <span style="vertical-align: super; padding-left: 10px;"><?php echo $translator->getText('SIGN_UP_PAGE_TERMS'); ?></span>
+                    <span class="glyph-text-lt"><?php echo $translator->getText('SIGN_UP_PAGE_TERMS'); ?></span>
                 </a>
 
                 <hr/>
 
-                <button type="submit" class="btn btn-primary width100 mar5-tb"><?php echo $translator->getText('SIGN_UP_PAGE_SIGNUP'); ?></button>
-                <a class="btn btn-danger width100 mar5-tb"><?php echo $translator->getText('GENERIC_CANCEL'); ?></a>
+                <button type="submit" class="btn btn-primary width100 mar5-tb">
+                    <span class="glyph-text-lt"><?php echo $translator->getText('SIGN_UP_PAGE_SIGNUP'); ?></span>
+                    <span class="glyphicon glyphicon-chevron-right btn-lg clean-pad-mar" aria-hidden="true"></span>
+                </button>
+                <a class="btn btn-danger width100 mar5-tb">
+                    <span class="glyphicon glyphicon-chevron-left btn-lg clean-pad-mar" aria-hidden="true"></span>
+                    <span class="glyph-text-rt"><?php echo $translator->getText('GENERIC_CANCEL'); ?></span>
+                </a>
             </form>
         </div>
     </div>
