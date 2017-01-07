@@ -36,3 +36,5 @@ VALUES
 (NULL, 'SIGN_UP_PAGE_PLACEHOLDER_STATE', 'Provincia', '73'),
 (NULL, 'SIGN_UP_PAGE_TERMS', 'Términos y condiciones', '73'),
 (NULL, 'SIGN_UP_PAGE_SIGNUP', 'Registrarse', '73')
+-- ^^^ añadidos ^^^ ----------------------
+(NULL, 'LOGIN_PAGE_ERROR_LOGIN', 'Error de usuario o contraseña', '73')

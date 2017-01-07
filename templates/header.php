@@ -28,6 +28,18 @@
                     </ul>
                 </li> //-->
             </ul>
+            <!--// <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form> //-->
+            <!--// <button type="button" class="btn btn-success navbar-btn navbar-right">Sign up</button>
+            <button type="button" class="btn btn-primary navbar-btn navbar-right">Sign in</button> //-->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#login" onclick="navigate('templates/login');"><?php echo $translator->getText('LOGIN_PAGE_SIGN_IN'); ?></a></li>
+                <li><a href="#signup" onclick="navigate('templates/signup');"><?php echo $translator->getText('LOGIN_PAGE_SIGN_UP'); ?></a></li>
+            </ul>
         </div>
     </div>
 </nav>

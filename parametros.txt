@@ -44,3 +44,7 @@ SIGN_UP_PAGE_PLACEHOLDER_STATE
 
 SIGN_UP_PAGE_TERMS
 SIGN_UP_PAGE_SIGNUP
+
+-- -----------------------------------------
+
+LOGIN_PAGE_ERROR_LOGIN

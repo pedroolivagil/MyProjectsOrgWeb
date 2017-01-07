@@ -1,4 +1,6 @@
-<?php session_start();
+<?php
+
+session_start();
 error_reporting(0);
 
 class Tools {
@@ -109,12 +111,18 @@ class Tools {
         return substr(md5(microtime()), 0, $leng);
     }
 
-    public static function navigate($page) {
-        echo "<script>navigate('$page');</script>";
+    public static function navigate($page, $string = NULL, $type_error = NULL) {
+        echo "<script>";
+        echo "navigate('$page');";
+        if ($string != NULL) {
+            $type_error = ($type_error == NULL) ? $type_error : 'info';
+            echo "showAlertClosable('$string','$type_error');";
+        }
+        echo "</script>";
     }
 
-    public static function navigateLogin() {
-        Tools::navigate("templates/login");
+    public static function navigateLogin($string = NULL, $type_error = NULL) {
+        Tools::navigate("templates/login", $string, $type_error);
     }
 
     public static function login($user, $pass) {
@@ -135,12 +143,12 @@ class Tools {
         } else {
             $err++;
         }
-        if($err==0){
+        if ($err == 0) {
             $_SESSION[SESSION_USUARIO] = $usuario[0];
             $_SESSION[SESSION_AUTOLOGIN] = $usuario[0];
             Tools::navigate("templates/home");
-        }else{
-            Tools::navigateLogin();
+        } else {
+            Tools::navigateLogin(Translator::getTextStatic("LOGIN_PAGE_ERROR_LOGIN"), "danger");
         }
     }
 
@@ -148,8 +156,8 @@ class Tools {
         unset($_SESSION[SESSION_USUARIO]);
         unset($_SESSION[SESSION_AUTOLOGIN]);
     }
-    
-    public static function session_exists(){
+
+    public static function session_exists() {
         return isset($_SESSION[SESSION_USUARIO]);
     }
 
