@@ -23,8 +23,8 @@ RewriteRule ^user-panel$ www/panel.php
 
 # Errors
 RewriteRule ^login-error$ www/login.php?fail=error
-RewriteRule ^login-warn$ www/login.php?fail=warning
-RewriteRule ^login-info$ www/login.php?fail=info
+
+
 # RewriteRule ^lineas-de-voz$ www/lineasvoz.php 
 # RewriteRule ^centralitas-virtuales$ www/centralitas.php
 # RewriteRule ^internet-aire$ www/aire.php
