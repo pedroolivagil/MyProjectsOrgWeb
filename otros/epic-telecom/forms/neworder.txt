@@ -1,0 +1,77 @@
+<!doctype html>
+<html> 
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<style>
+		body, html {
+			font-family: 'Open Sans', sans-serif;
+			background-color: rgba(0,0,0,0);
+			overflow:hidden;
+			font-size:100%;
+			font-size:1em;
+		}
+		.min {
+			font-size:70%;
+		}
+		.line {
+			width:100%;
+			background:url(http://epic-telecom.com/img/icons/hr.png) center no-repeat;
+			height:20px;
+			margin: 20px 0;
+		}
+		strong, h1 {
+			color:rgba(104,173,5,1);
+		}
+		h1 {
+			font-size:100%;
+			font-size:1em !important;
+		}
+		.wrapper {
+			width:650px;
+			display:block;
+			margin:auto;
+			text-align:justify;
+		}
+		.center {
+			text-align:center;
+		}
+		.gray {
+			color:rgba(0,0,0,.4);
+		}
+		address {
+			font-style: normal !important;
+		}
+		</style>
+	</head> 
+	<body>
+	<div class='wrapper'>
+		<h1>Hola, [NAME]</h1>
+		<div class='line'></div>
+		<p>Le enviamos este correo con la intención de entregarle una copia del contrato que ha decidido comprar en <strong>EPIC TELECOM</strong></p>
+		<p>Recuerde que el contrato no es aún válido y recibirá una llamada de nuestros técnicos para finalizar el pedido. Le agradecemos su confianza y le deseamos que lo disfrute. </p>
+		<br />
+		<br />
+		<br />				
+		<p>Hasta pronto!</p>
+		<p class='min'>Grácias por confiar en <strong>EPIC TELECOM</strong>.</p>
+		<div class='line'></div>
+		<address>
+			<img src='http://epic-telecom.com/img/mail.gif' /><br />
+			Epic Informàtica<br />
+			<small>Av. Bellissens, 42,<br />
+			Edif. Tecnoparc  Of. 113<br />
+			43204 REUS<br />
+			TARRAGONA<br />
+			www.epic.es<br />
+			sergi@epic.es<br />
+			T.   977 75 67 75<br />
+			M. 696 373 257<br />
+			F.   877 050 469<br /></small>
+		</address>
+		<div class='line'></div><br /><br />
+		<p style="color:#a6a6a6; font-size:9pt;"><small>En virtud de la Ley 15/1999 de 13 de diciembre, sobre la Protección de Datos de Carácter Personal, le hacemos conocedor que sus señas personales, están incorporadas en un fichero automatizado responsabilidad de la mercantil Epic Solutions SL.. La finalidad de este fichero es gestionar la relación comercial y/o informarlo de los servicios que presta la empresa. Estos datos no serán transmitidos a terceras personas. Si desea ejercer los derechos de acceso, rectificación, cancelación u oposición, puede enviar un correo electrónico administracio@epic.es . Como también puede enviar un correo a la misma dirección por darse de baja si usted no desea recibir más información sobre nuestros servicios. El contenido de este correo electrónico y de sus anexos es estrictamente confidencial. En el caso de que usted no sea el destinatario y haya recibido este mensaje por equivocación, agradeceríamos que lo comunicara al remitente, sin difundir, almacenar o copiar su contenido.</small></p>
+	</div>
+	</body> 
+</html>

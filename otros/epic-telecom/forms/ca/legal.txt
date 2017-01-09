@@ -1,0 +1,19 @@
+<h3>AVIS LEGAL</h3>
+<p class="gray-a60">La Web de <strong>Epic Telecom</strong> té com a objectiu informar als clients actuals així com a nous usuaris dels productes, serveis i novetats que ofereix.</p>
+
+<p class="gray-a60">El domini <strong>epictelecom.es</strong> és propietat de <strong>Epic Telecom</strong> i és el titular dels drets de propietat intel•lectual sobre els logotips, imatges, dissenys i textos o de qualsevol altre element d′aquesta web.</p>
+
+<p class="gray-a60">En cas de no ser el titular, <strong>Epic Telecom</strong> disposa dels permisos necessaris per a la utilització dels mateixos. Per això, queda prohibida la seva reproducció, comercialització, distribució o transformació de qualsevol tipus sense el consentiment per escrit per part dels responsables de <strong>Epic Telecom</strong>.</p>
+
+<p class="gray-a60"><strong>Epic Telecom</strong> no assumeix la responsabilitat que es derivi de la mala utilització dels continguts i es reserva el dret a realitzar les modificacions (eliminació o restricció total o parcial) dels continguts que cregui oportuns sense previ avís.</p>
+
+<p class="gray-a60"><strong>Epic Telecom</strong> no es responsabilitza de qualsevol conseqüència directa o indirecta que pugui ocasionar l′exactitud dels continguts de la web.</p>
+
+<h3>PROTECCIÓ DE DADES</h3>
+<p class="gray-a60">En compliment de la normativa de dades de caràcter personal i d′áccord amb la LOPD 15/1999, les dades de caràcter personal aportades a través de l′emplenament dels formularis d′aquesta web formaran part d′un fitxer propietat de <strong>Epic Telecom</strong>.</p>
+
+<p class="gray-a60">Al enviar aquestes dades, l′usuari o client dóna el seu consentiment perquè formin part d′aquest fitxer que té com a finalitat l′enviament de comunicacions de caràcter comercial o informatiu.</p>
+
+<p class="gray-a60">En compliment d′aquesta llei <strong>Epic Telecom</strong> no realitzarà cap cessió total o parcial d′aquestes dades a cap empresa o organització ni els utilitzarà per a cap altre fi que no sigui el descrit en el paràgraf anterior.</p>
+
+<p class="gray-a60">El titular de les dades podrà exercir els drets d'accés, rectificació, cancel.lació i oposició en els termes i terminis establerts per la LOPD 15/1999<br><br></p>

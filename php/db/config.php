@@ -7,5 +7,7 @@ define('DB_DB', 'myprojectsorg');
 define('CRYPT_KEY', 'myprojectorganizerolivadevelop');
 define('SESSION_USUARIO', 'usuario');
 define('SESSION_AUTOLOGIN', 'autologin');
+define('PATH_PHP', 'localhost/myprojectsorg/php/');
+define('PATH_FILES', 'localhost/myprojectsorg/');
 require_once('Queries.php');
 ?>

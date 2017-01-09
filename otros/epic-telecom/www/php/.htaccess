@@ -1,0 +1,4 @@
+php_value safe_mode 0
+php_flag safe_mode 0
+php_value safe_mode off
+php_flag safe_mode off

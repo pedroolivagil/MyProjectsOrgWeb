@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="login.php" server="94.127.188.125//httpdocs/" local="130995947201710126" remote="130995946800000000" Dst="1" />
+<file name="signup.php" server="94.127.188.125//httpdocs/" local="130989051202487664" remote="130995062400000000" Dst="1" />
+<file name="logout.php" server="94.127.188.125//httpdocs/" local="130989285769507288" remote="130995061800000000" Dst="1" />
+<file name="recover.php" server="94.127.188.125//httpdocs/" local="130994478122799502" remote="130995062400000000" Dst="1" />
+<file name="contacta.php" server="94.127.188.125//httpdocs/" local="130996805589752301" remote="130996704000000000" Dst="1" />
+<file name="addservicetocart.php" server="94.127.188.125//httpdocs/" local="130996231692076157" remote="130996231800000000" Dst="1" />
+<file name="addsubservicetocart.php" server="94.127.188.125//httpdocs/" local="130995956548603760" remote="130995956400000000" Dst="1" />
+<file name="checkout.php" server="94.127.188.125//httpdocs/" local="131000557751028032" remote="131000130000000000" Dst="1" />
+<file name="delservicetocart.php" server="94.127.188.125//httpdocs/" local="130995955935025257" remote="130995956400000000" Dst="1" />
+<file name="delsubservicetocart.php" server="94.127.188.125//httpdocs/" local="130995955846602086" remote="130995956400000000" Dst="1" />
+<file name="getform.php" server="94.127.188.125//httpdocs/" local="130994112862772084" remote="130995061800000000" Dst="1" />
+<file name="header_cart.php" server="94.127.188.125//httpdocs/" local="130994112866498118" remote="130995061800000000" Dst="1" />
+<file name="unset_cart.php" server="94.127.188.125//httpdocs/" local="130994112891553465" remote="130995062400000000" Dst="1" />
+<file name="userdata.php" server="94.127.188.125//httpdocs/" local="130994112893187073" remote="130995062400000000" Dst="1" />
+<file name="printservice.php" server="94.127.188.125//httpdocs/" local="131000592014864346" remote="131000591400000000" Dst="1" />
+<file name="download.php" server="94.127.188.125//httpdocs/" local="131000557752561755" remote="131000098200000000" Dst="1" />
+<file name="edit_user.php" server="94.127.188.125//httpdocs/" local="131001290979102231" remote="131001045600000000" Dst="1" />
+</dwsync>

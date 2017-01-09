@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<site SitePrefVersionMajor="12" SitePrefVersionMinor="0">
+    <localinfo sitename="Balines%20New" ftporrdsserver="FALSE" mediaqueryfile="" localroot="C:%5Cxampp%5Chtdocs%5CbalinesNew%5C" assetfolder="C:%5Cxampp%5Chtdocs%5CbalinesNew%5CSpryAssets%5C" webfontsfolder="C:%5Cxampp%5Chtdocs%5CbalinesNew%5Cwebfonts%5C" imagefolder="" spacerfilepath="" refreshlocal="TRUE" rewritedocrellinks="FALSE" cache="TRUE" httpaddress="http://localhost/balinesNew/" relativeTo="DOCUMENT" caseSensitiveLinks="FALSE" curserver="webserver"/>
+    <designnotes usedesignnotes="TRUE" sharedesignnotes="FALSE"/>
+    <sitemap homepage="" pagesperrow="200" columnwidth="125" showdependentfiles="FALSE" showpagetitles="FALSE" showhiddenfiles="FALSE"/>
+    <bcinfo siteid="0" sitename="" secureURL=""/>
+    <fileviewcolumns sharecolumns="FALSE">
+        <column name="Local%20Files" align="left" show="TRUE" share="FALSE" builtin="TRUE" localwidth="80" remotewidth="180"/>
+        <column name="Notes" align="center" show="FALSE" share="FALSE" builtin="TRUE" localwidth="36" remotewidth="36"/>
+        <column name="Size" align="right" show="TRUE" share="FALSE" builtin="TRUE" localwidth="-2" remotewidth="-2"/>
+        <column name="Type" align="left" show="TRUE" share="FALSE" builtin="TRUE" localwidth="60" remotewidth="60"/>
+        <column name="Modified" align="left" show="TRUE" share="FALSE" builtin="TRUE" localwidth="102" remotewidth="102"/>
+        <column name="Checked%20Out%20By" align="left" show="TRUE" share="FALSE" builtin="TRUE" localwidth="-1" remotewidth="-1"/>
+</fileviewcolumns>
+    <serverlist>
+        <server servermodel="" weburl="http://localhost/balinesNew/" connectionsmigrated="FALSE" serverobjectsversion="1" defaultdoctype="HTML" accesstype="lan" remoteroot="C:/xampp/htdocs/balinesNew" name="Balines%20New" maintainSyncInfo="TRUE" autoUpload="FALSE" enablecheckin="FALSE" checkoutname="" checkoutwhenopen="TRUE" emailaddress="" refreshremote="FALSE"/>
+        <server servermodel="" servertype="remoteServer" weburl="http://localhost/balinesNew/" connectionsmigrated="FALSE" serverobjectsversion="1" defaultdoctype="HTML" accesstype="ftp" host="185.42.104.139" remoteroot="/web/" name="185.42.104.139" maintainSyncInfo="TRUE" autoUpload="FALSE" user="balines" pw="3473504A383B3F3F" savePW="TRUE" enablecheckin="FALSE" checkoutname="" checkoutwhenopen="TRUE" emailaddress="" usefirewall="FALSE" usepasv="FALSE" useSFTP="FALSE" useFTPS="FALSE" useImplicitFTPS="FALSE" encryptOnlyCommandChannel="FALSE" authenticationMode="TRUSTED_CERTIFICATE" useIPv6="FALSE" useftpoptimization="FALSE" usealternaterename="FALSE" pathNameCharacterSet="utf-8"/>
+</serverlist>
+    <cloaking enabled="TRUE" patterns="FALSE">
+        <cloakedfolder folder="dw_php_codehinting.config"/>
+        <cloakedpattern pattern=".fla"/>
+        <cloakedpattern pattern=".psd"/>
+</cloaking>
+    <contributorintegration enabled="FALSE"/>
+</site>

@@ -1,0 +1,66 @@
+﻿RewriteEngine On
+#En local
+RewriteBase /myprojectsorg/
+#en el servidor
+# RewriteBase /
+RewriteCond %{http_referer} ^(.*)$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^index$ / [NC,R=302]
+ 
+# Reescribir la URL solicitada por el usuario
+#   Entrada:  ^URL amigable$
+#   Salida:   ruta desde .htacces hasta *.php
+
+# RewriteRule ^mantenimiento$ maintenance.html
+
+# Menús
+RewriteRule ^home|index$ index.php
+RewriteRule ^login$ www/login.php
+RewriteRule ^login/(.+)$ www/login.php?fail=$1
+RewriteRule ^login_user www/php/login_user.php
+RewriteRule ^signup$ www/signup.php
+RewriteRule ^user-panel$ www/panel.php
+# RewriteRule ^lineas-de-voz$ www/lineasvoz.php 
+# RewriteRule ^centralitas-virtuales$ www/centralitas.php
+# RewriteRule ^internet-aire$ www/aire.php
+# RewriteRule ^internet-profesional$ www/profesional.php
+# RewriteRule ^clientes$ www/clientes.php
+# RewriteRule ^area-clientes$ www/areacliente.php
+# RewriteRule ^perfil$ www/areacliente.php?panel=perfil
+# RewriteRule ^perfil/(.+)/(.+)$ www/areacliente.php?panel=perfil&msg=$1&type=$2
+# RewriteRule ^servicios$ www/areacliente.php?panel=servicios
+# RewriteRule ^facturas$ www/areacliente.php?panel=facturas
+# RewriteRule ^first-login$ www/areacliente.php?url=cesta
+# RewriteRule ^contacto$ www/contacto.php
+# RewriteRule ^cesta|carrito|compra$ www/carrito.php
+
+# links
+# RewriteRule ^recover$ www/php/recover.php
+# RewriteRule ^contacta$ www/php/contacta.php
+# RewriteRule ^sign-in$ www/php/login.php
+# RewriteRule ^sign-in/(.+)$ www/php/login.php?url=$1
+# RewriteRule ^sign-up$ www/php/signup.php
+# RewriteRule ^sign-up/(.+)$ www/php/signup.php?url=$1
+# RewriteRule ^logout$ www/php/logout.php
+# RewriteRule ^add-to-cart/(.+)$ www/php/addservicetocart.php?id=$1
+# RewriteRule ^add-sub-to-cart/(.+)$ www/php/addsubservicetocart.php?id=$1
+# RewriteRule ^del-to-cart/(.+)$ www/php/delservicetocart.php?id=$1
+# RewriteRule ^del-sub-to-cart/(.+)$ www/php/delsubservicetocart.php?id=$1
+# RewriteRule ^unset-cart$ www/php/unset_cart.php
+# RewriteRule ^checkout-cart$ www/php/checkout.php
+# RewriteRule ^download-contract/(.+)$ www/php/download.php?id=$1&type=contract
+# RewriteRule ^download-invoice/(.+)$ www/php/download.php?id=$1&type=invoice
+# RewriteRule ^edit-form$ www/php/edit_user.php
+
+# RewriteRule ^recover-password$ www/recovery.php
+# RewriteRule ^checkout-invalid/(.*)$ www/carrito.php?m=$1
+# RewriteRule ^checkout-success$ www/checkout_success.php?b=true
+
+ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php
+
+Options All -Indexes
+
+# iniciamos sesion automaticamente, es decir, sin session_start en cada página
+php_value session.auto_start 1

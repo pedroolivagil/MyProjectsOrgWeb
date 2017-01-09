@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'agency_fbregular';
+    src: url('fuentes/agency/agency-webfont.eot');
+    src: url('fuentes/agency/agency-webfont.eot?#iefix') format('embedded-opentype'),
+url('fuentes/agency/agency-webfont.woff') format('woff'),
+url('fuentes/agency/agency-webfont.ttf') format('truetype'),
+url('fuentes/agency/agency-webfont.svg#agency_fbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

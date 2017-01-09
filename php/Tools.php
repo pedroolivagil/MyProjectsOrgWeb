@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 error_reporting(0);
 
 class Tools {
@@ -111,21 +110,24 @@ class Tools {
         return substr(md5(microtime()), 0, $leng);
     }
 
-    public static function navigate($page, $string = NULL, $type_error = NULL) {
+    public static function navigate($page) {
         echo "<script>";
         echo "navigate('$page');";
+        echo "</script>";
+    }
+
+    public static function errorLogin($string = NULL, $type_error = NULL) {
+        //Tools::navigate("templates/login", "alert_login", $string, $type_error);
+        echo "<script>";
+        echo "alert('$string');";
         if ($string != NULL) {
-            $type_error = ($type_error == NULL) ? $type_error : 'info';
-            echo "showAlertClosable('$string','$type_error');";
+            $type_error = ($type_error == NULL) ? $type_error : 'alert-info';
+            echo "showAlertClosable('#alert_login','" . $string . "','" . $type_error . "');";
         }
         echo "</script>";
     }
 
-    public static function navigateLogin($string = NULL, $type_error = NULL) {
-        Tools::navigate("templates/login", $string, $type_error);
-    }
-
-    public static function login($user, $pass) {
+    public static function login($user, $pass, $auto = FALSE) {
         $err = 0;
         $id = Tools::encrypt($user);
         $params = array(
@@ -144,21 +146,49 @@ class Tools {
             $err++;
         }
         if ($err == 0) {
-            $_SESSION[SESSION_USUARIO] = $usuario[0];
-            $_SESSION[SESSION_AUTOLOGIN] = $usuario[0];
-            Tools::navigate("templates/home");
-        } else {
-            Tools::navigateLogin(Translator::getTextStatic("LOGIN_PAGE_ERROR_LOGIN"), "danger");
+            $time = ($auto) ? EXPIRE * 15 * 12 : EXPIRE; // 1 año o 2 días
+            self::setCookie(SESSION_USUARIO, $usuario[0], $time);
         }
     }
 
-    public static function logout() {
-        unset($_SESSION[SESSION_USUARIO]);
-        unset($_SESSION[SESSION_AUTOLOGIN]);
+    public static function chmodAll($url) {
+        return chmod($url, 0777);
     }
 
-    public static function session_exists() {
-        return isset($_SESSION[SESSION_USUARIO]);
+    public static function chmodDef($url) {
+        return chmod($url, 0755);
+    }
+
+    public static function setCookie($id, $value, $time = EXPIRE) {
+        setcookie($id, $value, $time, '/');
+    }
+
+    public static function getCookie($id) {
+        return $_COOKIE[$id];
+    }
+
+    public static function isUserSession() {
+        return !is_null(self::getCookie(SESSION_USUARIO));
+    }
+
+    public static function getStyleAlert($type) {
+        $style = "alert-";
+        switch ($type) {
+            case 'error':
+                $style .= "danger";
+                break;
+            case 'success':
+                $style .= "success";
+                break;
+            case 'warning':
+                $style .= "warning";
+                break;
+            case 'info':
+            default:
+                $style .= "info";
+                break;
+        }
+        return $style;
     }
 
 }

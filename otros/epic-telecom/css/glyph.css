@@ -1,0 +1,47 @@
+@font-face {
+	font-family:'Glyphicons';
+	src:url(fonts/glyphicons-regular.eot);
+	src:url(fonts/glyphicons-regular.eot?#iefix) format('embedded-opentype'), url(fonts/glyphicons-regular.woff2) format('woff2'), url(fonts/glyphicons-regular.woff) format('woff'), url(fonts/glyphicons-regular.ttf) format('truetype'), url(fonts/glyphicons-regular.svg#glyphicons_regular) format('svg');
+}
+.glyphicon-pro {
+	font-family: "Glyphicons",'Open Sans';
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;	
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  	font-size:150% !important;
+}
+.glyphicon-chevron-left:before {
+	content:"\e225";
+}
+.glyphicon-chevron-right:before {
+	content:"\e224";
+}
+/*.glyphicon-chevron-up:before {
+	content:"\e601";
+}
+.glyphicon-chevron-down:before {
+	content:"\e602";
+}*/
+.glyphicon-home:before {
+	content:"\e021";
+}
+.glyphicon-shopping-cart:before {
+	content: "\e210";
+}
+.glyphicon-cart-empty:before {
+	content: "\e203";
+}
+.glyphicon-show-thumbnails:before {
+	content: "\e157";
+}
+.glyphicons-file-cloud-download:before {
+	content: "\e364";
+}
+.glyphicon-rotation-lock:before {
+	content: "\e241";
+}

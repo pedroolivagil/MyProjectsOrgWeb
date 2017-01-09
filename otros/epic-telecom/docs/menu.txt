@@ -1,0 +1,50 @@
+<ul id="menu">
+        <!--<div class="btn-group">
+  <button type="button" class="btn btn-default">1</button>
+  <button type="button" class="btn btn-default">2</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle"
+            data-toggle="dropdown">
+      Botón Desplegable
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Enlace #1</a></li>
+      <li><a href="#">Enlace #2</a></li>
+    </ul>
+  </div>
+</div>
+
+otro menu
+<ul class="nav nav-pills">
+    <li class="active"><a href="#">Inicio</a></li>
+    <li><a href="#">Ayuda</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        Menú desplegable <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Acción #1</a></li>
+        <li><a href="#">Acción #2</a></li>
+        <li><a href="#">Acción #3</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Acción #4</a></li>
+      </ul>
+    </li>
+  </ul>
+
+-->
+        	<li class="btn" id="catvoz">Servicios de voz</li>
+            <li class="btn" id="catinternet">Servicios de internet</li>
+        	<li class="btn" id="clientes" data-title="[ROOT]www/clientes.php">Nuestros clientes</li>
+        	<li class="btn" id="area" data-title="[ROOT]www/areacliente.php">Área cliente</li>
+        	<li class="btn" id="contacto" data-title="[ROOT]www/contacto.php">Contacta</li>
+    	</ul>
+    	<ul id="menu1">
+            <li class="btn" id="voz" data-title="[ROOT]www/lineasvoz.php">Líneas de voz</li>
+            <li class="btn" id="cen" data-title="[ROOT]www/centralitas.php">Centralitas</li>
+    	</ul>
+    	<ul id="menu2">
+            <li class="btn" id="air" data-title="[ROOT]www/aire.php">Internet AIRE</li>
+            <li class="btn" id="pro" data-title="[ROOT]www/profesional.php">Internet PRO</li>
+    	</ul>
