@@ -16,11 +16,10 @@ $nif = $_POST['signup_nif'];
 $phone = $_POST['signup_phone'];
 $country = $_POST['signup_country'];
 $state = $_POST['signup_state'];
-
 if ($user != NULL && $pass != NULL) {
     if ($pass == $pass2) {
         $user = new User(Tools::encrypt($user), $user, Tools::encrypt($pass), $nif, $birth, $phone, $country, $state);
-        $user->create();
+        var_dump($user->create());
     } else {
         $finalPage = 'signup-warn';
     }
@@ -28,5 +27,5 @@ if ($user != NULL && $pass != NULL) {
     $finalPage = 'signup-error';
 }
 Database::close_db();
-header("Location: " . $finalPage);
+//header("Location: " . $finalPage);
 ?>
