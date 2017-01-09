@@ -34,7 +34,6 @@ body { padding-top: 70px; padding-bottom: 50px; }
     margin-left: -200px;
 }
 @media all and (max-width:470px){
-    /* CONTENEDORES */
     .container-login, .container-signup {
         position: static;
         width: 100%;
@@ -72,12 +71,12 @@ body { padding-top: 70px; padding-bottom: 50px; }
 .color-white-50 {
     color: rgba(255,255,255,.5);    
 }
+.glyph-text-lt, .glyph-text-rt {
+}
 .glyph-text-lt {
-    vertical-align: super;
     padding-left: 10px;
 }
 .glyph-text-rt {
-    vertical-align: super;
     padding-right: 10px;
 }
 

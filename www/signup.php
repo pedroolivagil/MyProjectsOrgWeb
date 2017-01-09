@@ -7,7 +7,6 @@ Template::getHeader();
 $breads = array(Translator::getTextStatic('SIGN_UP_PAGE') => "");
 Template::getBreadCrumbs($breads);
 ?>
-
 <!--// Content //-->
 <div class="container container-signup">
     <div class="panel panel-primary">
@@ -15,7 +14,15 @@ Template::getBreadCrumbs($breads);
             <h4><?php echo Translator::getTextStatic('SIGN_UP_PAGE_TITLE'); ?></h4>
         </div>
         <div class="panel-body translucid-80">
-            <form class="form-inline" role="form" method="post">
+            <?php if ($_REQUEST['fail']) { ?>
+                <div class="alert <?php echo Tools::getStyleAlert($_REQUEST['fail']) ?> alert-dismissible fade in" id="alert_login" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p><?php echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN'); ?></p>
+                </div>
+            <?php } ?>
+            <form class="form-inline" role="form" method="post" action="signup-user">
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_email"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_EMAIL'); ?></label>
                     <input type="email" class="form-control width100" required name="signup_email" id="signup_email" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_EMAIL'); ?>">
@@ -56,20 +63,17 @@ Template::getBreadCrumbs($breads);
 
                 <hr/>
 
-                <a class="btn btn-default width100 mar5-tb">
-                    <span class="glyphicon glyphicon-list-alt btn-lg clean-pad-mar" aria-hidden="true"></span>
-                    <span class="glyph-text-lt"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_TERMS'); ?></span>
+                <a href="legal-warning" target="_blank" class="btn btn-success width100 mar5-tb">
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<?php echo Translator::getTextStatic('SIGN_UP_PAGE_TERMS'); ?>
                 </a>
 
                 <hr/>
 
                 <button type="submit" class="btn btn-primary width100 mar5-tb">
-                    <span class="glyph-text-lt"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_SIGNUP'); ?></span>
-                    <span class="glyphicon glyphicon-chevron-right btn-lg clean-pad-mar" aria-hidden="true"></span>
+                    <?php echo Translator::getTextStatic('SIGN_UP_PAGE_SIGNUP'); ?>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 </button>
-                <a class="btn btn-danger width100 mar5-tb">
-                    <span class="glyphicon glyphicon-chevron-left btn-lg clean-pad-mar" aria-hidden="true"></span>
-                    <span class="glyph-text-rt"><?php echo Translator::getTextStatic('GENERIC_CANCEL'); ?></span>
+                <a href="login" class="btn btn-danger width100 mar5-tb">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<?php echo Translator::getTextStatic('LOGIN_PAGE_SIGN_IN'); ?>
                 </a>
             </form>
         </div>

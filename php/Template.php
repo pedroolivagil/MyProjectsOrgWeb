@@ -27,7 +27,7 @@ abstract class Template {
 
     public static function getBreadCrumbs($breads) {
         $breadcrumbs = '<!--// BreadCrumbs //-->';
-        $breadcrumbs .='<ol class="breadcrumb shadow translucid-80 width100">';
+        $breadcrumbs .='<ol class="breadcrumb">';
         $breadcrumbs.='<li><a href="home">' . Translator::getTextStatic('HOME_PAGE') . '</a></li>';
         $x = 0;
         foreach ($breads as $title => $url) {
@@ -40,6 +40,16 @@ abstract class Template {
         }
         $breadcrumbs .='</ol>';
         print self::htmlEntityDecode($breadcrumbs);
+    }
+
+    public static function getLegalFile() {
+        $params = array(
+            '[DOMINIO]' => $_SERVER['SERVER_NAME'],
+            '[EMPRESA]' => EMPRESA,
+            '[EMAIL]' => MAILTECNICO
+        );
+        $tpl = Template::getContentOfFile(_DOCS_PATH_ . 'legal_' . LOCALE . '.txt', $params);
+        print self::htmlEntityDecode($tpl);
     }
 
     public static function getFooter() {

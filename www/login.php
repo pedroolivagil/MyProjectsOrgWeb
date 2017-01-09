@@ -21,7 +21,7 @@ Template::getBreadCrumbs($breads);
                     <p><?php echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN'); ?></p>
                 </div>
             <?php } ?>
-            <form class="form-inline" role="form" method="post" action="login_user">
+            <form class="form-inline" role="form" method="post" action="login-user">
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="login_email"><?php echo Translator::getTextStatic('LOGIN_PAGE_EMAIL'); ?></label>
                     <input type="email" class="form-control width100" required name="login_email" id="login_email" placeholder="<?php echo Translator::getTextStatic('LOGIN_PAGE_PLACEHOLDER_EMAIL'); ?>">
@@ -35,9 +35,13 @@ Template::getBreadCrumbs($breads);
                         <input type="checkbox"> <?php echo Translator::getTextStatic('LOGIN_PAGE_AUTOLOGIN_TEXT'); ?>
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary width100 mar5-tb"><?php echo Translator::getTextStatic('LOGIN_PAGE_SIGN_IN'); ?></button>
+                <button type="submit" class="btn btn-primary width100 mar5-tb">
+                    <?php echo Translator::getTextStatic('LOGIN_PAGE_SIGN_IN'); ?> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                </button>
                 <hr>
-                <a class="btn btn-success width100 mar5-tb"><?php echo Translator::getTextStatic('LOGIN_PAGE_SIGN_UP'); ?></a>
+                <a href="signup" class="btn btn-success width100 mar5-tb">
+                    <?php echo Translator::getTextStatic('LOGIN_PAGE_SIGN_UP'); ?> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                </a>
             </form>
         </div>
     </div>

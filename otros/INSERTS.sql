@@ -12,8 +12,8 @@ VALUES
 (NULL, 'LOGIN_PAGE_PLACEHOLDER_EMAIL', 'Introduce tu email', '73'),
 (NULL, 'LOGIN_PAGE_PLACEHOLDER_PASS', 'Introduce tu contraseña', '73'),
 (NULL, 'LOGIN_PAGE_AUTOLOGIN_TEXT', 'Mantén la sesión', '73'),
-(NULL, 'LOGIN_PAGE_SIGN_IN', 'Entrar', '73'),
-(NULL, 'LOGIN_PAGE_SIGN_UP', 'Registrar', '73'),
+(NULL, 'LOGIN_PAGE_SIGN_IN', 'Identificarse', '73'),
+(NULL, 'LOGIN_PAGE_SIGN_UP', 'Registrarse', '73'),
 (NULL, 'SIGN_UP_PAGE', 'Registro', '73'),
 (NULL, 'SIGN_UP_PAGE_TITLE', 'Registro de usuario', '73'),
 (NULL, 'SIGN_UP_PAGE_EMAIL', 'Email', '73'),
@@ -34,10 +34,11 @@ VALUES
 (NULL, 'SIGN_UP_PAGE_PLACEHOLDER_PHONE', 'Teléfono', '73'),
 (NULL, 'SIGN_UP_PAGE_PLACEHOLDER_COUNTRY', 'País', '73'),
 (NULL, 'SIGN_UP_PAGE_PLACEHOLDER_STATE', 'Provincia', '73'),
-(NULL, 'SIGN_UP_PAGE_TERMS', 'Términos y condiciones', '73'),
-(NULL, 'SIGN_UP_PAGE_SIGNUP', 'Registrarse', '73')
+(NULL, 'SIGN_UP_PAGE_TERMS', 'Leer términos y condiciones', '73'),
+(NULL, 'SIGN_UP_PAGE_SIGNUP', 'Aceptar términos y registrarse', '73')
+(NULL, 'LOGIN_PAGE_ERROR_LOGIN', 'Error de usuario o contraseña', '73'),
+(NULL, 'PANEL_USER', 'Panel de usuario', '73')
+(NULL, 'LEGAL_PAGE', 'Aviso legal', '73')
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, 'LOGIN_PAGE_ERROR_LOGIN', 'Error de usuario o contraseña', '73'),
-(NULL, 'PANEL_USER', 'Panel de usuario', '73')

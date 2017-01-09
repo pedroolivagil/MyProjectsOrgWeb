@@ -138,11 +138,11 @@ class Tools {
     }
 
     public static function chmodAll($url) {
-        return chmod($url, 0777);
+        return @chmod($url, 0777);
     }
 
     public static function chmodDef($url) {
-        return chmod($url, 0755);
+        return @chmod($url, 0755);
     }
 
     public static function setCookie($id, $value, $time = EXPIRE) {
