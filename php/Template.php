@@ -21,6 +21,27 @@ abstract class Template {
         print self::htmlEntityDecode($tpl);
     }
 
+    /*
+     * @param $url array asociativo con el titulo y la url
+     */
+
+    public static function getBreadCrumbs($breads) {
+        $breadcrumbs = '<!--// BreadCrumbs //-->';
+        $breadcrumbs .='<ol class="breadcrumb shadow translucid-80 width100">';
+        $breadcrumbs.='<li><a href="home">' . Translator::getTextStatic('HOME_PAGE') . '</a></li>';
+        $x = 0;
+        foreach ($breads as $title => $url) {
+            if ($x < (count($breads) - 1)) {
+                $breadcrumbs.='<li><a href="' . $url . '">' . $title . '</a></li>';
+            } else {
+                $breadcrumbs.='<li class="active">' . $title . '</li>';
+            }
+            $x++;
+        }
+        $breadcrumbs .='</ol>';
+        print self::htmlEntityDecode($breadcrumbs);
+    }
+
     public static function getFooter() {
         $params = array(
             '[JS]' => _JS_PATH_
@@ -39,7 +60,7 @@ abstract class Template {
         $keys = array_keys($params);
         $values = array_values($params);
         $file = fopen($url, "r") or exit("Error de lectura de 'Header'");
-        //Output a line of the file until the end is reached
+//Output a line of the file until the end is reached
         while (!feof($file)) {
             if ($params) {
                 $txt .= str_replace($keys, $values, fgets($file)) . "\n";

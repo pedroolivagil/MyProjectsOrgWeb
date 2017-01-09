@@ -14,13 +14,17 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 # RewriteRule ^mantenimiento$ maintenance.html
 
-# Menús
+# Menús Y links
 RewriteRule ^home|index$ index.php
 RewriteRule ^login$ www/login.php
-RewriteRule ^login/(.+)$ www/login.php?fail=$1
 RewriteRule ^login_user www/php/login_user.php
 RewriteRule ^signup$ www/signup.php
 RewriteRule ^user-panel$ www/panel.php
+
+# Errors
+RewriteRule ^login-error$ www/login.php?fail=error
+RewriteRule ^login-warn$ www/login.php?fail=warning
+RewriteRule ^login-info$ www/login.php?fail=info
 # RewriteRule ^lineas-de-voz$ www/lineasvoz.php 
 # RewriteRule ^centralitas-virtuales$ www/centralitas.php
 # RewriteRule ^internet-aire$ www/aire.php

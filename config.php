@@ -25,12 +25,14 @@ define('DB_HOST', 'localhost');
 define('DB_USER', 'admin');
 define('DB_PASSWORD', '1234');
 define('DB_DB', 'myprojectsorg');
+define('PORT', '8081');
 
 define('CRYPT_KEY', 'myprojectorganizerolivadevelop');
 define('SESSION_USUARIO', 'usuario');
 define('SESSION_AUTOLOGIN', 'autologin');
 
 // '/myprojectsorg' solo para ámbito local
+$port = ':' . PORT;
 $root = ($_SERVER['SERVER_NAME'] == 'localhost') ? '/myprojectsorg' : '';
 define('MAILBODY_NEWUSER', $_SERVER['DOCUMENT_ROOT'] . $root . '/forms/newuser.txt');
 define('MAILBODY_NEWORDER', $_SERVER['DOCUMENT_ROOT'] . $root . '/forms/neworder.txt');
@@ -44,14 +46,14 @@ define('_PHP_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/www/php/');
 define('_TEMP_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/temp/');
 define('_FORM_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/forms/');
 define('_USER_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/clients/');
-define('_ROOT_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $root . '/');
-define('_IMAGE_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $root . '/img/');
-define('_CSS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $root . '/css/');
-define('_JS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $root . '/js/');
-define('_DOCS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $root . '/docs/');
+define('_ROOT_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/');
+define('_IMAGE_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/img/');
+define('_CSS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/css/');
+define('_JS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/js/');
+define('_DOCS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/docs/');
 
 //session_start(); // no hace falta gracias al .htaccess
-//error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ E_NOTICE);
 //ini_set('display_errors',1);
 header('Content-type: text/html; charset=utf-8');
 require_once(_CLASS_PATH_ . 'Tools.php');

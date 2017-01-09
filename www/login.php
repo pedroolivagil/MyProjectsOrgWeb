@@ -3,13 +3,9 @@ require_once('../config.php');
 
 Database::init_db();
 Template::getHeader();
+$breads = array(Translator::getTextStatic('LOGIN_PAGE') => "");
+Template::getBreadCrumbs($breads);
 ?>
-<!--// BreadCrumbs //-->
-<ol class="breadcrumb shadow translucid-80 width100">
-    <li><a href="#"><?php echo Translator::getTextStatic('HOME_PAGE'); ?></a></li>
-    <li class="active"><?php echo Translator::getTextStatic('LOGIN_PAGE'); ?></li>
-</ol>
-
 <!--// Content //-->
 <div class="container container-login">
     <div class="panel panel-primary">

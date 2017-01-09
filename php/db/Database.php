@@ -5,7 +5,7 @@
  *
  * @author Oliva
  */
-require_once('config.php');
+require_once('Queries.php');
 
 class Database/* extends mysqli */ {
 
@@ -13,8 +13,8 @@ class Database/* extends mysqli */ {
     private static $problems;
 
     public static function init_db() {
-        self::initConexion();
         self::setProblems(0);
+        self::initConexion();
     }
 
     public static function close_db() {
@@ -24,7 +24,7 @@ class Database/* extends mysqli */ {
     private static function initConexion() {
         try {
             // Conectar
-            self::$conexion = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DB, DB_USER, DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8';"));
+            self::$conexion = new PDO("mysql:host=" . DB_HOST .";dbname=" . DB_DB, DB_USER, DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8';"));
             // Establecer el nivel de errores a EXCEPTION
             self::$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {

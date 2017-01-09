@@ -4,12 +4,9 @@ error_reporting(1);
 
 Database::init_db();
 Template::getHeader();
+$breads = array(Translator::getTextStatic('SIGN_UP_PAGE') => "");
+Template::getBreadCrumbs($breads);
 ?>
-<!--// BreadCrumbs //-->
-<ol class="breadcrumb shadow">
-    <li><a href="#"><?php echo Translator::getTextStatic('HOME_PAGE'); ?></a></li>
-    <li class="active"><?php echo Translator::getTextStatic('SIGN_UP_PAGE'); ?></li>
-</ol>
 
 <!--// Content //-->
 <div class="container container-signup">

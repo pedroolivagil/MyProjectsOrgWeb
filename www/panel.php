@@ -1,16 +1,13 @@
 <?php
 require_once('../config.php');
-if(!Tools::isUserSession()){
-    header("Location: login/error");
+if (!Tools::isUserSession()) {
+    header("Location: " . _ROOT_PATH_ . "login-error");
 }
 Database::init_db();
 Template::getHeader();
+$breads = array(Translator::getTextStatic('PANEL_USER') => "");
+Template::getBreadCrumbs($breads);
 ?>
-<!--// BreadCrumbs //-->
-<ol class="breadcrumb shadow translucid-80 width100">
-    <li><a href="#"><?php echo Translator::getTextStatic('HOME_PAGE'); ?></a></li>
-    <li class="active"><?php echo Translator::getTextStatic('PANEL_USER'); ?></li>
-</ol>
 
 <!--// Content //-->
 

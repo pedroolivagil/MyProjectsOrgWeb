@@ -1,14 +1,18 @@
 <?php
 
-error_reporting(0);
+/**
+ * Description of Tools
+ *
+ * @author Oliva
+ */
 
 class Tools {
 
-    public $LOGGER_FILES = SERVER_ROOT . "/logs/files_log.txt";
+    /*public $LOGGER_FILES = SERVER_ROOT . "/logs/files_log.txt";
     public $LOGGER_IMAGE = SERVER_ROOT . "/logs/image_log.txt";
     public $LOGGER_TESTS = SERVER_ROOT . "/logs/tests_log.txt";
     public $LOGGER_PROJECT = SERVER_ROOT . "/logs/project_log.txt";
-    private $user;
+    private $user;*/
 
     public function crearDirs($var) {
         if (is_dir($var)) {
@@ -65,11 +69,11 @@ class Tools {
         }
     }
 
-    public function testLog($str) {
+    /*public function testLog($str) {
         $this->logger($this->LOGGER_TESTS, $str);
-    }
+    }*/
 
-    public function logger($logger, $str) {
+    /*public function logger($logger, $str) {
         if (is_file($logger)) {
             chmod($logger, 0777);
             $fp = fopen($logger, 'a+');
@@ -77,15 +81,15 @@ class Tools {
             fclose($fp);
             chmod($logger, 0744);
         }
-    }
+    }*/
 
-    public function setUser($user) {
+    /*public function setUser($user) {
         $this->user = $user;
     }
 
     public function getUser() {
         return $this->user;
-    }
+    }*/
 
     public static function encrypt($string) {
         return md5(CRYPT_KEY . '' . $string);
@@ -95,8 +99,7 @@ class Tools {
         if ($isApp) {
             echo '{}';
         } else {
-            //header("Location: " . SERVER_ROOT . "/404.html");
-            Tools::navigate("404");
+            header("Location: " . SERVER_ROOT . "/404");
         }
     }
 
@@ -109,24 +112,7 @@ class Tools {
     public static function crearIdUnico($leng) {
         return substr(md5(microtime()), 0, $leng);
     }
-
-    public static function navigate($page) {
-        echo "<script>";
-        echo "navigate('$page');";
-        echo "</script>";
-    }
-
-    public static function errorLogin($string = NULL, $type_error = NULL) {
-        //Tools::navigate("templates/login", "alert_login", $string, $type_error);
-        echo "<script>";
-        echo "alert('$string');";
-        if ($string != NULL) {
-            $type_error = ($type_error == NULL) ? $type_error : 'alert-info';
-            echo "showAlertClosable('#alert_login','" . $string . "','" . $type_error . "');";
-        }
-        echo "</script>";
-    }
-
+    
     public static function login($user, $pass, $auto = FALSE) {
         $err = 0;
         $id = Tools::encrypt($user);
