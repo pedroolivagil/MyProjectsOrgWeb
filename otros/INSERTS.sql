@@ -42,3 +42,6 @@ VALUES
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
+
+-- ALTER TABLES ---
+ALTER TABLE `usuario` CHANGE `birth_date` `birth_date` DATE NULL DEFAULT NULL;

@@ -5,20 +5,28 @@ error_reporting(1);
 Database::init_db();
 $finalPage = 'signup-finish';
 
-echo '<br />' . $user = $_POST['signup_email'];
-echo '<br />' . Tools::encrypt($user);
-echo '<br />' . $pass = $_POST['signup_password'];
-echo '<br />' . $pass2 = $_POST['signup_password2'];
-echo '<br />' . Tools::encrypt($pass);
-echo '<br />' . $fullname = $_POST['signup_fullname'];
-echo '<br />' . $birth = $_POST['signup_birthdate'];
-echo '<br />' . $nif = $_POST['signup_nif'];
-echo '<br />' . $phone = $_POST['signup_phone'];
-echo '<br />' . $country = $_POST['signup_country'];
-echo '<br />' . $state = $_POST['signup_state'];
+$user = $_POST['signup_email'];
+Tools::encrypt($user);
+$pass = $_POST['signup_password'];
+$pass2 = $_POST['signup_password2'];
+Tools::encrypt($pass);
+$fullname = $_POST['signup_fullname'];
+$birth = $_POST['signup_birthdate'];
+$nif = $_POST['signup_nif'];
+$phone = $_POST['signup_phone'];
+$country = $_POST['signup_country'];
+$state = $_POST['signup_state'];
 
 if ($user != NULL && $pass != NULL) {
+    if ($pass == $pass2) {
+        $user = new User(Tools::encrypt($user), $user, Tools::encrypt($pass), $nif, $birth, $phone, $country, $state);
+        $user->create();
+    } else {
+        $finalPage = 'signup-warn';
+    }
+} else {
+    $finalPage = 'signup-error';
 }
 Database::close_db();
-//header("Location: " . $finalPage);
+header("Location: " . $finalPage);
 ?>

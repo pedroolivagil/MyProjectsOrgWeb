@@ -19,7 +19,23 @@ Template::getBreadCrumbs($breads);
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <p><?php echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN'); ?></p>
+                    <p><?php
+                        switch ($_REQUEST['fail']) {
+                            case 'error':
+                                //echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN');
+                                echo "Error";
+                                break;
+                            case 'warning':
+                                echo "Warn";
+                                //echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN');
+                                break;
+                            case 'info':
+                            default:
+                                echo "Info";
+                                //echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN');
+                                break;
+                        }
+                        ?></p>
                 </div>
             <?php } ?>
             <form class="form-inline" role="form" method="post" action="signup-user">
