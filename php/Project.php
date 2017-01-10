@@ -25,7 +25,7 @@ class Project {
     private $tarjetas;
     private $imagenes;
 
-    function __construct($id_proyecto, $nombre, $description, $flag_finish, $flag_activo, $fecha_creacion, $fecha_actualizacion, $directorio_root, $home_image, $tarjetas = NULL, $imagenes = NULL) {
+    function __construct($id_proyecto, $nombre, $description = NULL, $flag_finish = NULL, $flag_activo = NULL, $fecha_creacion = NULL, $fecha_actualizacion = NULL, $directorio_root = NULL, $home_image = NULL, $tarjetas = NULL, $imagenes = NULL) {
         $this->id_proyecto = $id_proyecto;
         $this->nombre = $nombre;
         $this->description = $description;

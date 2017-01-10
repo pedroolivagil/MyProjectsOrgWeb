@@ -63,4 +63,5 @@ require_once(_CLASS_PATH_ . 'db/Database.php');
 require_once(_CLASS_PATH_ . 'Translator.php');
 require_once(_CLASS_PATH_ . 'Template.php');
 require_once(_CLASS_PATH_ . 'User.php');
+require_once(_CLASS_PATH_ . 'Project.php');
 ?>
