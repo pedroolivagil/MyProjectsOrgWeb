@@ -28,7 +28,7 @@ $pagina = $_REQUEST['pagina'];
             </ol>
             <div class="list-group">
                 <a href="#" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_EDIT_PROFILE'); ?></a>
-                <a href="#" class="list-group-item">
+                <a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/1" class="list-group-item">
                     <?php echo Translator::getTextStatic('PANEL_USER_LABEL_PROYECTOS'); ?>
                     <span class="badge"><?php echo $user->countProjects(); ?></span>
                 </a>
@@ -71,7 +71,12 @@ $pagina = $_REQUEST['pagina'];
                 }
                 ?>
             </div>
-
+        <?php } else { ?>
+            <p><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NO_HAVE_PROJECTS'); ?></p>
+        <?php } ?>
+    </div>
+    <div class="panel-footer">
+        <?php if ($user->countProjects() > 0) { ?>
             <!--// Paginador //-->
             <div class="text-center">
                 <nav aria-label="Page navigation">
@@ -91,6 +96,11 @@ $pagina = $_REQUEST['pagina'];
                         </li>
                     </ul>
                 </nav>
+            </div>
+        <?php } else { ?>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></button>
+                <button type="button" class="btn btn-default"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_RECOVERY_DELETED'); ?></button>
             </div>
         <?php } ?>
     </div>

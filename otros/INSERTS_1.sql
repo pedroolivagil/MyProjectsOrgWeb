@@ -12,12 +12,12 @@ VALUES
 (NULL, 'PANEL_USER_LABEL_PROYECTOS', 'Proyectos', '73'),
 (NULL, 'PANEL_USER_LABEL_NEW_PROJECT', 'Crear nuevo', '73'),
 (NULL, 'PANEL_USER_LABEL_FIND_PROJECT', 'Buscar proyecto', '73'),
-(NULL, 'PANEL_USER_LABEL_EDIT_PROFILE', 'Editar perfil', '73')
+(NULL, 'PANEL_USER_LABEL_EDIT_PROFILE', 'Editar perfil', '73'),
+(NULL, 'PANEL_USER_LABEL_NO_HAVE_PROJECTS', 'No tienes proyectos creados', '73'),
+(NULL, 'PANEL_USER_LABEL_RECOVERY_DELETED', 'Recuperar eliminados', '73'),
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
