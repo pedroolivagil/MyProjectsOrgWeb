@@ -4,6 +4,7 @@ require_once('../../config.php');
 Database::init_db();
 $finalPage = 'signup-finish';
 
+header('Content-type: text/plain');
 $user = $_POST['signup_email'];
 $pass = $_POST['signup_password'];
 $pass2 = $_POST['signup_password2'];

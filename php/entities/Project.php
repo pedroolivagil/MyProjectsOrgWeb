@@ -11,7 +11,7 @@
  *
  * @author 0013856
  */
-class Project {
+class Project extends PersistenceManager {
 
     private $id_proyecto;
     private $nombre;
@@ -26,6 +26,7 @@ class Project {
     private $imagenes;
 
     function __construct($id_proyecto, $nombre, $description = NULL, $flag_finish = NULL, $flag_activo = NULL, $fecha_creacion = NULL, $fecha_actualizacion = NULL, $directorio_root = NULL, $home_image = NULL, $tarjetas = NULL, $imagenes = NULL) {
+        parent::__construct();
         $this->id_proyecto = $id_proyecto;
         $this->nombre = $nombre;
         $this->description = $description;

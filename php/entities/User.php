@@ -5,7 +5,7 @@
  *
  * @author 0013856
  */
-class User {
+class User extends PersistenceManager {
 
     private $id_usuario;
     private $correo;
@@ -20,6 +20,7 @@ class User {
     private $poblacion;
 
     function __construct($id_usuario, $correo, $user_pass, $fullname, $nif = null, $birth_date = null, $telefono = null, $id_pais = null, $poblacion = null) {
+        parent::__construct();
         $this->id_usuario = $id_usuario;
         $this->correo = $correo;
         $this->user_pass = $user_pass;
@@ -34,16 +35,7 @@ class User {
     }
 
     public function create() {
-        $data = (array) json_decode(json_encode($this, TRUE));
-        Database::begin_trans();
-        Database::insert($data, TABLE_USUARIO);
-        if (Database::getProblems() == 0) {
-            Database::commit_trans();
-            return TRUE;
-        } else {
-            Database::rollBack_trans();
-            return FALSE;
-        }
+        return parent::getEm()->create($this->toArray(), TABLE_USUARIO);
     }
 
     public function update(Usuario $usuario) {
@@ -80,8 +72,8 @@ class User {
         }
         return $proyectos;
     }
-    
-    public function countProjects(){
+
+    public function countProjects() {
         return count($this->getAllProjects());
     }
 
@@ -171,6 +163,10 @@ class User {
 
     function setFullname($fullname) {
         $this->fullname = $fullname;
+    }
+
+    function toArray() {
+        return get_object_vars($this);
     }
 
 }

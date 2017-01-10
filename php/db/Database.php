@@ -168,7 +168,6 @@ class Database/* extends mysqli */ {
             try {
                 $claves = array_keys($arrayFieldsValues);
                 $values = array_values($arrayFieldsValues);
-                error_log("INSERT USER -> INSERT INTO " . $table . "(" . implode(",", $claves) . ") VALUES('" . implode("','", $values) . "');");
                 $sentencia = self::$conexion->prepare("INSERT INTO " . $table . "(" . implode(",", $claves) . ") VALUES('" . implode("','", $values) . "');");
                 $sentencia->execute();
                 return TRUE;

@@ -10,7 +10,7 @@ $breads = array(Translator::getTextStatic('PANEL_USER') => "");
 Template::getBreadCrumbs($breads);
 $user = User::findById(Tools::getCookie(SESSION_USUARIO_ID));
 $totalProjects = $user->getAllProjects();
-$pagina = $_REQUEST['pagina'];
+$pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
 ?>
 <!--// Content //-->
 <div class="panel panel-primary panel-izquierda">

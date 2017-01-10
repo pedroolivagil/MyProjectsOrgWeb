@@ -28,7 +28,8 @@ define('DB_HOST', 'localhost');
 define('DB_USER', 'admin');
 define('DB_PASSWORD', '1234');
 define('DB_DB', 'myprojectsorg');
-define('PORT', '8081');
+define('PORT', '80');
+//define('PORT', '8081');
 
 define('CRYPT_KEY', 'myprojectorganizerolivadevelop');
 define('SESSION_USUARIO_ID', 'id_usuario');
@@ -64,6 +65,10 @@ require_once(_CLASS_PATH_ . 'Tools.php');
 require_once(_CLASS_PATH_ . 'db/Database.php');
 require_once(_CLASS_PATH_ . 'Translator.php');
 require_once(_CLASS_PATH_ . 'Template.php');
-require_once(_CLASS_PATH_ . 'User.php');
-require_once(_CLASS_PATH_ . 'Project.php');
+require_once(_CLASS_PATH_ . 'BasicMethods.php');
+require_once(_CLASS_PATH_ . 'EntityManager.php');
+require_once(_CLASS_PATH_ . 'PersistenceManager.php');
+// Persistence
+require_once(_CLASS_PATH_ . 'entities/User.php');
+require_once(_CLASS_PATH_ . 'entities/Project.php');
 ?>
