@@ -66,31 +66,33 @@ $pagina = $_REQUEST['pagina'];
                                 </div>
                             </div>
                         </div>
-                    <?php }
-                } ?>
+                        <?php
+                    }
+                }
+                ?>
             </div>
 
             <!--// Paginador //-->
             <div class="text-center">
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
+                        <li <?php echo ($pagina <= 1) ? 'class="disabled"' : '' ?>>
+                            <a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo ($pagina - 1 < 1) ? 1 : $pagina - 1; ?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($x = 1; $x <= ceil($user->countProjects() / LIMIT_RESULT_LIST); $x++) { ?>
-                            <li><a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo $x; ?>"><?php echo $x; ?></a></li>
-    <?php } ?>
-                        <li>
-                            <a href="#" aria-label="Next">
+                            <li <?php echo ($pagina == $x) ? 'class="active"' : '' ?>><a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo $x; ?>"><?php echo $x; ?></a></li>
+                        <?php } ?>
+                        <li <?php echo ($pagina >= ceil($user->countProjects() / LIMIT_RESULT_LIST)) ? 'class="disabled"' : '' ?>>
+                            <a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo ($pagina + 1 > ceil($user->countProjects() / LIMIT_RESULT_LIST)) ? ceil($user->countProjects() / LIMIT_RESULT_LIST) : $pagina + 1; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
             </div>
-<?php } ?>
+        <?php } ?>
     </div>
 </div>
 <?php
