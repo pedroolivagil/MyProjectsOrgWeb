@@ -29,7 +29,7 @@ class Translator {
     }
 
     static function getTextStatic($label, $lang = "es") {
-        $lang = ($lang == null) ? $this->lang : $lang;
+        $lang = ($lang == null) ? LOCALE : $lang;
         $idioma = Database::preparedQuery(PaisesFindByISO, array("iso" => $lang));
         $params = array(
             "id_idioma" => $idioma[0]['id'],

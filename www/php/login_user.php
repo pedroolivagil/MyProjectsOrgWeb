@@ -9,4 +9,3 @@ if($user != NULL && $pass != NULL){
 }
 Database::close_db();
 header("Location: user-panel");
-?>

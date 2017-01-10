@@ -1,25 +1,24 @@
 <?php
 
 require_once('../../config.php');
-error_reporting(1);
 Database::init_db();
 $finalPage = 'signup-finish';
 
 $user = $_POST['signup_email'];
-Tools::encrypt($user);
 $pass = $_POST['signup_password'];
 $pass2 = $_POST['signup_password2'];
-Tools::encrypt($pass);
 $fullname = $_POST['signup_fullname'];
 $birth = $_POST['signup_birthdate'];
 $nif = $_POST['signup_nif'];
 $phone = $_POST['signup_phone'];
 $country = $_POST['signup_country'];
 $state = $_POST['signup_state'];
-if ($user != NULL && $pass != NULL) {
+if (!is_null($user) && !is_null($pass) && !is_null($fullname)) {
     if ($pass == $pass2) {
-        $user = new User(Tools::encrypt($user), $user, Tools::encrypt($pass), $nif, $birth, $phone, $country, $state);
-        var_dump($user->create());
+        $user = new User(Tools::encrypt($user), $user, Tools::encrypt($pass), $fullname, $nif, $birth, $phone, $country, $state);
+        if (!$user->create()) {
+            $finalPage = 'signup-error';
+        }
     } else {
         $finalPage = 'signup-warn';
     }
@@ -27,5 +26,5 @@ if ($user != NULL && $pass != NULL) {
     $finalPage = 'signup-error';
 }
 Database::close_db();
-//header("Location: " . $finalPage);
+header("Location: " . $finalPage);
 ?>

@@ -18,8 +18,11 @@ html, body {
 body { padding-top: 70px; padding-bottom: 50px; }
 
 /* CONTENEDORES */
-.wrapper{
-    min-width: 400px;
+.wrapper, .navbar-fixed-top{
+    min-width: 350px;
+}
+.panel {
+    border-radius: 5px !important;    
 }
 .container-login, .container-signup {
     position: relative;
@@ -33,12 +36,60 @@ body { padding-top: 70px; padding-bottom: 50px; }
     width: 400px;
     margin-left: -200px;
 }
+.panel-izquierda, .panel-derecha{
+    float: left;  
+}
+.panel-izquierda{
+    width: 28.2%;
+}
+.panel-derecha {
+    margin-left: 20px;
+    width: 70%;
+}
+.container-avatar, .container-user-info{
+    float: none;
+}
 @media all and (max-width:470px){
     .container-login, .container-signup {
         position: static;
         width: 100%;
         margin: 50px auto;
         left: auto;
+    }
+    .panel-izquierda, .panel-derecha {
+        margin: 20px auto;
+        float: none;
+        width: 100%;
+    }
+
+    .container-avatar, .container-user-info{
+        float: none;
+    }
+}
+@media all and (max-width:768px) and (min-width:471px){
+    .panel-izquierda, .panel-derecha {
+        margin: 20px auto;
+        float: none;
+        width: 100%;
+    }
+    .container-avatar, .container-user-info{
+        float: left;
+    }
+    .container-user-info{
+        margin-left: 20px;
+    }
+}
+@media all and (max-width:995px) and (min-width:769px){
+    .panel-izquierda{
+        width: 37%;
+    }
+    .panel-derecha {
+        width: 60%;
+    }
+}
+@media all and (max-width:1200px) and (min-width:996px){
+    .panel-izquierda{
+        width: 27.8%;
     }
 }
 
@@ -78,6 +129,16 @@ body { padding-top: 70px; padding-bottom: 50px; }
 }
 .glyph-text-rt {
     padding-right: 10px;
+}
+.header-img {
+    width: auto;
+    height: 25px;
+    display: inline-block !important;
+    padding-right: 7px;
+}
+.avatar {
+    width: 200px !important;
+    height: 200px !important;
 }
 
 /* MEDIDAS */

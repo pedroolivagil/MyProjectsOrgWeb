@@ -5,14 +5,12 @@
  *
  * @author Oliva
  */
-
 class Tools {
-
-    /*public $LOGGER_FILES = SERVER_ROOT . "/logs/files_log.txt";
-    public $LOGGER_IMAGE = SERVER_ROOT . "/logs/image_log.txt";
-    public $LOGGER_TESTS = SERVER_ROOT . "/logs/tests_log.txt";
-    public $LOGGER_PROJECT = SERVER_ROOT . "/logs/project_log.txt";
-    private $user;*/
+    /* public $LOGGER_FILES = SERVER_ROOT . "/logs/files_log.txt";
+      public $LOGGER_IMAGE = SERVER_ROOT . "/logs/image_log.txt";
+      public $LOGGER_TESTS = SERVER_ROOT . "/logs/tests_log.txt";
+      public $LOGGER_PROJECT = SERVER_ROOT . "/logs/project_log.txt";
+      private $user; */
 
     public function crearDirs($var) {
         if (is_dir($var)) {
@@ -69,27 +67,27 @@ class Tools {
         }
     }
 
-    /*public function testLog($str) {
-        $this->logger($this->LOGGER_TESTS, $str);
-    }*/
+    /* public function testLog($str) {
+      $this->logger($this->LOGGER_TESTS, $str);
+      } */
 
-    /*public function logger($logger, $str) {
-        if (is_file($logger)) {
-            chmod($logger, 0777);
-            $fp = fopen($logger, 'a+');
-            fwrite($fp, date("Y/m/d H-i-s") . " (" . $this->getUser() . ")" . ": '" . $str . "'" . PHP_EOL);
-            fclose($fp);
-            chmod($logger, 0744);
-        }
-    }*/
+    /* public function logger($logger, $str) {
+      if (is_file($logger)) {
+      chmod($logger, 0777);
+      $fp = fopen($logger, 'a+');
+      fwrite($fp, date("Y/m/d H-i-s") . " (" . $this->getUser() . ")" . ": '" . $str . "'" . PHP_EOL);
+      fclose($fp);
+      chmod($logger, 0744);
+      }
+      } */
 
-    /*public function setUser($user) {
-        $this->user = $user;
-    }
+    /* public function setUser($user) {
+      $this->user = $user;
+      }
 
-    public function getUser() {
-        return $this->user;
-    }*/
+      public function getUser() {
+      return $this->user;
+      } */
 
     public static function encrypt($string) {
         return md5(CRYPT_KEY . '' . $string);
@@ -112,17 +110,14 @@ class Tools {
     public static function crearIdUnico($leng) {
         return substr(md5(microtime()), 0, $leng);
     }
-    
+
     public static function login($user, $pass, $auto = FALSE) {
         $err = 0;
-        $id = Tools::encrypt($user);
         $params = array(
-            COL_ID_USUARIO => $id
+            COL_ID_USUARIO => self::encrypt($user)
         );
-        Database::init_db();
         $usuario = Database::preparedQuery(UsuarioFindById, $params);
-        Database::close_db();
-        $pwd = Tools::encrypt($pass);
+        $pwd = self::encrypt($pass);
         if ($usuario != NULL) {
             $user_pass = $usuario[0]['user_pass'];
             if ($pwd != $user_pass) {
@@ -133,7 +128,18 @@ class Tools {
         }
         if ($err == 0) {
             $time = ($auto) ? EXPIRE * 15 * 12 : EXPIRE; // 1 año o 2 días
-            self::setCookie(SESSION_USUARIO, $usuario[0], $time);
+            self::setCookie(SESSION_USUARIO_ID, $usuario[0][COL_ID_USUARIO], $time);
+            self::setCookie(SESSION_USUARIO_NAME, $usuario[0]['fullname'], $time);
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public static function logout() {
+        if (!is_null(self::getCookie(SESSION_USUARIO_ID)) && !empty(self::getCookie(SESSION_USUARIO_ID))) {
+            self::setCookie(SESSION_USUARIO_ID, null, 0);
+            self::setCookie(SESSION_USUARIO_NAME, null, 0);
         }
     }
 
@@ -154,7 +160,7 @@ class Tools {
     }
 
     public static function isUserSession() {
-        return !is_null(self::getCookie(SESSION_USUARIO));
+        return !is_null(self::getCookie(SESSION_USUARIO_ID));
     }
 
     public static function getStyleAlert($type) {

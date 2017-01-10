@@ -52,7 +52,7 @@ Template::getBreadCrumbs($breads);
                 <hr/>
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_fullname"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_FULLNAME'); ?></label>
-                    <input type="text" class="form-control width100" name="signup_fullname" id="signup_fullname" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_FULLNAME'); ?>">
+                    <input type="text" required class="form-control width100" name="signup_fullname" id="signup_fullname" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_FULLNAME'); ?>">
                 </div>
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_birthdate"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_BIRTHDATE'); ?></label>

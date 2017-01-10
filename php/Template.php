@@ -8,14 +8,39 @@
 abstract class Template {
 
     public static function getHeader() {
+        $userPanel = '';
+        if (!Tools::isUserSession()) {
+            $userPanel = '<ul class="nav navbar-nav navbar-right">'
+                    . '<li><a href="login">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_IN') . '</a></li>'
+                    . '<li><a href="signup">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_UP') . '</a></li>'
+                    . '</ul>';
+        } else {
+            $userPanel = '<ul class="nav navbar-nav navbar-right">'
+                    . '<li class="dropdown">'
+                    . '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'
+                    . ucfirst(Tools::getCookie(SESSION_USUARIO_NAME)) . ' <span class="caret"></span></a>'
+                    . '<ul class="dropdown-menu">'
+                    . '<li class="dropdown-header">' . Translator::getTextStatic('USER_DROPDOWN_HEADER_PROFILE') . '</li>'
+                    . '<li><a href="user-panel">' . Translator::getTextStatic('USER_DROPDOWN_CONTROL_PANEL') . '</a></li>'
+                    . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PASS') . '</a></li>'
+                    . '<li role="separator" class="divider"></li>'
+                    . '<li class="dropdown-header">' . Translator::getTextStatic('USER_DROPDOWN_HEADER_PROJECTS') . '</li>'
+                    . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_VIEW_PROJECTS') . '</a></li>'
+                    . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PROJECT') . '</a></li>'
+                    . '<li role="separator" class="divider"></li>'
+                    . '<li><a href="logout">' . Translator::getTextStatic('USER_DROPDOWN_LOGOUT') . '</a></li>'
+                    . '</ul>'
+                    . '</li>
+          </ul>';
+        }
         $params = array(
             '[CSS]' => _CSS_PATH_,
-            '[GENERIC_TITLE]' => Translator::getTextStatic('GENERIC_TITLE', LOCALE),
-            '[HOME_PAGE]' => Translator::getTextStatic('HOME_PAGE', LOCALE),
-            '[ABOUT_PAGE]' => Translator::getTextStatic('ABOUT_PAGE', LOCALE),
-            '[CONTACT_PAGE]' => Translator::getTextStatic('CONTACT_PAGE', LOCALE),
-            '[LOGIN_PAGE_SIGN_IN]' => Translator::getTextStatic('LOGIN_PAGE_SIGN_IN', LOCALE),
-            '[LOGIN_PAGE_SIGN_UP]' => Translator::getTextStatic('LOGIN_PAGE_SIGN_UP', LOCALE)
+            '[IMG_BRAND]' => '<img src="' . _IMAGE_PATH_ . 'logo.png" class="header-img" />',
+            '[GENERIC_TITLE]' => Translator::getTextStatic('GENERIC_TITLE'),
+            '[HOME_PAGE]' => Translator::getTextStatic('HOME_PAGE'),
+            '[ABOUT_PAGE]' => Translator::getTextStatic('ABOUT_PAGE'),
+            '[CONTACT_PAGE]' => Translator::getTextStatic('CONTACT_PAGE'),
+            '[USER_PANEL]' => $userPanel
         );
         $tpl = self::getContentOfFile(_PAGES_PATH_ . 'header.php', $params);
         print self::htmlEntityDecode($tpl);

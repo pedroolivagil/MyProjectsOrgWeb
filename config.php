@@ -29,7 +29,8 @@ define('DB_DB', 'myprojectsorg');
 define('PORT', '8081');
 
 define('CRYPT_KEY', 'myprojectorganizerolivadevelop');
-define('SESSION_USUARIO', 'usuario');
+define('SESSION_USUARIO_ID', 'id_usuario');
+define('SESSION_USUARIO_NAME', 'name_usuario');
 define('SESSION_AUTOLOGIN', 'autologin');
 
 // '/myprojectsorg' solo para ámbito local

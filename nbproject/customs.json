@@ -1,6 +1,7 @@
 {
     "elements": {},
     "attributes": {
+        "aria-expanded": {},
         "w3-include-html": {
             "context": "div"
         }
