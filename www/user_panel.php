@@ -25,16 +25,16 @@ $pagina = $_REQUEST['pagina'];
             <ol class="list-group">
                 <li class="list-group-item"><?php echo $user->getFullname(); ?></li>
                 <li class="list-group-item"><?php echo $user->getCorreo(); ?></li>
-                <li class="list-group-item">
+            </ol>
+            <div class="list-group">
+                <a href="#" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_EDIT_PROFILE'); ?></a>
+                <a href="#" class="list-group-item">
                     <?php echo Translator::getTextStatic('PANEL_USER_LABEL_PROYECTOS'); ?>
                     <span class="badge"><?php echo $user->countProjects(); ?></span>
-                </li>
-            </ol>
-            <ol class="list-group">
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-            </ol>
+                </a>
+                <a href="#" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></a>
+                <a href="#" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_FIND_PROJECT'); ?></a>
+            </div>
         </div>
     </div>
 </div>
