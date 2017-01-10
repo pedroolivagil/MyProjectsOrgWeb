@@ -7,6 +7,7 @@ Template::getHeader();
 $breads = array(Translator::getTextStatic('SIGN_UP_PAGE') => "");
 Template::getBreadCrumbs($breads);
 ?>
+
 <!--// Content //-->
 <div class="container container-signup">
     <div class="panel panel-primary">
@@ -22,17 +23,14 @@ Template::getBreadCrumbs($breads);
                     <p><?php
                         switch ($_REQUEST['fail']) {
                             case 'error':
-                                //echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN');
-                                echo "Error";
+                                echo Translator::getTextStatic('SIGN_UP_PAGE_FATAL_ERROR');
                                 break;
                             case 'warning':
-                                echo "Warn";
-                                //echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN');
+                                echo Translator::getTextStatic('SIGN_UP_PAGE_WARNING');
                                 break;
                             case 'info':
                             default:
-                                echo "Info";
-                                //echo Translator::getTextStatic('LOGIN_PAGE_ERROR_LOGIN');
+                                echo Translator::getTextStatic('SIGN_UP_PAGE_INFO');
                                 break;
                         }
                         ?></p>
@@ -70,8 +68,21 @@ Template::getBreadCrumbs($breads);
                 </div>
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_country"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_COUNTRY'); ?></label>
-                    <input type="text" class="form-control width100" name="signup_country" id="signup_country" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_COUNTRY'); ?>">
-                </div>
+                    <select class="form-control width100" name="signup_country" id="signup_country">
+                        <?php
+                        $paises = Database::preparedQuery(PaisesFindAll);
+                        foreach ($paises as $value) {
+                            if ($value['id'] == 0) {
+                                echo '<option value="' . $value['id'] . '">' . Translator::getTextStatic('SIGN_UP_PAGE_SELECT_ONE_MENU') . '</option>';
+                            } else if ($value['id'] == 73) {
+                                echo '<option value="' . $value['id'] . '">' . $value['nombre'] . '</option>';
+                            } else {
+                                echo '<option value="' . $value['id'] . '">' . $value['nombre'] . '</option>';
+                            }
+                        }
+                        ?>
+                    </select> 
+                </div>                
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_state"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_STATE'); ?></label>
                     <input type="text" class="form-control width100" name="signup_state" id="signup_state" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_STATE'); ?>">
