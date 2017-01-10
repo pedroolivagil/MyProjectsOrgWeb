@@ -50,23 +50,26 @@ $pagina = $_REQUEST['pagina'];
             <div class="row">
                 <?php
                 for ($x = 0; $x < LIMIT_RESULT_LIST; $x++) {
-                    $project = $totalProjects[($pagina - 1) + $x];
-                    ?>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" alt="...">
-                            <div class="caption">
-                                <h3><?php echo $project->getNombre(); ?></h3>
-                                <p>...</p>
-                                <p>
-                                    <a href="#" class="btn btn-primary" role="button">Button</a>
-                                    <a href="#" class="btn btn-default" role="button">Button</a>
-                                </p>
+                    if ($x + (($pagina - 1) * LIMIT_RESULT_LIST) < $user->countProjects()) {
+                        $project = $totalProjects[$x + (($pagina - 1) * LIMIT_RESULT_LIST)];
+                        ?>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" alt="...">
+                                <div class="caption">
+                                    <h3><?php echo $project->getNombre(); ?></h3>
+                                    <p>...</p>
+                                    <p>
+                                        <a href="#" class="btn btn-primary" role="button">Button</a>
+                                        <a href="#" class="btn btn-default" role="button">Button</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php }
+                } ?>
             </div>
+
             <!--// Paginador //-->
             <div class="text-center">
                 <nav aria-label="Page navigation">
@@ -78,7 +81,7 @@ $pagina = $_REQUEST['pagina'];
                         </li>
                         <?php for ($x = 1; $x <= ceil($user->countProjects() / LIMIT_RESULT_LIST); $x++) { ?>
                             <li><a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo $x; ?>"><?php echo $x; ?></a></li>
-                        <?php } ?>
+    <?php } ?>
                         <li>
                             <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
@@ -87,7 +90,7 @@ $pagina = $_REQUEST['pagina'];
                     </ul>
                 </nav>
             </div>
-        <?php } ?>
+<?php } ?>
     </div>
 </div>
 <?php
