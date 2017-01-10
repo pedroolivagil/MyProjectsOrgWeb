@@ -1,4 +1,5 @@
 <?php
+
 require_once('../../config.php');
 Tools::logout();
-header("Location: home");
+header("Location: " . _ROOT_PATH_ . "home");

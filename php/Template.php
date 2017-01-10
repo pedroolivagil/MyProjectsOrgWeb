@@ -11,8 +11,8 @@ abstract class Template {
         $userPanel = '';
         if (!Tools::isUserSession()) {
             $userPanel = '<ul class="nav navbar-nav navbar-right">'
-                    . '<li><a href="login">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_IN') . '</a></li>'
-                    . '<li><a href="signup">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_UP') . '</a></li>'
+                    . '<li><a href="'._ROOT_PATH_.'login">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_IN') . '</a></li>'
+                    . '<li><a href="'._ROOT_PATH_.'signup">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_UP') . '</a></li>'
                     . '</ul>';
         } else {
             $userPanel = '<ul class="nav navbar-nav navbar-right">'
@@ -21,14 +21,14 @@ abstract class Template {
                     . ucfirst(Tools::getCookie(SESSION_USUARIO_NAME)) . ' <span class="caret"></span></a>'
                     . '<ul class="dropdown-menu">'
                     . '<li class="dropdown-header">' . Translator::getTextStatic('USER_DROPDOWN_HEADER_PROFILE') . '</li>'
-                    . '<li><a href="user-panel">' . Translator::getTextStatic('USER_DROPDOWN_CONTROL_PANEL') . '</a></li>'
+                    . '<li><a href="'._ROOT_PATH_.'user-panel">' . Translator::getTextStatic('USER_DROPDOWN_CONTROL_PANEL') . '</a></li>'
                     . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PASS') . '</a></li>'
                     . '<li role="separator" class="divider"></li>'
                     . '<li class="dropdown-header">' . Translator::getTextStatic('USER_DROPDOWN_HEADER_PROJECTS') . '</li>'
                     . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_VIEW_PROJECTS') . '</a></li>'
                     . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PROJECT') . '</a></li>'
                     . '<li role="separator" class="divider"></li>'
-                    . '<li><a href="logout">' . Translator::getTextStatic('USER_DROPDOWN_LOGOUT') . '</a></li>'
+                    . '<li><a href="'._ROOT_PATH_.'logout">' . Translator::getTextStatic('USER_DROPDOWN_LOGOUT') . '</a></li>'
                     . '</ul>'
                     . '</li>
           </ul>';

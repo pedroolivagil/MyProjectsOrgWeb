@@ -8,8 +8,9 @@ Database::init_db();
 Template::getHeader();
 $breads = array(Translator::getTextStatic('PANEL_USER') => "");
 Template::getBreadCrumbs($breads);
-$proyectos = array(1, 2, 3, 4, 5);
 $user = User::findById(Tools::getCookie(SESSION_USUARIO_ID));
+$totalProjects = $user->getAllProjects();
+$pagina = $_REQUEST['pagina'];
 ?>
 <!--// Content //-->
 <div class="panel panel-primary panel-izquierda">
@@ -45,26 +46,48 @@ $user = User::findById(Tools::getCookie(SESSION_USUARIO_ID));
         </h4>
     </div>
     <div class="panel-body">
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
+        <?php if ($user->countProjects() > 0) { ?>
+            <div class="row">
+                <?php
+                for ($x = 0; $x < LIMIT_RESULT_LIST; $x++) {
+                    $project = $totalProjects[($pagina - 1) + $x];
+                    ?>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" alt="...">
+                            <div class="caption">
+                                <h3><?php echo $project->getNombre(); ?></h3>
+                                <p>...</p>
+                                <p>
+                                    <a href="#" class="btn btn-primary" role="button">Button</a>
+                                    <a href="#" class="btn btn-default" role="button">Button</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+            <!--// Paginador //-->
+            <div class="text-center">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <?php for ($x = 1; $x <= ceil($user->countProjects() / LIMIT_RESULT_LIST); $x++) { ?>
+                            <li><a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo $x; ?>"><?php echo $x; ?></a></li>
+                        <?php } ?>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        <?php } ?>
     </div>
 </div>
 <?php

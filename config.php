@@ -10,6 +10,8 @@ define('MAXDIRSIZE', 524288);    // en KB -> 512MB
 define('EMPRESA', 'OlivaDevelo S.L.');
 define('MAILTECNICO', 'olivadevelop@gmail.com');
 define('LOCALE', 'es');
+define('LIMIT_RESULT_LIST', 3);
+define('LIMIT_PAGINATOR_NUMS', 10);
 
 // PDIGen Constants
 define('DOWNLOAD', 'D');

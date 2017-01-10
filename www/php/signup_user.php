@@ -26,5 +26,5 @@ if (!is_null($user) && !is_null($pass) && !is_null($fullname)) {
     $finalPage = 'signup-error';
 }
 Database::close_db();
-header("Location: " . $finalPage);
+header("Location: " . _ROOT_PATH_ . $finalPage);
 ?>

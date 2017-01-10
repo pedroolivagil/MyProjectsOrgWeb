@@ -36,7 +36,7 @@ Template::getBreadCrumbs($breads);
                         ?></p>
                 </div>
             <?php } ?>
-            <form class="form-inline" role="form" method="post" action="signup-user">
+            <form class="form-inline" role="form" method="post" action="<?php echo _ROOT_PATH_ ?>signup-user">
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_email"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_EMAIL'); ?></label>
                     <input type="email" class="form-control width100" required name="signup_email" id="signup_email" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_EMAIL'); ?>">
@@ -90,7 +90,7 @@ Template::getBreadCrumbs($breads);
 
                 <hr/>
 
-                <a href="legal-warning" target="_blank" class="btn btn-success width100 mar5-tb">
+                <a href="<?php echo _ROOT_PATH_ ?>legal-warning" target="_blank" class="btn btn-success width100 mar5-tb">
                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<?php echo Translator::getTextStatic('SIGN_UP_PAGE_TERMS'); ?>
                 </a>
 
@@ -99,7 +99,7 @@ Template::getBreadCrumbs($breads);
                 <button type="submit" class="btn btn-primary width100 mar5-tb">
                     <?php echo Translator::getTextStatic('SIGN_UP_PAGE_SIGNUP'); ?>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 </button>
-                <a href="login" class="btn btn-danger width100 mar5-tb">
+                <a href="<?php echo _ROOT_PATH_ ?>login" class="btn btn-danger width100 mar5-tb">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;<?php echo Translator::getTextStatic('LOGIN_PAGE_SIGN_IN'); ?>
                 </a>
             </form>
