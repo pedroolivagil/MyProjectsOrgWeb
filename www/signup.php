@@ -54,7 +54,7 @@ Template::getBreadCrumbs($breads);
                 </div>
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_birthdate"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_BIRTHDATE'); ?></label>
-                    <input type="text" class="form-control width100" name="signup_birthdate" id="signup_birthdate" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_BIRTHDATE'); ?>">
+                    <input type="text" class="form-control width100 datepicker" name="signup_birthdate" id="signup_birthdate" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_BIRTHDATE'); ?>">
                 </div>
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="signup_nif"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_NIF'); ?></label>

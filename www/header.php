@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="<?php echo LOCALE; ?>">
+<html lang="[LOCALE]">
     <head>
         <title>[GENERIC_TITLE]</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <link href="[CSS]bootstrap.min.css" rel="stylesheet" />
+        <link href="[CSS]bootstrap-datepicker3.min.css" rel="stylesheet" />
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

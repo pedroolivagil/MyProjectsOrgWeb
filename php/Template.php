@@ -11,8 +11,8 @@ abstract class Template {
         $userPanel = '';
         if (!Tools::isUserSession()) {
             $userPanel = '<ul class="nav navbar-nav navbar-right">'
-                    . '<li><a href="'._ROOT_PATH_.'login">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_IN') . '</a></li>'
-                    . '<li><a href="'._ROOT_PATH_.'signup">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_UP') . '</a></li>'
+                    . '<li><a href="' . _ROOT_PATH_ . 'login">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_IN') . '</a></li>'
+                    . '<li><a href="' . _ROOT_PATH_ . 'signup">' . Translator::getTextStatic('LOGIN_PAGE_SIGN_UP') . '</a></li>'
                     . '</ul>';
         } else {
             $userPanel = '<ul class="nav navbar-nav navbar-right">'
@@ -21,14 +21,14 @@ abstract class Template {
                     . ucfirst(Tools::getCookie(SESSION_USUARIO_NAME)) . ' <span class="caret"></span></a>'
                     . '<ul class="dropdown-menu">'
                     . '<li class="dropdown-header">' . Translator::getTextStatic('USER_DROPDOWN_HEADER_PROFILE') . '</li>'
-                    . '<li><a href="'._ROOT_PATH_.'user-panel">' . Translator::getTextStatic('USER_DROPDOWN_CONTROL_PANEL') . '</a></li>'
+                    . '<li><a href="' . _ROOT_PATH_ . 'user-panel">' . Translator::getTextStatic('USER_DROPDOWN_CONTROL_PANEL') . '</a></li>'
                     . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PASS') . '</a></li>'
                     . '<li role="separator" class="divider"></li>'
                     . '<li class="dropdown-header">' . Translator::getTextStatic('USER_DROPDOWN_HEADER_PROJECTS') . '</li>'
                     . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_VIEW_PROJECTS') . '</a></li>'
                     . '<li><a href="#">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PROJECT') . '</a></li>'
                     . '<li role="separator" class="divider"></li>'
-                    . '<li><a href="'._ROOT_PATH_.'logout">' . Translator::getTextStatic('USER_DROPDOWN_LOGOUT') . '</a></li>'
+                    . '<li><a href="' . _ROOT_PATH_ . 'logout">' . Translator::getTextStatic('USER_DROPDOWN_LOGOUT') . '</a></li>'
                     . '</ul>'
                     . '</li>
           </ul>';
@@ -40,7 +40,8 @@ abstract class Template {
             '[HOME_PAGE]' => Translator::getTextStatic('HOME_PAGE'),
             '[ABOUT_PAGE]' => Translator::getTextStatic('ABOUT_PAGE'),
             '[CONTACT_PAGE]' => Translator::getTextStatic('CONTACT_PAGE'),
-            '[USER_PANEL]' => $userPanel
+            '[USER_PANEL]' => $userPanel,
+            '[LOCALE]' => LOCALE
         );
         $tpl = self::getContentOfFile(_PAGES_PATH_ . 'header.php', $params);
         print self::htmlEntityDecode($tpl);
@@ -79,7 +80,8 @@ abstract class Template {
 
     public static function getFooter() {
         $params = array(
-            '[JS]' => _JS_PATH_
+            '[JS]' => _JS_PATH_,
+            '[LOCALE]' => LOCALE
         );
         $tpl = self::getContentOfFile(_PAGES_PATH_ . 'footer.php', $params);
         print self::htmlEntityDecode($tpl);

@@ -80,11 +80,11 @@ VALUES
 (NULL, 'GENERIC_EDIT', 'Editar', '73'),
 (NULL, 'GENERIC_BACK', 'Volver', '73'),
 (NULL, 'GENERIC_SAVE', 'Guardar', '73'),
+(NULL, 'PROFILE_PREFERENCES', 'Configuración del perfil', '73'),
+(NULL, 'COMING_SOON', 'Próximamente', '73'),
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

@@ -9,6 +9,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="[JS]bootstrap.min.js"></script>
+<script src="[JS]bootstrap-datepicker.min.js"></script>
+<script src="[JS]locales/bootstrap-datepicker.[LOCALE].min.js" charset="UTF-8"></script>
 <script src="[JS]functions.js" type="text/javascript"></script>
 </body>
 </html>
