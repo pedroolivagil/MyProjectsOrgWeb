@@ -29,39 +29,39 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
         <div class="panel-body">
             <fieldset <?php echo ($editable) ? '' : 'disabled'; ?>>
                 <div class="form-group pad5-tb width100">
-                    <label class="sr-only" for="signup_email"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_EMAIL'); ?></label>
-                    <input type="email" class="form-control width100" required name="signup_email" id="signup_email" value="<?php echo $user->getCorreo(); ?>" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_EMAIL'); ?>">
+                    <label class="sr-only" for="profile_email"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_EMAIL'); ?></label>
+                    <input type="email" class="form-control width100" required name="profile_email" id="profile_email" value="<?php echo $user->getCorreo(); ?>" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_EMAIL'); ?>">
                 </div>
                 <div class="form-group pad5-tb width100">
-                    <label class="sr-only" for="signup_password"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PASSWORD'); ?></label>
-                    <input type="password" class="form-control width100" value="<?php echo $user->getUser_pass(); ?>" required name="signup_password" id="signup_password" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD'); ?>">
+                    <label class="sr-only" for="profile_password"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PASSWORD'); ?></label>
+                    <input type="password" class="form-control width100" value="<?php echo $user->getUser_pass(); ?>" required name="profile_password" id="profile_password" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD'); ?>">
                 </div>
                 <?php if ($editable) { ?>
                     <div class="form-group pad5-tb width100">
-                        <label class="sr-only" for="signup_password2"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PASSWORD2'); ?></label>
-                        <input type="password" class="form-control width100" required name="signup_password2" id="signup_password2" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD2'); ?>">
+                        <label class="sr-only" for="profile_password2"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PASSWORD2'); ?></label>
+                        <input type="password" class="form-control width100" value="<?php echo $user->getUser_pass(); ?>" required name="profile_password2" id="profile_password2" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD2'); ?>">
                     </div>
                 <?php } ?>
                 <hr/>
                 <div class="form-group pad5-tb width100">
-                    <label class="sr-only" for="signup_fullname"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_FULLNAME'); ?></label>
-                    <input type="text" required class="form-control width100" value="<?php echo $user->getFullname(); ?>" name="signup_fullname" id="signup_fullname" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_FULLNAME'); ?>">
+                    <label class="sr-only" for="profile_fullname"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_FULLNAME'); ?></label>
+                    <input type="text" required class="form-control width100" value="<?php echo $user->getFullname(); ?>" name="profile_fullname" id="profile_fullname" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_FULLNAME'); ?>">
                 </div>
                 <div class="form-group pad5-tb width100">
-                    <label class="sr-only" for="signup_birthdate"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_BIRTHDATE'); ?></label>
-                    <input type="text" class="form-control width100" value="<?php echo $user->getBirth_date(); ?>" name="signup_birthdate" id="signup_birthdate" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_BIRTHDATE'); ?>">
+                    <label class="sr-only" for="profile_birthdate"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_BIRTHDATE'); ?></label>
+                    <input type="text" class="form-control width100" value="<?php echo $user->getBirth_date(); ?>" name="profile_birthdate" id="profile_birthdate" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_BIRTHDATE'); ?>">
                 </div>
                 <div class="form-group pad5-tb width100">
-                    <label class="sr-only" for="signup_nif"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_NIF'); ?></label>
-                    <input type="text" class="form-control width100" value="<?php echo $user->getNif(); ?>" name="signup_nif" id="signup_nif" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_NIF'); ?>">
+                    <label class="sr-only" for="profile_nif"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_NIF'); ?></label>
+                    <input type="text" class="form-control width100" value="<?php echo $user->getNif(); ?>" name="profile_nif" id="profile_nif" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_NIF'); ?>">
                 </div>
                 <div class="form-group pad5-tb width100">
-                    <label class="sr-only" for="signup_phone"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PHONE'); ?></label>
-                    <input type="tel" class="form-control width100" value="<?php echo $user->getTelefono(); ?>" name="signup_phone" id="signup_phone" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PHONE'); ?>">
+                    <label class="sr-only" for="profile_phone"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PHONE'); ?></label>
+                    <input type="tel" class="form-control width100" value="<?php echo $user->getTelefono(); ?>" name="profile_phone" id="profile_phone" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PHONE'); ?>">
                 </div>
                 <div class="form-group pad5-tb width100">
-                    <label class="sr-only" for="signup_country"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_COUNTRY'); ?></label>
-                    <select class="form-control width100" name="signup_country" id="signup_country">
+                    <label class="sr-only" for="profile_country"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_COUNTRY'); ?></label>
+                    <select class="form-control width100" name="profile_country" id="profile_country">
                         <?php
                         $paises = Database::preparedQuery(PaisesFindAll);
                         foreach ($paises as $value) {
@@ -81,8 +81,8 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
                     </select> 
                 </div>                
                 <div class="form-group pad5-tb width100">
-                    <label class="sr-only" for="signup_state"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_STATE'); ?></label>
-                    <input type="text" class="form-control width100" value="<?php echo $user->getPoblacion(); ?>" name="signup_state" id="signup_state" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_STATE'); ?>">
+                    <label class="sr-only" for="profile_state"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_STATE'); ?></label>
+                    <input type="text" class="form-control width100" value="<?php echo $user->getPoblacion(); ?>" name="profile_state" id="profile_state" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_STATE'); ?>">
                 </div>
             </fieldset>
         </div>

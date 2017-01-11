@@ -72,8 +72,6 @@ Template::getBreadCrumbs($breads);
                         foreach ($paises as $value) {
                             if ($value['id'] == 0) {
                                 echo '<option value="' . $value['id'] . '">' . Translator::getTextStatic('SIGN_UP_PAGE_SELECT_ONE_MENU') . '</option>';
-                            } else if ($value['id'] == 73) {
-                                echo '<option value="' . $value['id'] . '">' . $value['nombre'] . '</option>';
                             } else {
                                 echo '<option value="' . $value['id'] . '">' . $value['nombre'] . '</option>';
                             }

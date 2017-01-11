@@ -16,7 +16,7 @@ $country = $_POST['signup_country'];
 $state = $_POST['signup_state'];
 if (!is_null($user) && !is_null($pass) && !is_null($fullname)) {
     if ($pass == $pass2) {
-        $user = new User(Tools::encrypt($user), $user, Tools::encrypt($pass), $fullname, $nif, $birth, $phone, $country, $state);
+        $user = new User(Tools::encrypt($user), $user, Tools::cryptpass($pass), $fullname, $nif, $birth, $phone, $country, $state);
         if (!$user->create()) {
             $finalPage = 'signup-error';
         }

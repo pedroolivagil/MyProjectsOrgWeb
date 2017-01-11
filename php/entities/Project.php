@@ -27,17 +27,17 @@ class Project extends PersistenceManager {
 
     function __construct($id_proyecto, $nombre, $description = NULL, $flag_finish = NULL, $flag_activo = NULL, $fecha_creacion = NULL, $fecha_actualizacion = NULL, $directorio_root = NULL, $home_image = NULL, $tarjetas = NULL, $imagenes = NULL) {
         parent::__construct();
-        $this->id_proyecto = $id_proyecto;
-        $this->nombre = $nombre;
-        $this->description = $description;
-        $this->flag_finish = $flag_finish;
-        $this->flag_activo = $flag_activo;
-        $this->fecha_creacion = $fecha_creacion;
-        $this->fecha_actualizacion = $fecha_actualizacion;
-        $this->directorio_root = $directorio_root;
-        $this->home_image = $home_image;
-        $this->tarjetas = $tarjetas;
-        $this->imagenes = $imagenes;
+        $this->id_proyecto = Tools::toNull($id_proyecto);
+        $this->nombre = Tools::toNull($nombre);
+        $this->description = Tools::toNull($description);
+        $this->flag_finish = Tools::toNull($flag_finish);
+        $this->flag_activo = Tools::toNull($flag_activo);
+        $this->fecha_creacion = Tools::toNull($fecha_creacion);
+        $this->fecha_actualizacion = Tools::toNull($fecha_actualizacion);
+        $this->directorio_root = Tools::toNull($directorio_root);
+        $this->home_image = Tools::toNull($home_image);
+        $this->tarjetas = Tools::toNull($tarjetas);
+        $this->imagenes = Tools::toNull($imagenes);
     }
 
     function getId_proyecto() {

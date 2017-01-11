@@ -6,11 +6,6 @@
  * @author Oliva
  */
 class Tools {
-    /* public $LOGGER_FILES = SERVER_ROOT . "/logs/files_log.txt";
-      public $LOGGER_IMAGE = SERVER_ROOT . "/logs/image_log.txt";
-      public $LOGGER_TESTS = SERVER_ROOT . "/logs/tests_log.txt";
-      public $LOGGER_PROJECT = SERVER_ROOT . "/logs/project_log.txt";
-      private $user; */
 
     public function crearDirs($var) {
         if (is_dir($var)) {
@@ -40,10 +35,8 @@ class Tools {
         $fp = fopen($urlPath, 'w');
         fwrite($fp, $obj . PHP_EOL);
         if (fclose($fp)) {
-            //$this->logger($this->LOGGER_FILES, $urlPath . ": File created/edited.");
             return true;
         } else {
-            //$this->logger($this->LOGGER_FILES, $urlPath . ": File NOT created.");
             return false;
         }
     }
@@ -59,38 +52,21 @@ class Tools {
         $fp = fopen($urlPath, 'w');
         fwrite($fp, $img);
         if (fclose($fp)) {
-            //$this->logger($this->LOGGER_IMAGE, $urlPath . ": Image created.");
             return true;
         } else {
-            //$this->logger($this->LOGGER_IMAGE, $urlPath . ": Image NOT created.");
             return false;
         }
     }
 
-    /* public function testLog($str) {
-      $this->logger($this->LOGGER_TESTS, $str);
-      } */
-
-    /* public function logger($logger, $str) {
-      if (is_file($logger)) {
-      chmod($logger, 0777);
-      $fp = fopen($logger, 'a+');
-      fwrite($fp, date("Y/m/d H-i-s") . " (" . $this->getUser() . ")" . ": '" . $str . "'" . PHP_EOL);
-      fclose($fp);
-      chmod($logger, 0744);
-      }
-      } */
-
-    /* public function setUser($user) {
-      $this->user = $user;
-      }
-
-      public function getUser() {
-      return $this->user;
-      } */
-
     public static function encrypt($string) {
         return md5(CRYPT_KEY . '' . $string);
+    }
+
+    public static function cryptpass($str) {
+        // encripta un string con codificación blowfish
+        if (CRYPT_BLOWFISH == 1) {
+            return crypt($str, '$2a$07$MiProJectSoRG52570b6fcf2eb$');
+        }
     }
 
     public static function invalidPost($isApp) {
@@ -117,7 +93,7 @@ class Tools {
             COL_ID_USUARIO => self::encrypt($user)
         );
         $usuario = Database::preparedQuery(UsuarioFindById, $params);
-        $pwd = self::encrypt($pass);
+        $pwd = self::cryptpass($pass);
         if ($usuario != NULL) {
             $user_pass = $usuario[0]['user_pass'];
             if ($pwd != $user_pass) {
@@ -181,6 +157,24 @@ class Tools {
                 break;
         }
         return $style;
+    }
+
+    public static function cutString($string, $start, $length = NULL) {
+        return substr($string, $start, $length);
+    }
+
+    public static function cutOutput($str, $limite) {
+        $longWeight = strlen($str);
+        if ($longWeight > $limite) {
+            $frase = substr($str, 0, $limite) . '...';
+        } else {
+            $frase = $str;
+        }
+        return $frase;
+    }
+
+    public static function toNull($string) {
+        return (strlen($string) > 0) ? $string : NULL;
     }
 
 }

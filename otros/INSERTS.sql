@@ -75,7 +75,7 @@ VALUES
 -- Nuevos
 (NULL, 'PANEL_USER_LABEL_VIEW_PROFILE', 'Ver perfil', '73'),
 (NULL, 'PROFILE_USER', 'Perfil de usuario', '73'),
-(NULL, 'PROFILE_USER_TITLE', '', '73'),
+(NULL, 'PROFILE_USER_TITLE', 'Datos de perfil', '73'),
 (NULL, 'GENERIC_ACCEPT', 'Aceptar', '73'),
 (NULL, 'GENERIC_EDIT', 'Editar', '73'),
 (NULL, 'GENERIC_BACK', 'Volver', '73'),

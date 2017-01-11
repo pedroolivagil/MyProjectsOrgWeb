@@ -21,17 +21,17 @@ class User extends PersistenceManager {
 
     function __construct($id_usuario, $correo, $user_pass, $fullname, $nif = null, $birth_date = null, $telefono = null, $id_pais = null, $poblacion = null) {
         parent::__construct();
-        $this->id_usuario = $id_usuario;
-        $this->correo = $correo;
-        $this->user_pass = $user_pass;
-        $this->fecha_alta = $fecha_alta;
-        $this->flag_activo = $flag_activo;
-        $this->nif = $nif;
-        $this->fullname = $fullname;
-        $this->birth_date = $birth_date;
-        $this->telefono = $telefono;
-        $this->id_pais = $id_pais;
-        $this->poblacion = $poblacion;
+        $this->id_usuario = Tools::toNull($id_usuario);
+        $this->correo = Tools::toNull($correo);
+        $this->user_pass = Tools::toNull($user_pass);
+        $this->fecha_alta = Tools::toNull($fecha_alta);
+        $this->flag_activo = Tools::toNull($flag_activo);
+        $this->nif = Tools::toNull($nif);
+        $this->fullname = Tools::toNull($fullname);
+        $this->birth_date = Tools::toNull($birth_date);
+        $this->telefono = Tools::toNull($telefono);
+        $this->setId_pais(Tools::toNull($id_pais));
+        $this->poblacion = Tools::toNull($poblacion);
     }
 
     public function create() {
@@ -53,7 +53,7 @@ class User extends PersistenceManager {
             COL_ID_USUARIO => $id
         );
         $usuario = Database::preparedQuery(UsuarioFindById, $params);
-        return new User($usuario[0][COL_ID_USUARIO], $usuario[0]['correo'], '', $usuario[0]['fullname'], $usuario[0]['nif'], $usuario[0]['birth_date'], $usuario[0]['telefono'], $usuario[0]['id_pais'], $usuario[0]['poblacion']);
+        return new User($usuario[0][COL_ID_USUARIO], $usuario[0]['correo'], $usuario[0]['user_pass'], $usuario[0]['fullname'], $usuario[0]['nif'], $usuario[0]['birth_date'], $usuario[0]['telefono'], $usuario[0]['id_pais'], $usuario[0]['poblacion']);
     }
 
     /* return User with user id data */
@@ -142,6 +142,9 @@ class User extends PersistenceManager {
     }
 
     function setId_pais($id_pais) {
+        if (is_null($id_pais)) {
+            $id_pais = 0;
+        }
         $this->id_pais = $id_pais;
     }
 
