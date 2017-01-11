@@ -1,7 +1,5 @@
 <?php
 require_once('../config.php');
-error_reporting(1);
-
 Database::init_db();
 Template::getHeader();
 $breads = array(Translator::getTextStatic('SIGN_UP_PAGE') => "");

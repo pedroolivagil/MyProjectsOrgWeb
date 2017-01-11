@@ -57,9 +57,6 @@ VALUES
 (NULL, 'PANEL_USER_LABEL_EDIT_PROFILE', 'Editar perfil', '73'),
 (NULL, 'PANEL_USER_LABEL_NO_HAVE_PROJECTS', 'No tienes proyectos creados', '73'),
 (NULL, 'PANEL_USER_LABEL_RECOVERY_DELETED', 'Recuperar eliminados', '73')
--- ^^^ añadidos ^^^ -----------
-INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
-VALUES 
 (NULL, 'USER_DROPDOWN_HEADER_PROFILE', 'Perfil', '73'),
 (NULL, 'USER_DROPDOWN_HEADER_PROJECTS', 'Proyectos', '73'),
 (NULL, 'USER_DROPDOWN_VIEW_PROJECTS', 'Tus proyectos', '73'),
@@ -74,7 +71,26 @@ VALUES
 (NULL, 'PANEL_USER_LABEL_FIND_PROJECT', 'Buscar proyecto', '73'),
 (NULL, 'PANEL_USER_LABEL_EDIT_PROFILE', 'Editar perfil', '73'),
 (NULL, 'PANEL_USER_LABEL_NO_HAVE_PROJECTS', 'No tienes proyectos creados', '73'),
-(NULL, 'PANEL_USER_LABEL_RECOVERY_DELETED', 'Recuperar eliminados', '73')
+(NULL, 'PANEL_USER_LABEL_RECOVERY_DELETED', 'Recuperar eliminados', '73'),
+-- Nuevos
+(NULL, 'PANEL_USER_LABEL_VIEW_PROFILE', 'Ver perfil', '73'),
+(NULL, 'PROFILE_USER', 'Perfil de usuario', '73'),
+(NULL, 'PROFILE_USER_TITLE', '', '73'),
+(NULL, 'GENERIC_ACCEPT', 'Aceptar', '73'),
+(NULL, 'GENERIC_EDIT', 'Editar', '73'),
+(NULL, 'GENERIC_BACK', 'Volver', '73'),
+(NULL, 'GENERIC_SAVE', 'Guardar', '73'),
+-- ^^^ añadidos ^^^ -----------
+INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
+VALUES 
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

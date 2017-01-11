@@ -28,8 +28,7 @@ define('DB_HOST', 'localhost');
 define('DB_USER', 'admin');
 define('DB_PASSWORD', '1234');
 define('DB_DB', 'myprojectsorg');
-define('PORT', '80');
-//define('PORT', '8081');
+define('PORT', explode(':', $_SERVER['HTTP_HOST'])[1]);
 
 define('CRYPT_KEY', 'myprojectorganizerolivadevelop');
 define('SESSION_USUARIO_ID', 'id_usuario');

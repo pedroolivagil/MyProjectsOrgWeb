@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Description of Translator
  *
@@ -36,7 +37,7 @@ class Translator {
             "label" => $label
         );
         $result = Database::preparedQuery(ParametroByEtiqueta, $params);
-        return $result[0]['texto'];
+        return (!is_null($result[0]['texto']) && !empty($result[0]['texto'])) ? $result[0]['texto'] : $label;
     }
 
 }
