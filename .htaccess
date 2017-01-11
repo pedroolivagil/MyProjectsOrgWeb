@@ -16,6 +16,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 # Menús Y links
 RewriteRule ^home|index$ index.php
+RewriteRule ^404$ www/404.php
 RewriteRule ^login$ www/login.php
 RewriteRule ^login-user www/php/login_user.php
 RewriteRule ^signup$ www/signup.php
@@ -27,6 +28,7 @@ RewriteRule ^user-panel$ www/user_panel.php
 RewriteRule ^user-panel/pag/([0-9]+)$ www/user_panel.php?pagina=$1
 RewriteRule ^user-profile$ www/user_profile.php
 RewriteRule ^user-profile/edit$ www/user_profile.php?editable=true
+RewriteRule ^user-profile/save$ www/php/user_profile_save.php
 
 # Errors
 RewriteRule ^login-error$ www/login.php?fail=error

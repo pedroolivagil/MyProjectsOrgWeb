@@ -69,11 +69,11 @@ class Tools {
         }
     }
 
-    public static function invalidPost($isApp) {
+    public static function invalidPost($isApp = FALSE) {
         if ($isApp) {
             echo '{}';
         } else {
-            header("Location: " . SERVER_ROOT . "/404");
+            header("Location: " . _ROOT_PATH_ . "404");
         }
     }
 
