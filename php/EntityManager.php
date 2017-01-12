@@ -52,5 +52,5 @@ class EntityManager implements BasicMethods {
     public static function findById($id, $table) {
         
     }
-
+    
 }

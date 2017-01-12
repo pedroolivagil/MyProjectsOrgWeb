@@ -85,6 +85,8 @@ VALUES
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
+(NULL, 'GENERIC_ERROR_SAVE', 'Error al guardar los cambios', '73'),
+(NULL, 'GENERIC_SUCCESS_SAVE', 'Los cambios se han guardado correctamente', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

@@ -1,6 +1,8 @@
 <?php
+
 require_once('../../config.php');
 if (!is_null($_POST)) {
+    $finalePage = 'user-profile/save-error';
     Database::init_db();
     $id = Tools::getCookie(SESSION_USUARIO_ID);
     $pass = $_POST['profile_password'];
@@ -11,7 +13,7 @@ if (!is_null($_POST)) {
     $phone = $_POST['profile_phone'];
     $country = $_POST['profile_country'];
     $state = $_POST['profile_state'];
-    
+
     $user = User::findById($id);
     $user->setFullname($fullname);
     $user->setBirth_date($birth, TRUE);
@@ -19,12 +21,11 @@ if (!is_null($_POST)) {
     $user->setTelefono($phone, TRUE);
     $user->setId_pais($country, TRUE);
     $user->setPoblacion($state, TRUE);
-    if($user->update()){
-        
-    }else{
-        
+    if ($user->update()) {
+        $finalePage = 'user-profile/save-success';
     }
     Database::close_db();
+    header("Location: " . _ROOT_PATH_ . $finalePage);
 } else {
     Tools::invalidPost();
 }

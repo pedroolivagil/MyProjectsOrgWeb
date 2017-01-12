@@ -189,7 +189,7 @@ class Database/* extends mysqli */ {
                     $set .= "";
                     for ($x = 0; $x < count($claves); $x++) {
                         $set .= $claves[$x] . " = '" . $values[$x] . "'";
-                        if ($x > 0 && $x < count($claves) - 1) {
+                        if ($x >= 0 && $x < count($claves) - 1) {
                             $set .= ", ";
                         }
                     }
@@ -200,7 +200,7 @@ class Database/* extends mysqli */ {
                         $where .= "WHERE ";
                         for ($x = 0; $x < count($claves); $x++) {
                             $where .= $claves[$x] . " LIKE '" . $values[$x] . "'";
-                            if ($x > 0 && $x < count($claves) - 1) {
+                            if ($x >= 0 && $x < count($claves) - 1) {
                                 if ($strict) {
                                     $where .= " AND ";
                                 } else {
@@ -233,7 +233,7 @@ class Database/* extends mysqli */ {
                     $set .= "";
                     for ($x = 0; $x < count($claves); $x++) {
                         $set .= $claves[$x] . " = '" . $values[$x] . "'";
-                        if ($x > 0 && $x < count($claves) - 1) {
+                        if ($x >= 0 && $x < count($claves) - 1) {
                             $set .= ", ";
                         }
                     }
@@ -244,7 +244,7 @@ class Database/* extends mysqli */ {
                         $where .= "WHERE ";
                         for ($x = 0; $x < count($claves); $x++) {
                             $where .= $claves[$x] . " LIKE '" . $values[$x] . "'";
-                            if ($x > 0 && $x < count($claves) - 1) {
+                            if ($x >= 0 && $x < count($claves) - 1) {
                                 if ($strict) {
                                     $where .= " AND ";
                                 } else {

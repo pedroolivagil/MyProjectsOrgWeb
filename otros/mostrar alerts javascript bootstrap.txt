@@ -1,0 +1,44 @@
+
+
+None of the current answers worked for me. I'm using Bootstrap 3.
+
+I liked what Rob Vermeer was doing and started from his response.
+
+For a fade in and then fade out effect, I just used wrote the following function and used jQuery:
+
+Html on my page to add the alert(s) to:
+
+        <div class="alert-messages text-center">
+        </div>
+
+Javascript function to show and dismiss the alert.
+
+function showAndDismissAlert(type, message) {
+    var htmlAlert = '<div class="alert alert-' + type + '">' + message + '</div>';
+
+    // Prepend so that alert is on top, could also append if we want new alerts to show below instead of on top.
+    $(".alert-messages").prepend(htmlAlert);
+
+    // Since we are prepending, take the first alert and tell it to fade in and then fade out.
+    // Note: if we were appending, then should use last() instead of first()
+    $(".alert-messages .alert").first().hide().fadeIn(200).delay(2000).fadeOut(1000, function () { $(this).remove(); });
+}
+
+Then, to show and dismiss the alert, just call the function like this:
+
+    showAndDismissAlert('success', 'Saved Successfully!');
+    showAndDismissAlert('danger', 'Error Encountered');
+    showAndDismissAlert('info', 'Message Received');
+
+As a side note, I styled the div.alert-messages fixed on top:
+
+    <style>
+    div.alert-messages {
+        position: fixed;
+        top: 50px;
+        left: 25%;
+        right: 25%;
+        z-index: 7000;
+    }
+    </style>
+

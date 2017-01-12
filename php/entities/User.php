@@ -5,7 +5,7 @@
  *
  * @author 0013856
  */
-class User extends PersistenceManager {
+class User extends PersistenceManager implements BasicMethodsEntities {
 
     private $id_usuario;
     private $correo;
@@ -167,7 +167,7 @@ class User extends PersistenceManager {
         $this->fullname = parent::updateField($this->fullname, $fullname);
     }
 
-    function toArray() {
+    public function toArray() {
         return get_object_vars($this);
     }
 

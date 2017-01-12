@@ -65,6 +65,7 @@ require_once(_CLASS_PATH_ . 'db/Database.php');
 require_once(_CLASS_PATH_ . 'Translator.php');
 require_once(_CLASS_PATH_ . 'Template.php');
 require_once(_CLASS_PATH_ . 'BasicMethods.php');
+require_once(_CLASS_PATH_ . 'BasicMethodsEntities.php');
 require_once(_CLASS_PATH_ . 'EntityManager.php');
 require_once(_CLASS_PATH_ . 'PersistenceManager.php');
 // Persistence

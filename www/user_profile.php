@@ -13,12 +13,42 @@ $breads = array(
 Template::getBreadCrumbs($breads);
 $user = User::findById(Tools::getCookie(SESSION_USUARIO_ID));
 $editable = ($_REQUEST['editable'] == TRUE) ? TRUE : FALSE;
+$saved = ($_REQUEST['saved'] == TRUE) ? TRUE : FALSE;
+$saved_msg = ($_REQUEST['saved_msg'] === TRUE) ? 'success' : 'error';
 $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
 //PROFILE_USER_LABEL_
 ?>
+<script>
+    function checkPass() {
+        var pass1 = $('#profile_password').val();
+        var pass2 = $('#profile_password2').val();
+        if (pass1 != '' && pass1 != null) {
+            $('#profile_password2').attr("required", "true");
+        }else{
+            $('#profile_password2').attr("required", "false");
+        }
+    }
+    function validar() {
+        $(document).ready(function () {
+            var pass1 = $('#profile_password').val();
+            var pass2 = $('#profile_password2').val();
+            if (pass1 != '' && pass1 != null) {
+                if (pass2 != pass1) {
+                    return false;
+                } else {
+                    document.form1.submit();
+                }
+            } else {
+                document.form1.submit();
+            }
+        });
+    }
+</script>
 <!--// Content //-->
 <?php include_once(_PHP_PATH_ . 'viewuser.php'); ?>
-<form class="form-inline" role="form" method="post" action="<?php echo $page; ?>">
+<form id="form1" autocomplete="off" class="form-inline" role="form" method="post" action="<?php echo $page; ?>" <?php echo (!$editable) ? '' : ' onsubmit="validar(); return false;"'; ?>>
+    <input style="display:none">
+    <input type="password" style="display:none">
     <div class="panel panel-primary panel-derecha">
         <div class="panel-heading">
             <h4>
@@ -27,19 +57,37 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
             </h4>
         </div>
         <div class="panel-body">
+            <?php
+            if ($saved) {
+                ?>
+                <div class="alert <?php echo Tools::getStyleAlert($saved_msg); ?>" role="alert">
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>
+                        <?php
+                        if ($saved_msg == 'error') {
+                            echo Translator::getTextStatic('GENERIC_ERROR_SAVE');
+                        } else {
+                            echo Translator::getTextStatic('GENERIC_SUCCESS_SAVE');
+                        }
+                        ?>
+                    </p>
+                </div>
+            <?php } ?>
             <fieldset <?php echo ($editable) ? '' : 'disabled'; ?>>
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="profile_email"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_EMAIL'); ?></label>
-                    <input type="email" disabled class="form-control width100" required name="profile_email" id="profile_email" value="<?php echo $user->getCorreo(); ?>" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_EMAIL'); ?>">
+                    <input type="email" disabled class="form-control width100" name="profile_email" id="profile_email" value="<?php echo $user->getCorreo(); ?>" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_EMAIL'); ?>">
                 </div>
                 <?php if ($editable) { ?>
                     <div class="form-group pad5-tb width100">
                         <label class="sr-only" for="profile_password"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PASSWORD'); ?></label>
-                        <input type="password" class="form-control width100" required name="profile_password" id="profile_password" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD'); ?>">
+                        <input type="password" onkeypress="checkPass()" class="form-control width100" name="profile_password" id="profile_password" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD'); ?>">
                     </div>
                     <div class="form-group pad5-tb width100">
                         <label class="sr-only" for="profile_password2"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PASSWORD2'); ?></label>
-                        <input type="password" class="form-control width100" required name="profile_password2" id="profile_password2" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD2'); ?>">
+                        <input type="password" class="form-control width100" name="profile_password2" id="profile_password2" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD2'); ?>">
                     </div>
                     <hr />
                 <?php } ?>

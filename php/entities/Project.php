@@ -11,7 +11,7 @@
  *
  * @author 0013856
  */
-class Project extends PersistenceManager {
+class Project extends PersistenceManager implements BasicMethodsEntities {
 
     private $id_proyecto;
     private $nombre;
@@ -126,6 +126,10 @@ class Project extends PersistenceManager {
 
     function setImagenes($imagenes) {
         $this->imagenes = $imagenes;
+    }
+
+    public function toArray() {
+        return get_object_vars($this);
     }
 
 }

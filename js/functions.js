@@ -4,18 +4,8 @@ $(document).ready(function () {
         todayHighlight: true,
         autoclose: true
     });
-    var fixmeTop = $('.fixonscroll').offset().top;
-    $(document).scroll(function () {
-        var currentScroll = $(document).scrollTop() + 50;
-        if (currentScroll >= fixmeTop) {
-            $('.fixonscroll').css({
-                position: 'fixed',
-                top: '50px'
-            });
-        } else {
-            $('.fixonscroll').css({
-                position: 'static'
-            });
-        }
+    $("div.alert").on("click", "button.close", function () {
+        $(this).parent().animate({opacity: 0}, 250).hide('fast');
     });
+    $("input").attr("autocomplete", "off");
 });

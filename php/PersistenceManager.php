@@ -40,5 +40,5 @@ class PersistenceManager {
         }
         return $newVal;
     }
-
+    
 }

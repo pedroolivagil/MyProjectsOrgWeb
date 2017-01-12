@@ -14,8 +14,8 @@ Template::getBreadCrumbs($breads);
         </div>
         <div class="panel-body translucid-80">
             <?php if ($_REQUEST['fail']) { ?>
-                <div class="alert <?php echo Tools::getStyleAlert($_REQUEST['fail']) ?> alert-dismissible fade in" id="alert_login" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <div class="alert <?php echo Tools::getStyleAlert($_REQUEST['fail']) ?>" id="alert_login" role="alert">
+                    <button type="button" class="close" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <p><?php
