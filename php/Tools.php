@@ -99,6 +99,9 @@ class Tools {
             if ($pwd != $user_pass) {
                 $err++;
             }
+            if($usuario[0][COL_FLAG_ACTIVO] == 0){
+                $err++;
+            }
         } else {
             $err++;
         }

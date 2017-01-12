@@ -24,7 +24,7 @@ class Database/* extends mysqli */ {
     private static function initConexion() {
         try {
             // Conectar
-            self::$conexion = new PDO("mysql:host=" . DB_HOST .";dbname=" . DB_DB, DB_USER, DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8';"));
+            self::$conexion = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_DB, DB_USER, DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8';"));
             // Establecer el nivel de errores a EXCEPTION
             self::$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
@@ -180,6 +180,50 @@ class Database/* extends mysqli */ {
     }
 
     public static function update($table, $newValues, $params = null, $strict = true) {
+        if (self::check()) {
+            try {
+                $set = " SET ";
+                if ($newValues != null) {
+                    $claves = array_keys($newValues);
+                    $values = array_values($newValues);
+                    $set .= "";
+                    for ($x = 0; $x < count($claves); $x++) {
+                        $set .= $claves[$x] . " = '" . $values[$x] . "'";
+                        if ($x > 0 && $x < count($claves) - 1) {
+                            $set .= ", ";
+                        }
+                    }
+                    $where = "";
+                    if ($params != null) {
+                        $claves = array_keys($params);
+                        $values = array_values($params);
+                        $where .= "WHERE ";
+                        for ($x = 0; $x < count($claves); $x++) {
+                            $where .= $claves[$x] . " LIKE '" . $values[$x] . "'";
+                            if ($x > 0 && $x < count($claves) - 1) {
+                                if ($strict) {
+                                    $where .= " AND ";
+                                } else {
+                                    $where .= " OR ";
+                                }
+                            }
+                        }
+                    }
+                    $sentencia = self::$conexion->prepare("UPDATE " . $table . " " . $set . " " . $where . ";");
+                    $sentencia->execute();
+                    return TRUE;
+                } else {
+                    return FALSE;
+                }
+            } catch (PDOException $e) {
+                self::addProblem();
+                error_log($e->getMessage());
+                return FALSE;
+            }
+        }
+    }
+
+    public static function deleteLogic($table, $newValues, $params = null, $strict = true) {
         if (self::check()) {
             try {
                 $set = " SET ";

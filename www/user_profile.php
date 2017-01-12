@@ -30,7 +30,7 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
             <fieldset <?php echo ($editable) ? '' : 'disabled'; ?>>
                 <div class="form-group pad5-tb width100">
                     <label class="sr-only" for="profile_email"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_EMAIL'); ?></label>
-                    <input type="email" class="form-control width100" required name="profile_email" id="profile_email" value="<?php echo $user->getCorreo(); ?>" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_EMAIL'); ?>">
+                    <input type="email" disabled class="form-control width100" required name="profile_email" id="profile_email" value="<?php echo $user->getCorreo(); ?>" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_EMAIL'); ?>">
                 </div>
                 <?php if ($editable) { ?>
                     <div class="form-group pad5-tb width100">

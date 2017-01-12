@@ -19,7 +19,7 @@ class User extends PersistenceManager {
     private $id_pais;
     private $poblacion;
 
-    function __construct($id_usuario, $correo, $user_pass, $fullname, $nif = null, $birth_date = null, $telefono = null, $id_pais = null, $poblacion = null) {
+    function __construct($id_usuario, $correo, $user_pass, $fullname, $nif = null, $birth_date = null, $telefono = null, $id_pais = null, $poblacion = null, $flag_activo = NULL, $fecha_alta = NULL) {
         parent::__construct();
         $this->id_usuario = Tools::toNull($id_usuario);
         $this->correo = Tools::toNull($correo);
@@ -38,25 +38,24 @@ class User extends PersistenceManager {
         return parent::getEm()->create($this->toArray(), TABLE_USUARIO);
     }
 
-    public function update(Usuario $usuario) {
-        
+    public function update() {
+        $id = array(COL_ID_USUARIO => $this->getId_usuario());
+        return parent::getEm()->update(TABLE_USUARIO, $this->toArray(), $id);
     }
 
-    public function delete(Usuario $usuario) {
-        
+    public function delete() {
+        $id = array(COL_ID_USUARIO => $this->getId_usuario());
+        return parent::getEm()->delete(TABLE_USUARIO, $this->toArray(), $id);
     }
-
-    /* return User with user id data */
 
     public static function findById($id) {
+        /* return User with user id data */
         $params = array(
             COL_ID_USUARIO => $id
         );
         $usuario = Database::preparedQuery(UsuarioFindById, $params);
-        return new User($usuario[0][COL_ID_USUARIO], $usuario[0]['correo'], $usuario[0]['user_pass'], $usuario[0]['fullname'], $usuario[0]['nif'], $usuario[0]['birth_date'], $usuario[0]['telefono'], $usuario[0]['id_pais'], $usuario[0]['poblacion']);
+        return new User($usuario[0][COL_ID_USUARIO], $usuario[0]['correo'], $usuario[0]['user_pass'], $usuario[0]['fullname'], $usuario[0]['nif'], $usuario[0]['birth_date'], $usuario[0]['telefono'], $usuario[0]['id_pais'], $usuario[0]['poblacion'], $usuario[0]['flag_activo'], $usuario[0]['fecha_alta']);
     }
-
-    /* return User with user id data */
 
     public function getAllProjects() {
         $params = array(
@@ -113,32 +112,40 @@ class User extends PersistenceManager {
         return $this->poblacion;
     }
 
+    function getBirth_date() {
+        return $this->birth_date;
+    }
+
+    function getFullname() {
+        return $this->fullname;
+    }
+
     function setId_usuario($id_usuario) {
-        $this->id_usuario = $id_usuario;
+        $this->id_usuario = parent::updateField($this->id_usuario, $id_usuario);
     }
 
     function setCorreo($correo) {
-        $this->correo = $correo;
+        $this->correo = parent::updateField($this->correo, $correo);
     }
 
     function setUser_pass($user_pass) {
-        $this->user_pass = $user_pass;
+        $this->user_pass = parent::updateField($this->user_pass, $user_pass);
     }
 
     function setFecha_alta($fecha_alta) {
-        $this->fecha_alta = $fecha_alta;
+        $this->fecha_alta = parent::updateField($this->fecha_alta, $fecha_alta);
     }
 
     function setFlag_activo($flag_activo) {
-        $this->flag_activo = $flag_activo;
+        $this->flag_activo = parent::updateField($this->flag_activo, $flag_activo);
     }
 
     function setNif($nif) {
-        $this->nif = $nif;
+        $this->nif = parent::updateField($this->nif, $nif);
     }
 
     function setTelefono($telefono) {
-        $this->telefono = $telefono;
+        $this->telefono = parent::updateField($this->telefono, $telefono);
     }
 
     function setId_pais($id_pais) {
@@ -149,23 +156,15 @@ class User extends PersistenceManager {
     }
 
     function setPoblacion($poblacion) {
-        $this->poblacion = $poblacion;
-    }
-
-    function getBirth_date() {
-        return $this->birth_date;
+        $this->poblacion = parent::updateField($this->poblacion, $poblacion);
     }
 
     function setBirth_date($birth_date) {
-        $this->birth_date = $birth_date;
-    }
-
-    function getFullname() {
-        return $this->fullname;
+        $this->birth_date = parent::updateField($this->birth_date, $birth_date);
     }
 
     function setFullname($fullname) {
-        $this->fullname = $fullname;
+        $this->fullname = parent::updateField($this->fullname, $fullname);
     }
 
     function toArray() {
