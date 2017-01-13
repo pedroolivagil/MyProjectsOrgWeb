@@ -44,3 +44,19 @@
                 </div>
             </nav>
             <div class="container">
+                <button type="button" id="modal_generic_btn" class="btn btn-primary hidden" data-toggle="modal" data-target="#modal_generic"></button>
+                <div id="modal_generic" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"></h5>
+                            </div>
+                            <div class="modal-body">
+                                <p></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary center-block" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>

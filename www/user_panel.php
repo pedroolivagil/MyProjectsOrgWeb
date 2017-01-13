@@ -3,7 +3,6 @@ require_once('../config.php');
 if (!Tools::isUserSession()) {
     header("Location: " . _ROOT_PATH_ . "login-error");
 }
-error_reporting(1);
 Database::init_db();
 Template::getHeader();
 $breads = array(Translator::getTextStatic('PANEL_USER') => "");

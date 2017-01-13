@@ -28,7 +28,7 @@ define('DB_HOST', 'localhost');
 define('DB_USER', 'admin');
 define('DB_PASSWORD', '1234');
 define('DB_DB', 'myprojectsorg');
-define('PORT', explode(':', $_SERVER['HTTP_HOST'])[1]);
+define('PORT', $_SERVER['SERVER_PORT']);
 
 define('CRYPT_KEY', 'myprojectorganizerolivadevelop');
 define('SESSION_USUARIO_ID', 'id_usuario');
@@ -57,7 +57,6 @@ define('_JS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/js/'
 define('_DOCS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/docs/');
 
 //session_start(); // no hace falta gracias al .htaccess
-error_reporting(E_ALL ^ E_NOTICE);
 //ini_set('display_errors',1);
 header('Content-type: text/html; charset=utf-8');
 require_once(_CLASS_PATH_ . 'Tools.php');
@@ -71,4 +70,5 @@ require_once(_CLASS_PATH_ . 'PersistenceManager.php');
 // Persistence
 require_once(_CLASS_PATH_ . 'entities/User.php');
 require_once(_CLASS_PATH_ . 'entities/Project.php');
+error_reporting(0);
 ?>

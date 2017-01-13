@@ -22,23 +22,23 @@ class PersistenceManager {
     protected function getEm() {
         return $this->em;
     }
-    
-    protected function updateField($field, $value, $nullable = FALSE){
+
+    protected function updateField($field, $value, $nullable = FALSE) {
         $newVal = '';
-        if($value != $field){
-            if($nullable){
-                if(is_null($value) || empty($value)){
+        if ($value != $field) {
+            if ($nullable) {
+                if (is_null($value) || empty($value)) {
                     $newVal = NULL;
-                }  else {
-                    $newVal = $value;                    
+                } else {
+                    $newVal = $value;
                 }
-            }  else {
+            } else {
                 $newVal = $value;
             }
-        }else{
+        } else {
             $newVal = $field;
         }
         return $newVal;
     }
-    
+
 }

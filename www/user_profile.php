@@ -3,7 +3,6 @@ require_once('../config.php');
 if (!Tools::isUserSession()) {
     header("Location: " . _ROOT_PATH_ . "login-error");
 }
-error_reporting(1);
 Database::init_db();
 Template::getHeader();
 $breads = array(
@@ -14,7 +13,7 @@ Template::getBreadCrumbs($breads);
 $user = User::findById(Tools::getCookie(SESSION_USUARIO_ID));
 $editable = ($_REQUEST['editable'] == TRUE) ? TRUE : FALSE;
 $saved = ($_REQUEST['saved'] == TRUE) ? TRUE : FALSE;
-$saved_msg = ($_REQUEST['saved_msg'] === TRUE) ? 'success' : 'error';
+$saved_msg = ($_REQUEST['saved_msg'] == 'true') ? 'success' : 'error';
 $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
 //PROFILE_USER_LABEL_
 ?>
@@ -24,7 +23,7 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
         var pass2 = $('#profile_password2').val();
         if (pass1 != '' && pass1 != null) {
             $('#profile_password2').attr("required", "true");
-        }else{
+        } else {
             $('#profile_password2').attr("required", "false");
         }
     }
@@ -34,6 +33,7 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
             var pass2 = $('#profile_password2').val();
             if (pass1 != '' && pass1 != null) {
                 if (pass2 != pass1) {
+                    showAlert("Error", "Passwords no son iguales");
                     return false;
                 } else {
                     document.form1.submit();
@@ -44,6 +44,7 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
         });
     }
 </script>
+
 <!--// Content //-->
 <?php include_once(_PHP_PATH_ . 'viewuser.php'); ?>
 <form id="form1" autocomplete="off" class="form-inline" role="form" method="post" action="<?php echo $page; ?>" <?php echo (!$editable) ? '' : ' onsubmit="validar(); return false;"'; ?>>
