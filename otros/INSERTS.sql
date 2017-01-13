@@ -72,7 +72,6 @@ VALUES
 (NULL, 'PANEL_USER_LABEL_EDIT_PROFILE', 'Editar perfil', '73'),
 (NULL, 'PANEL_USER_LABEL_NO_HAVE_PROJECTS', 'No tienes proyectos creados', '73'),
 (NULL, 'PANEL_USER_LABEL_RECOVERY_DELETED', 'Recuperar eliminados', '73'),
--- Nuevos
 (NULL, 'PANEL_USER_LABEL_VIEW_PROFILE', 'Ver perfil', '73'),
 (NULL, 'PROFILE_USER', 'Perfil de usuario', '73'),
 (NULL, 'PROFILE_USER_TITLE', 'Datos de perfil', '73'),
@@ -82,18 +81,18 @@ VALUES
 (NULL, 'GENERIC_SAVE', 'Guardar', '73'),
 (NULL, 'PROFILE_PREFERENCES', 'Configuración del perfil', '73'),
 (NULL, 'COMING_SOON', 'Próximamente', '73'),
+-- Nuevos
+(NULL, 'GENERIC_ERROR_SAVE', 'Error al guardar los cambios', '73'),
+(NULL, 'GENERIC_SUCCESS_SAVE', 'Los cambios se han guardado correctamente', '73'),
+(NULL, 'GENERIC_ERROR_VALIDATION', 'Error de validación', '73'),
+(NULL, 'GENERIC_ERROR_PASSWORD_NO_MATCH', 'Las contraseñas no coinciden.', '73'),
+(NULL, 'GENERIC_ERROR_PASSWORD_REQUIRED', 'La contraseña es obligatoria', '73'),
+(NULL, 'GENERIC_ERROR_PASSWORD_INVALID', 'La contraseña no es correcta.', '73'),
+(NULL, 'PANEL_USER_LABEL_DELETE_ACCOUNT', 'Cerrar tu cuenta', '73'),
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, 'GENERIC_ERROR_SAVE', 'Error al guardar los cambios', '73'),
-(NULL, 'GENERIC_SUCCESS_SAVE', 'Los cambios se han guardado correctamente', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
+(NULL, 'PANEL_USER_LABEL_DELETE_PROJECTS', 'Borrar proyectos', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

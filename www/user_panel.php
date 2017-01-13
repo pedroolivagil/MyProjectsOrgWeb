@@ -16,10 +16,26 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
 
 <div class="panel panel-primary panel-derecha">
     <div class="panel-heading">
-        <h4>
-            <?php echo Translator::getTextStatic('PANEL_USER_HEADER_PROJECTS'); ?>
-            <small class="color-white-50">(<?php echo $user->getCorreo(); ?>)</small>
-        </h4>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4>
+                        <?php echo Translator::getTextStatic('PANEL_USER_HEADER_PROJECTS'); ?>
+                        <small class="color-white-50">(<?php echo $user->getCorreo(); ?>)</small>
+                    </h4>
+                </div>
+                <div class="col-md-4">
+                    <form class="form-search" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="panel-body">
         <?php if ($user->countProjects() > 0) { ?>

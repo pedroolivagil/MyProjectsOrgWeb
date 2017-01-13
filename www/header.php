@@ -49,13 +49,12 @@
                     <div class="modal-dialog modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title"></h5>
+                                <h4 class="modal-title"></h4>
                             </div>
                             <div class="modal-body">
                                 <p></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary center-block" data-dismiss="modal">Close</button>
+                                <br />
+                                <button type="button" class="btn btn-primary center-block" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>

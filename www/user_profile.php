@@ -30,14 +30,9 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
     function validar() {
         $(document).ready(function () {
             var pass1 = $('#profile_password').val();
-            var pass2 = $('#profile_password2').val();
-            if (pass1 != '' && pass1 != null) {
-                if (pass2 != pass1) {
-                    showAlert("Error", "Passwords no son iguales");
-                    return false;
-                } else {
-                    document.form1.submit();
-                }
+            if (pass1 == '' || pass1 == null) {
+                showAlert('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_ERROR_PASSWORD_REQUIRED'); ?>');
+                return false;
             } else {
                 document.form1.submit();
             }
@@ -85,10 +80,6 @@ $page = _ROOT_PATH_ . (($editable) ? 'user-profile/save' : 'user-profile/edit');
                     <div class="form-group pad5-tb width100">
                         <label class="sr-only" for="profile_password"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PASSWORD'); ?></label>
                         <input type="password" onkeypress="checkPass()" class="form-control width100" name="profile_password" id="profile_password" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD'); ?>">
-                    </div>
-                    <div class="form-group pad5-tb width100">
-                        <label class="sr-only" for="profile_password2"><?php echo Translator::getTextStatic('SIGN_UP_PAGE_PASSWORD2'); ?></label>
-                        <input type="password" class="form-control width100" name="profile_password2" id="profile_password2" placeholder="<?php echo Translator::getTextStatic('SIGN_UP_PAGE_PLACEHOLDER_PASSWORD2'); ?>">
                     </div>
                     <hr />
                 <?php } ?>
