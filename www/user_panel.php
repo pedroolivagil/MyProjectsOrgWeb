@@ -50,11 +50,10 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
                                 <img src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" alt="...">
                                 <div class="caption">
                                     <h3><?php echo $project->getNombre(); ?></h3>
-                                    <p>...</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary" role="button">Button</a>
-                                        <a href="#" class="btn btn-default" role="button">Button</a>
+                                    <p class="text-justify">
+                                        <?php echo Tools::cutOutput($project->getDescription(), 50); ?>
                                     </p>
+                                    <p><a href="<?php echo _ROOT_PATH_ . 'user-panel/view-project/' . $project->getId_proyecto(); ?>" class="btn btn-primary" role="button"><?php echo Translator::getTextStatic('GENERIC_VIEW_PROJECT'); ?></a></p>
                                 </div>
                             </div>
                         </div>

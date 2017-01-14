@@ -18,7 +18,7 @@ html, body {
 body { padding-top: 70px; padding-bottom: 50px; }
 
 /* CONTENEDORES */
-.wrapper, .navbar-fixed-top{
+.wrapper, .navbar-fixed-top {
     min-width: 350px;
 }
 .panel {

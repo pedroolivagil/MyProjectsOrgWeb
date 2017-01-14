@@ -89,10 +89,18 @@ VALUES
 (NULL, 'GENERIC_ERROR_PASSWORD_REQUIRED', 'La contraseña es obligatoria', '73'),
 (NULL, 'GENERIC_ERROR_PASSWORD_INVALID', 'La contraseña no es correcta.', '73'),
 (NULL, 'PANEL_USER_LABEL_DELETE_ACCOUNT', 'Cerrar tu cuenta', '73'),
+(NULL, 'PANEL_USER_LABEL_DELETE_PROJECTS', 'Borrar proyectos', '73'),
+(NULL, 'GENERIC_VIEW_PROJECT', 'Ver proyecto', '73'),
+(NULL, 'GENERIC_DELETE', 'Eliminar', '73'),
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, 'PANEL_USER_LABEL_DELETE_PROJECTS', 'Borrar proyectos', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

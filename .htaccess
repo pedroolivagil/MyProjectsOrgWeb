@@ -16,7 +16,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 # Menús Y links
 RewriteRule ^home|index$ index.php
-RewriteRule ^404$ www/404.php
 RewriteRule ^login$ www/login.php
 RewriteRule ^login-user www/php/login_user.php
 RewriteRule ^signup$ www/signup.php
@@ -26,16 +25,18 @@ RewriteRule ^legal-warning$ www/aviso_legal.php
 RewriteRule ^logout$ www/php/logout_user.php
 RewriteRule ^user-panel$ www/user_panel.php
 RewriteRule ^user-panel/pag/([0-9]+)$ www/user_panel.php?pagina=$1
+RewriteRule ^user-panel/view-project/(.+)$ www/view_project.php?id=$1
 RewriteRule ^user-profile$ www/user_profile.php
 RewriteRule ^user-profile/edit$ www/user_profile.php?editable=true
 RewriteRule ^user-profile/save$ www/php/user_profile_save.php
 RewriteRule ^user-profile/save-success$ www/user_profile.php?saved=true&saved_msg=true
-RewriteRule ^user-profile/save-error$ www/user_profile.php?saved=true&saved_msg=false
 
 # Errors
+RewriteRule ^404$ www/404.php
 RewriteRule ^login-error$ www/login.php?fail=error
 RewriteRule ^signup-error$ www/signup.php?fail=error
 RewriteRule ^signup-warning$ www/signup.php?fail=warning
+RewriteRule ^user-profile/save-error$ www/user_profile.php?saved=true&saved_msg=false
 
 
 # RewriteRule ^lineas-de-voz$ www/lineasvoz.php 

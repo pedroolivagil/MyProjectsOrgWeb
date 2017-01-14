@@ -53,18 +53,18 @@ abstract class Template {
 
     public static function getBreadCrumbs($breads) {
         $breadcrumbs = '<!--// BreadCrumbs //-->';
-        $breadcrumbs .='<ol class="breadcrumb">';
-        $breadcrumbs.='<li><a href="home">' . Translator::getTextStatic('HOME_PAGE') . '</a></li>';
+        $breadcrumbs .= '<ol class="breadcrumb">';
+        $breadcrumbs .= '<li><a href="' . _ROOT_PATH_ . 'home">' . Translator::getTextStatic('HOME_PAGE') . '</a></li>';
         $x = 0;
         foreach ($breads as $title => $url) {
             if ($x < (count($breads) - 1)) {
-                $breadcrumbs.='<li><a href="' . $url . '">' . $title . '</a></li>';
+                $breadcrumbs .= '<li><a href="' . _ROOT_PATH_ . $url . '">' . $title . '</a></li>';
             } else {
-                $breadcrumbs.='<li class="active">' . $title . '</li>';
+                $breadcrumbs .= '<li class="active">' . $title . '</li>';
             }
             $x++;
         }
-        $breadcrumbs .='</ol>';
+        $breadcrumbs .= '</ol>';
         print self::htmlEntityDecode($breadcrumbs);
     }
 
