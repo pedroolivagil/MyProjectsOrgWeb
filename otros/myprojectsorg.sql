@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-01-2017 a las 02:40:45
+-- Tiempo de generación: 15-01-2017 a las 13:39:22
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -34,21 +34,6 @@ CREATE TABLE `error_log` (
   `comentario` varchar(350) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `error_log`
---
-
-INSERT INTO `error_log` (`id_error_log`, `fecha_hora`, `id_usuario`, `accion`, `comentario`) VALUES
-(50, '2016-12-28 03:38:46', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto', 'Se ha iniciado la creación del proyecto.'),
-(52, '2016-12-28 03:38:46', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto; p_p: 0; p_p_r: 0; p_t: 6; p_t_r: 0; p_i: 3; p_i_r: 0', 'Se ha deshecho los cambios.'),
-(53, '2016-12-28 03:41:31', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto', 'Se ha iniciado la creación del proyecto.'),
-(55, '2016-12-28 03:41:31', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto; p_p: 0; p_p_r: 0; p_t: 6; p_t_r: 0; p_i: 3; p_i_r: 0', 'Se ha deshecho los cambios.'),
-(56, '2016-12-28 03:44:02', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto', 'Se ha iniciado la creación del proyecto.'),
-(58, '2016-12-28 03:44:02', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto; p_p: 0; p_p_r: 0; p_t: 6; p_t_r: 0; p_i: 3; p_i_r: 0', 'Se ha deshecho los cambios.'),
-(59, '2016-12-28 03:53:58', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto', 'Se ha iniciado la creación del proyecto.'),
-(60, '2016-12-28 03:53:58', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto', 'Proyecto creado con identificador: 474d779e666241218e40'),
-(61, '2016-12-28 03:53:58', 'd6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'Crear Proyecto', 'Proyecto creado y asignado correctamente: 474d779e666241218e40');
-
 -- --------------------------------------------------------
 
 --
@@ -64,15 +49,6 @@ CREATE TABLE `imagen` (
   `fecha_subida` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `flag_activo` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `imagen`
---
-
-INSERT INTO `imagen` (`id_imagen`, `url`, `descripcion`, `width`, `height`, `fecha_subida`, `flag_activo`) VALUES
-('13a4c8d5267b419c84fb', 'home3ec4d730-fee5-4a89-b08b-1f55199eb26b.jpg', '', 640, 480, '2016-12-28 03:53:58', 1),
-('837d408036a645ee81a6', 'home02ed3305-f048-4dff-822a-6fb8aff05780.jpg', '', 640, 480, '2016-12-28 03:53:58', 1),
-('bd5b0558aae0449ba1cc', 'home5d23fbb2-4eb4-4650-8751-3c0c6a2b7d83.jpg', 'aedfrbsdfbdfbdfbdfbdfb', 640, 480, '2016-12-28 03:53:58', 1);
 
 -- --------------------------------------------------------
 
@@ -91,6 +67,7 @@ CREATE TABLE `paises` (
 --
 
 INSERT INTO `paises` (`id`, `iso`, `nombre`) VALUES
+(0, NULL, NULL),
 (1, 'AF', 'Afganistán'),
 (2, 'AX', 'Islas Gland'),
 (3, 'AL', 'Albania'),
@@ -350,42 +327,91 @@ CREATE TABLE `parametros` (
 --
 
 INSERT INTO `parametros` (`id`, `etiqueta`, `texto`, `id_idioma`) VALUES
-(3, 'GENERIC_TITLE', 'Organizador de proyectos', 73),
-(40, 'GENERIC_CANCEL', 'Cancelar', 73),
-(41, 'HOME_PAGE', 'Inicio', 73),
-(42, 'ABOUT_PAGE', 'Nosotros', 73),
-(43, 'CONTACT_PAGE', 'Contacto', 73),
-(44, 'LOGIN_PAGE', 'Inicia sesión', 73),
-(45, 'LOGIN_PAGE_TITLE', 'Inicia sesión', 73),
-(46, 'LOGIN_PAGE_EMAIL', 'Email', 73),
-(47, 'LOGIN_PAGE_PASSWORD', 'Contraseña', 73),
-(48, 'LOGIN_PAGE_PLACEHOLDER_EMAIL', 'Introduce tu email', 73),
-(49, 'LOGIN_PAGE_PLACEHOLDER_PASS', 'Introduce tu contraseña', 73),
-(50, 'LOGIN_PAGE_AUTOLOGIN_TEXT', 'Mantén la sesión', 73),
-(51, 'LOGIN_PAGE_SIGN_IN', 'Entrar', 73),
-(52, 'LOGIN_PAGE_SIGN_UP', 'Registrar', 73),
-(53, 'SIGN_UP_PAGE', 'Registro', 73),
-(54, 'SIGN_UP_PAGE_TITLE', 'Registro de usuario', 73),
-(55, 'SIGN_UP_PAGE_EMAIL', 'Email', 73),
-(56, 'SIGN_UP_PAGE_PASSWORD', 'Contraseña', 73),
-(57, 'SIGN_UP_PAGE_PASSWORD2', 'R.Contraseña', 73),
-(58, 'SIGN_UP_PAGE_FULLNAME', 'Nombre', 73),
-(59, 'SIGN_UP_PAGE_BIRTHDATE', 'F. Nacimiento', 73),
-(60, 'SIGN_UP_PAGE_NIF', 'NIF', 73),
-(61, 'SIGN_UP_PAGE_PHONE', 'Teléfono', 73),
-(62, 'SIGN_UP_PAGE_COUNTRY', 'País', 73),
-(63, 'SIGN_UP_PAGE_STATE', 'Provincia', 73),
-(64, 'SIGN_UP_PAGE_PLACEHOLDER_EMAIL', 'Introduce tu email', 73),
-(65, 'SIGN_UP_PAGE_PLACEHOLDER_PASSWORD', 'Introduce tu contraseña', 73),
-(66, 'SIGN_UP_PAGE_PLACEHOLDER_PASSWORD2', 'Repite la contraseña', 73),
-(67, 'SIGN_UP_PAGE_PLACEHOLDER_FULLNAME', 'Nombre y apellidos', 73),
-(68, 'SIGN_UP_PAGE_PLACEHOLDER_BIRTHDATE', 'Fecha de nacimiento', 73),
-(69, 'SIGN_UP_PAGE_PLACEHOLDER_NIF', 'NIF', 73),
-(70, 'SIGN_UP_PAGE_PLACEHOLDER_PHONE', 'Teléfono', 73),
-(71, 'SIGN_UP_PAGE_PLACEHOLDER_COUNTRY', 'País', 73),
-(72, 'SIGN_UP_PAGE_PLACEHOLDER_STATE', 'Provincia', 73),
-(73, 'SIGN_UP_PAGE_TERMS', 'Términos y condiciones', 73),
-(74, 'SIGN_UP_PAGE_SIGNUP', 'Registrarse', 73);
+(1, 'GENERIC_TITLE', 'Organizador de proyectos', 73),
+(2, 'GENERIC_CANCEL', 'Cancelar', 73),
+(3, 'HOME_PAGE', 'Inicio', 73),
+(4, 'ABOUT_PAGE', 'Nosotros', 73),
+(5, 'CONTACT_PAGE', 'Contacto', 73),
+(6, 'LOGIN_PAGE', 'Inicia sesión', 73),
+(7, 'LOGIN_PAGE_TITLE', 'Inicia sesión', 73),
+(8, 'LOGIN_PAGE_EMAIL', 'Email', 73),
+(9, 'LOGIN_PAGE_PASSWORD', 'Contraseña', 73),
+(10, 'LOGIN_PAGE_PLACEHOLDER_EMAIL', 'Introduce tu email', 73),
+(11, 'LOGIN_PAGE_PLACEHOLDER_PASS', 'Introduce tu contraseña', 73),
+(12, 'LOGIN_PAGE_AUTOLOGIN_TEXT', 'Mantén la sesión', 73),
+(13, 'LOGIN_PAGE_SIGN_IN', 'Identificarse', 73),
+(14, 'LOGIN_PAGE_SIGN_UP', 'Registrarse', 73),
+(15, 'SIGN_UP_PAGE', 'Registro', 73),
+(16, 'SIGN_UP_PAGE_TITLE', 'Registro de usuario', 73),
+(17, 'SIGN_UP_PAGE_EMAIL', 'Email', 73),
+(18, 'SIGN_UP_PAGE_PASSWORD', 'Contraseña', 73),
+(19, 'SIGN_UP_PAGE_PASSWORD2', 'R.Contraseña', 73),
+(20, 'SIGN_UP_PAGE_FULLNAME', 'Nombre', 73),
+(21, 'SIGN_UP_PAGE_BIRTHDATE', 'F. Nacimiento', 73),
+(22, 'SIGN_UP_PAGE_NIF', 'NIF', 73),
+(23, 'SIGN_UP_PAGE_PHONE', 'Teléfono', 73),
+(24, 'SIGN_UP_PAGE_COUNTRY', 'País', 73),
+(25, 'SIGN_UP_PAGE_STATE', 'Provincia', 73),
+(26, 'SIGN_UP_PAGE_PLACEHOLDER_EMAIL', 'Introduce tu email', 73),
+(27, 'SIGN_UP_PAGE_PLACEHOLDER_PASSWORD', 'Introduce tu contraseña', 73),
+(28, 'SIGN_UP_PAGE_PLACEHOLDER_PASSWORD2', 'Repite la contraseña', 73),
+(29, 'SIGN_UP_PAGE_PLACEHOLDER_FULLNAME', 'Nombre y apellidos', 73),
+(30, 'SIGN_UP_PAGE_PLACEHOLDER_BIRTHDATE', 'Fecha de nacimiento', 73),
+(31, 'SIGN_UP_PAGE_PLACEHOLDER_NIF', 'NIF', 73),
+(32, 'SIGN_UP_PAGE_PLACEHOLDER_PHONE', 'Teléfono', 73),
+(33, 'SIGN_UP_PAGE_PLACEHOLDER_COUNTRY', 'País', 73),
+(34, 'SIGN_UP_PAGE_PLACEHOLDER_STATE', 'Provincia', 73),
+(35, 'SIGN_UP_PAGE_TERMS', 'Leer términos y condiciones', 73),
+(36, 'SIGN_UP_PAGE_SIGNUP', 'Aceptar términos y registrarse', 73),
+(37, 'LOGIN_PAGE_ERROR_LOGIN', 'Error de usuario o contraseña', 73),
+(38, 'PANEL_USER', 'Panel de usuario', 73),
+(39, 'LEGAL_PAGE', 'Aviso legal', 73),
+(40, 'SIGN_UP_PAGE_FATAL_ERROR', 'Error al registrar el nuevo usuario', 73),
+(41, 'SIGN_UP_PAGE_WARNING', 'Las contraseñas no coinciden', 73),
+(42, 'SIGN_UP_PAGE_SELECT_ONE_MENU', '-- Selecciona un valor --', 73),
+(43, 'USER_DROPDOWN_HEADER_PROFILE', 'Perfil', 73),
+(44, 'USER_DROPDOWN_HEADER_PROJECTS', 'Proyectos', 73),
+(45, 'USER_DROPDOWN_VIEW_PROJECTS', 'Tus proyectos', 73),
+(46, 'USER_DROPDOWN_NEW_PROJECT', 'Crear nuevo', 73),
+(47, 'USER_DROPDOWN_CONTROL_PANEL', 'Panel de usuario', 73),
+(48, 'USER_DROPDOWN_NEW_PASS', 'Cambiar contraseña', 73),
+(49, 'USER_DROPDOWN_LOGOUT', 'Cerrar sesión', 73),
+(50, 'PANEL_USER_HEADER_CONTROL_PANEL', 'Panel de usuario', 73),
+(51, 'PANEL_USER_HEADER_PROJECTS', 'Todos los proyectos', 73),
+(52, 'PANEL_USER_LABEL_PROYECTOS', 'Proyectos', 73),
+(53, 'PANEL_USER_LABEL_NEW_PROJECT', 'Crear nuevo', 73),
+(54, 'PANEL_USER_LABEL_FIND_PROJECT', 'Buscar proyecto', 73),
+(55, 'PANEL_USER_LABEL_EDIT_PROFILE', 'Editar perfil', 73),
+(56, 'PANEL_USER_LABEL_NO_HAVE_PROJECTS', 'No tienes proyectos creados', 73),
+(57, 'PANEL_USER_LABEL_RECOVERY_DELETED', 'Recuperar eliminados', 73),
+(58, 'PANEL_USER_LABEL_VIEW_PROFILE', 'Ver perfil', 73),
+(59, 'PROFILE_USER', 'Perfil de usuario', 73),
+(60, 'PROFILE_USER_TITLE', 'Datos de perfil', 73),
+(61, 'GENERIC_ACCEPT', 'Aceptar', 73),
+(62, 'GENERIC_EDIT', 'Editar', 73),
+(63, 'GENERIC_BACK', 'Volver', 73),
+(64, 'GENERIC_SAVE', 'Guardar', 73),
+(65, 'PROFILE_PREFERENCES', 'Configuración del perfil', 73),
+(66, 'COMING_SOON', 'Próximamente', 73),
+(67, 'GENERIC_ERROR_SAVE', 'Error al guardar los cambios', 73),
+(68, 'GENERIC_SUCCESS_SAVE', 'Los cambios se han guardado correctamente', 73),
+(73, 'GENERIC_ERROR_VALIDATION', 'Error de validación', 73),
+(74, 'GENERIC_ERROR_PASSWORD_NO_MATCH', 'Las contraseñas no coinciden.', 73),
+(75, 'GENERIC_ERROR_PASSWORD_REQUIRED', 'La contraseña es obligatoria', 73),
+(76, 'GENERIC_ERROR_PASSWORD_INVALID', 'La contraseña no es correcta.', 73),
+(77, 'PANEL_USER_LABEL_CHANGE_PASSWORD', 'Cambiar contraseña', 73),
+(79, 'PANEL_USER_LABEL_DELETE_ACCOUNT', 'Cerrar tu cuenta', 73),
+(80, 'PANEL_USER_LABEL_DELETE_PROJECTS', 'Borrar proyectos', 73),
+(83, 'GENERIC_VIEW_PROJECT', 'Ver proyecto', 73),
+(84, 'GENERIC_DELETE', 'Eliminar', 73),
+(85, 'PROJECT_NOT_HAVE_IMAGES', 'No hay imágenes disponibles', 73),
+(86, 'GENERIC_DESCRIPTION', 'Descripción del proyecto', 73),
+(87, 'PROJECT_NOT_HAVE_TARGETS', 'No hay más información del proyecto', 73),
+(88, 'GENERIC_TITLE_DELETE', 'Eliminar', 73),
+(89, 'GENERIC_BODY_DELETE', '¿Seguro que desea eliminar el item ', 73),
+(90, 'GENERIC_CLOSE', 'Cerrar', 73),
+(91, 'GENERIC_NEXT', 'Siguiente', 73),
+(92, 'GENERIC_PREV', 'Anterior', 73);
 
 -- --------------------------------------------------------
 
@@ -396,7 +422,7 @@ INSERT INTO `parametros` (`id`, `etiqueta`, `texto`, `id_idioma`) VALUES
 CREATE TABLE `proyecto` (
   `id_proyecto` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `nombre` varchar(128) COLLATE utf8_spanish_ci NOT NULL,
-  `description` varchar(350) COLLATE utf8_spanish_ci NOT NULL,
+  `description` text COLLATE utf8_spanish_ci NOT NULL,
   `flag_finish` tinyint(1) NOT NULL DEFAULT '0',
   `flag_activo` tinyint(1) NOT NULL DEFAULT '1',
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -404,13 +430,6 @@ CREATE TABLE `proyecto` (
   `directorio_root` varchar(32) COLLATE utf8_spanish_ci NOT NULL,
   `home_image` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `proyecto`
---
-
-INSERT INTO `proyecto` (`id_proyecto`, `nombre`, `description`, `flag_finish`, `flag_activo`, `fecha_creacion`, `fecha_actualizacion`, `directorio_root`, `home_image`) VALUES
-('474d779e666241218e40', 'Proyecto de prueba', 'adfbnszx fgdrdrnsgnsrtns zrtgmdrst ymtrymd rtymdtry mdtrym drtymdrtymrtdymtymytr mtrymdrty mtdrymrt ymtr ym trymtymdrt ymdtymdrty mdrtymdtry mdrt ym dtrym drt mr', 0, 1, '2016-12-28 03:53:58', '2016-12-28 03:53:58', 'a099ea0b6cf34ace995ea8e0dfa4ab68', 'home.jpg');
 
 -- --------------------------------------------------------
 
@@ -423,15 +442,6 @@ CREATE TABLE `rel_proyecto_imagen` (
   `id_imagen` varchar(20) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `rel_proyecto_imagen`
---
-
-INSERT INTO `rel_proyecto_imagen` (`id_proyecto`, `id_imagen`) VALUES
-('474d779e666241218e40', '13a4c8d5267b419c84fb'),
-('474d779e666241218e40', '837d408036a645ee81a6'),
-('474d779e666241218e40', 'bd5b0558aae0449ba1cc');
-
 -- --------------------------------------------------------
 
 --
@@ -442,18 +452,6 @@ CREATE TABLE `rel_proyecto_tarjeta` (
   `id_proyecto` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `id_tarjeta` varchar(20) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `rel_proyecto_tarjeta`
---
-
-INSERT INTO `rel_proyecto_tarjeta` (`id_proyecto`, `id_tarjeta`) VALUES
-('474d779e666241218e40', '286f343313684107b7c2'),
-('474d779e666241218e40', '6a7607bbd10940578bd7'),
-('474d779e666241218e40', '70e61e6ec6a04bbdbe95'),
-('474d779e666241218e40', '910f3494155d4085aa69'),
-('474d779e666241218e40', 'af2a7e8981db4eeb8127'),
-('474d779e666241218e40', 'd50f9c11612e45bf80c1');
 
 -- --------------------------------------------------------
 
@@ -466,13 +464,6 @@ CREATE TABLE `rel_proyecto_usuario` (
   `id_proyecto` varchar(20) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `rel_proyecto_usuario`
---
-
-INSERT INTO `rel_proyecto_usuario` (`id_usuario`, `id_proyecto`) VALUES
-('d6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', '474d779e666241218e40');
-
 -- --------------------------------------------------------
 
 --
@@ -482,20 +473,9 @@ INSERT INTO `rel_proyecto_usuario` (`id_usuario`, `id_proyecto`) VALUES
 CREATE TABLE `tarjeta` (
   `id_tarjeta` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `label` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `valor` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+  `valor` text COLLATE utf8_spanish_ci NOT NULL,
+  `flag_activo` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `tarjeta`
---
-
-INSERT INTO `tarjeta` (`id_tarjeta`, `label`, `valor`) VALUES
-('286f343313684107b7c2', 'dfgnmxfghmxdfgm', 'xdfgmxfgmfxgmhjk,li.-ytrdtsxredytgkkmz<eat'),
-('6a7607bbd10940578bd7', 'tdkmdt5rykjmdtfchhmkmktuk,', 'dftu,klrtctcykmmtydfhccmk,krtykmtydkmtdfkmtcdfy'),
-('70e61e6ec6a04bbdbe95', 'sretjhrt6j5e6', 'e5tyjtyfkmuhy.guilyfrr'),
-('910f3494155d4085aa69', 'dtyhmkdtykmdstrey6jk5', 'kdtykftyulk,ftyycuhh,.lfyu'),
-('af2a7e8981db4eeb8127', 'detr5yykjseztkmh hgc', 'rzsxjmmngtfdrmmtyhk'),
-('d50f9c11612e45bf80c1', 'xfmnxdfgmjhgykfyuks', 'ryzedtjmntfhgykj765i');
 
 -- --------------------------------------------------------
 
@@ -506,21 +486,16 @@ INSERT INTO `tarjeta` (`id_tarjeta`, `label`, `valor`) VALUES
 CREATE TABLE `usuario` (
   `id_usuario` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `correo` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `user_pass` varchar(32) COLLATE utf8_spanish_ci NOT NULL,
+  `user_pass` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
   `fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `flag_activo` tinyint(1) NOT NULL DEFAULT '1',
+  `birth_date` date DEFAULT NULL,
+  `fullname` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
   `nif` varchar(12) COLLATE utf8_spanish_ci DEFAULT NULL,
   `telefono` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_pais` int(11) DEFAULT NULL,
   `poblacion` varchar(80) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`id_usuario`, `correo`, `user_pass`, `fecha_alta`, `flag_activo`, `nif`, `telefono`, `id_pais`, `poblacion`) VALUES
-('d6edfbf0a46a571cf0562daf23d90e81\nd6edfbf0a46a571cf', 'pedroolivagil@gmail.com', '1234', '2016-12-26 23:31:49', 1, '39929519R', '987654321', 73, 'Tarragona');
 
 --
 -- Índices para tablas volcadas
@@ -604,7 +579,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `error_log`
 --
 ALTER TABLE `error_log`
-  MODIFY `id_error_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_error_log` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `paises`
 --
@@ -614,7 +589,7 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `parametros`
 --
 ALTER TABLE `parametros`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 --
 -- Restricciones para tablas volcadas
 --
