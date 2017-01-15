@@ -4,6 +4,7 @@
         <title>[GENERIC_TITLE]</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="refresh" content="20" >
         <!-- Bootstrap -->
         <link href="[CSS]bootstrap.min.css" rel="stylesheet" />
         <link href="[CSS]bootstrap-datepicker3.min.css" rel="stylesheet" />
@@ -33,20 +34,14 @@
                             <li><a href="about">[ABOUT_PAGE]</a></li>
                             <li><a href="contact">[CONTACT_PAGE]</a></li>
                         </ul>
-                        <!--// <form class="navbar-form navbar-right" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </form> //-->
                         [USER_PANEL]
                     </div>
                 </div>
             </nav>
             <div class="container">
                 <!--// Text modal //-->
-                <button type="button" id="modal_generic_btn" class="btn btn-primary hidden" data-toggle="modal" data-target="#modal_generic"></button>
-                <div id="modal_generic" class="modal fade" tabindex="-1" role="dialog">
+                <button type="button" id="modal_generic_btn" class="btn btn-primary hidden" data-toggle="modal" data-target="#modal-generic"></button>
+                <div id="modal-generic" class="modal fade" tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -55,7 +50,32 @@
                             <div class="modal-body">
                                 <p></p>
                                 <br />
-                                <button type="button" class="btn btn-primary center-block" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary center-block" data-dismiss="modal">[CLOSE]</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--// DeleteModal //-->
+                <button type="button" id="modal_delete_btn" class="btn btn-primary hidden" data-toggle="modal" data-target="#modal-delete"></button>
+                <div id="modal-delete" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content panel-danger">
+                            <div class="modal-header panel-heading">
+                                <h4 class="modal-title">[GENERIC_TITLE_DELETE]</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>[GENERIC_BODY_DELETE] <strong></strong>?</p>
+                                <br />
+                                <div class="text-center">
+                                    <form class="btn" method="post" autocomplete="off" action="">
+                                        <input type="hidden" name="id" id="id" />
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">[CLOSE]</button>
+                                            <button type="submit" class="btn btn-danger">[DELETE]</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +86,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">[CLOSE]</span></button>
                                 <h4 class="modal-title" id="image-gallery-title"></h4>
                             </div>
                             <div class="modal-body">
@@ -74,13 +94,11 @@
                             </div>
                             <div class="modal-footer">
                                 <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary" id="show-previous-image">Previous</button>
+                                    <button type="button" class="btn btn-primary" id="show-previous-image">[GENERIC_PREV]</button>
                                 </div>
-                                <div class="col-md-8 text-justify" id="image-gallery-caption">
-                                    This text will be overwritten by jQuery
-                                </div>
+                                <div class="col-md-8 text-justify" id="image-gallery-caption"></div>
                                 <div class="col-md-2">
-                                    <button type="button" id="show-next-image" class="btn btn-default">Next</button>
+                                    <button type="button" id="show-next-image" class="btn btn-default">[GENERIC_NEXT]</button>
                                 </div>
                             </div>
                         </div>

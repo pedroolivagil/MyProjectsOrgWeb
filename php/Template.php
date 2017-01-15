@@ -41,6 +41,12 @@ abstract class Template {
             '[ABOUT_PAGE]' => Translator::getTextStatic('ABOUT_PAGE'),
             '[CONTACT_PAGE]' => Translator::getTextStatic('CONTACT_PAGE'),
             '[USER_PANEL]' => $userPanel,
+            '[GENERIC_TITLE_DELETE]' => Translator::getTextStatic('GENERIC_TITLE_DELETE'),
+            '[GENERIC_BODY_DELETE]' => Translator::getTextStatic('GENERIC_BODY_DELETE'),
+            '[DELETE]' => Translator::getTextStatic('GENERIC_DELETE'),
+            '[CLOSE]' => Translator::getTextStatic('GENERIC_CLOSE'),
+            '[GENERIC_NEXT]' => Translator::getTextStatic('GENERIC_NEXT'),
+            '[GENERIC_PREV]' => Translator::getTextStatic('GENERIC_PREV'),
             '[LOCALE]' => LOCALE
         );
         $tpl = self::getContentOfFile(_PAGES_PATH_ . 'header.php', $params);

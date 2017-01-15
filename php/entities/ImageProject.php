@@ -11,7 +11,7 @@
  *
  * @author Oliva
  */
-class ImageProject {
+class ImageProject extends PersistenceManager implements BasicMethodsEntities {
 
     //put your code here
     private $id_imagen;
@@ -90,6 +90,26 @@ class ImageProject {
 
     function setFlag_activo($flag_activo) {
         $this->flag_activo = $flag_activo;
+    }
+
+    public function toArray() {
+        return get_object_vars($this);        
+    }
+
+    public function create() {
+        
+    }
+
+    public function delete() {
+        
+    }
+
+    public function update() {
+        
+    }
+
+    public static function findById($id) {
+        
     }
 
 }

@@ -8,7 +8,7 @@ Template::getHeader();
 $breads = array(Translator::getTextStatic('PANEL_USER') => "");
 Template::getBreadCrumbs($breads);
 $user = User::findById(Tools::getCookie(SESSION_USUARIO_ID));
-$totalProjects = $user->getAllProjects();
+$totalProjects = $user->getAllActiveProjects();
 $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
 ?>
 <!--// Content //-->
@@ -38,11 +38,11 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
         </div>
     </div>
     <div class="panel-body">
-        <?php if ($user->countProjects() > 0) { ?>
+        <?php if ($user->countActiveProjects() > 0) { ?>
             <div class="row">
                 <?php
                 for ($x = 0; $x < LIMIT_RESULT_LIST; $x++) {
-                    if ($x + (($pagina - 1) * LIMIT_RESULT_LIST) < $user->countProjects()) {
+                    if ($x + (($pagina - 1) * LIMIT_RESULT_LIST) < $user->countActiveProjects()) {
                         $project = $totalProjects[$x + (($pagina - 1) * LIMIT_RESULT_LIST)];
                         ?>
                         <div class="col-sm-6 col-md-4">
@@ -67,7 +67,7 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
         <?php } ?>
     </div>
     <div class="panel-footer">
-        <?php if ($user->countProjects() > 0) { ?>
+        <?php if ($user->countActiveProjects() > 0) { ?>
             <!--// Paginador //-->
             <div class="text-center">
                 <nav aria-label="Page navigation">
@@ -77,11 +77,11 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <?php for ($x = 1; $x <= ceil($user->countProjects() / LIMIT_RESULT_LIST); $x++) { ?>
+                        <?php for ($x = 1; $x <= ceil($user->countActiveProjects() / LIMIT_RESULT_LIST); $x++) { ?>
                             <li <?php echo ($pagina == $x) ? 'class="active"' : '' ?>><a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo $x; ?>"><?php echo $x; ?></a></li>
                         <?php } ?>
-                        <li <?php echo ($pagina >= ceil($user->countProjects() / LIMIT_RESULT_LIST)) ? 'class="disabled"' : '' ?>>
-                            <a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo ($pagina + 1 > ceil($user->countProjects() / LIMIT_RESULT_LIST)) ? ceil($user->countProjects() / LIMIT_RESULT_LIST) : $pagina + 1; ?>" aria-label="Next">
+                        <li <?php echo ($pagina >= ceil($user->countActiveProjects() / LIMIT_RESULT_LIST)) ? 'class="disabled"' : '' ?>>
+                            <a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo ($pagina + 1 > ceil($user->countActiveProjects() / LIMIT_RESULT_LIST)) ? ceil($user->countActiveProjects() / LIMIT_RESULT_LIST) : $pagina + 1; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

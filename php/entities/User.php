@@ -69,6 +69,23 @@ class User extends PersistenceManager implements BasicMethodsEntities {
         return new Project($proyecto[0]['id_proyecto'], $proyecto[0]['nombre'], $proyecto[0]['description'], $proyecto[0]['flag_finish'], $proyecto[0]['flag_activo'], $proyecto[0]['fecha_creacion'], $proyecto[0]['fecha_actualizacion'], $proyecto[0]['directorio_root'], $proyecto[0]['home_image'], $tarjetas, $imagenes);
     }
 
+    public function getAllActiveProjects() {
+        $params = array(
+            COL_ID_USUARIO => $this->id_usuario
+        );
+        $proyectos = array();
+        $query = Database::preparedQuery(ProyectosFindAllById, $params);
+        if (!is_null($query)) {
+            foreach ($query as $proyecto) {
+                if ($proyecto['flag_activo']) {
+                    $proyect = new Project($proyecto['id_proyecto'], $proyecto['nombre'], $proyecto['description'], $proyecto['flag_finish'], $proyecto['flag_activo'], $proyecto['fecha_creacion'], $proyecto['fecha_actualizacion'], $proyecto['directorio_root'], $proyecto['home_image']);
+                    array_push($proyectos, $proyect);
+                }
+            }
+        }
+        return $proyectos;
+    }
+
     public function getAllProjects() {
         $params = array(
             COL_ID_USUARIO => $this->id_usuario
@@ -82,6 +99,10 @@ class User extends PersistenceManager implements BasicMethodsEntities {
             }
         }
         return $proyectos;
+    }
+
+    public function countActiveProjects() {
+        return count($this->getAllActiveProjects());
     }
 
     public function countProjects() {

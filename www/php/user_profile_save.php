@@ -1,7 +1,7 @@
 <?php
 
 require_once('../../config.php');
-if (!is_null($_POST)) {
+if (!is_null($_POST) && Tools::isUserSession()) {
     $finalePage = 'user-profile/save-error';
     Database::init_db();
     $id = Tools::getCookie(SESSION_USUARIO_ID);

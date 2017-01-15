@@ -5,11 +5,12 @@ function showAlert(title, texto) {
     $('.modal-body p').html(texto);
 }
 
-function showAlertImage(descript, url) {
-    var img = '<img src="' + url + '" class="img-rounded" />';
-    $('#modal_generic_btn').click();
-    $('.modal-title').html(descript);
-    $('.modal-body p').html(img);
+
+function showAlertDelete(itemName, itemID, action) {
+    $('#modal_delete_btn').click();
+    $('#modal-delete .modal-body p > strong').html(itemName);
+    $('#modal-delete .modal-body input#id').val(itemID);
+    $('#modal-delete .modal-body form').attr('action', action);
 }
 
 // OnLoad

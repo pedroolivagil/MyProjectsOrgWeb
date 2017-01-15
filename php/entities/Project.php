@@ -13,6 +13,7 @@
  */
 class Project extends PersistenceManager implements BasicMethodsEntities {
 
+    private static $id_usuario;
     private $id_proyecto;
     private $nombre;
     private $description;
@@ -38,6 +39,32 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
         $this->home_image = Tools::toNull($home_image);
         $this->tarjetas = $tarjetas;
         $this->imagenes = $imagenes;
+    }
+
+    public function create() {
+        return parent::getEm()->create($this->toArray(), TABLE_PROYECTO);
+    }
+
+    public function update() {
+        $id = array(COL_ID_USUARIO => $this->getId_usuario());
+        return parent::getEm()->update(TABLE_PROYECTO, $this->toArray(), $id);
+    }
+
+    public function delete() {
+        $id = array(COL_ID_PROYECTO => $this->getId_proyecto());
+        $params = $this->toArray();
+        unset($params['tarjetas'], $params['imagenes']);
+        return parent::getEm()->delete(TABLE_PROYECTO, $params, $id);
+    }
+
+    public static function findById($id) {
+        /* return User with user id data */
+        $params = array(
+            COL_ID_USUARIO => self::getId_usuario(),
+            COL_ID_PROYECTO => $id
+        );
+        $proyecto = Database::preparedQuery(ProyectoFindById, $params);
+        return new Project($proyecto[0]['id_proyecto'], $proyecto[0]['nombre'], $proyecto[0]['description'], $proyecto[0]['flag_finish'], $proyecto[0]['flag_activo'], $proyecto[0]['fecha_creacion'], $proyecto[0]['fecha_actualizacion'], $proyecto[0]['directorio_root'], $proyecto[0]['home_image'], NULL, NULL);
     }
 
     function getHomeImg($id) {
@@ -92,6 +119,10 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
         return $this->imagenes;
     }
 
+    static function getId_usuario() {
+        return self::$id_usuario;
+    }
+
     function setId_proyecto($id_proyecto) {
         $this->id_proyecto = $id_proyecto;
     }
@@ -134,6 +165,10 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
 
     function setImagenes($imagenes) {
         $this->imagenes = $imagenes;
+    }
+
+    static function setId_usuario($id_usuario) {
+        self::$id_usuario = $id_usuario;
     }
 
     public function toArray() {
