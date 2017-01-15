@@ -36,8 +36,16 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
         $this->fecha_actualizacion = Tools::toNull($fecha_actualizacion);
         $this->directorio_root = Tools::toNull($directorio_root);
         $this->home_image = Tools::toNull($home_image);
-        $this->tarjetas = Tools::toNull($tarjetas);
-        $this->imagenes = Tools::toNull($imagenes);
+        $this->tarjetas = $tarjetas;
+        $this->imagenes = $imagenes;
+    }
+
+    function getHomeImg($id) {
+        return _USER_PATH_ . $id . '/' . $this->getId_proyecto() . '/' . $this->getHome_image();
+    }
+
+    function getUrlImg($id) {
+        return _USER_PATH_ . $id . '/' . $this->getId_proyecto() . '/' . _USER_IMG_PATH_ . '/';
     }
 
     function getId_proyecto() {

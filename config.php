@@ -49,12 +49,14 @@ define('_PAGES_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/www/');
 define('_PHP_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/www/php/');
 define('_TEMP_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/temp/');
 define('_FORM_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/forms/');
-define('_USER_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/clients/');
+//define('_USER_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/clients/');
 define('_ROOT_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/');
 define('_IMAGE_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/img/');
 define('_CSS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/css/');
 define('_JS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/js/');
 define('_DOCS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/docs/');
+define('_USER_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/clients/');
+define('_USER_IMG_PATH_', 'img');
 
 //session_start(); // no hace falta gracias al .htaccess
 //ini_set('display_errors',1);
@@ -70,5 +72,7 @@ require_once(_CLASS_PATH_ . 'PersistenceManager.php');
 // Persistence
 require_once(_CLASS_PATH_ . 'entities/User.php');
 require_once(_CLASS_PATH_ . 'entities/Project.php');
+require_once(_CLASS_PATH_ . 'entities/TargetProject.php');
+require_once(_CLASS_PATH_ . 'entities/ImageProject.php');
 error_reporting(0);
 ?>

@@ -47,4 +47,3 @@ define("ProyectoFindById", "SELECT p.* FROM proyecto p JOIN rel_proyecto_usuario
 define("ProyectosFindAllById", "SELECT p.* FROM proyecto p JOIN rel_proyecto_usuario rpu ON rpu.id_proyecto = p.id_proyecto JOIN usuario u ON rpu.id_usuario = u.id_usuario WHERE u.id_usuario = :id_usuario");
 define("TarjetasFindAllById", "SELECT t.* FROM tarjeta t JOIN rel_proyecto_tarjeta rpt ON rpt.id_tarjeta = t.id_tarjeta JOIN rel_proyecto_usuario rpu ON rpt.id_proyecto = rpu.id_proyecto JOIN usuario u ON rpu.id_usuario = u.id_usuario WHERE u.id_usuario = :id_usuario AND rpu.id_proyecto = :id_proyecto");
 define("ImagenesFindAllById", "SELECT i.* FROM imagen i JOIN rel_proyecto_imagen rpi ON rpi.id_imagen = i.id_imagen JOIN rel_proyecto_usuario rpu ON rpi.id_proyecto = rpu.id_proyecto JOIN usuario u ON rpu.id_usuario = u.id_usuario WHERE u.id_usuario = :id_usuario AND rpu.id_proyecto = :id_proyecto");
-?>

@@ -99,7 +99,7 @@ class Tools {
             if ($pwd != $user_pass) {
                 $err++;
             }
-            if($usuario[0][COL_FLAG_ACTIVO] == 0){
+            if ($usuario[0][COL_FLAG_ACTIVO] == 0) {
                 $err++;
             }
         } else {
@@ -174,6 +174,20 @@ class Tools {
             $frase = $str;
         }
         return $frase;
+    }
+
+    public static function formatOutput($str, $limite = -1) {
+        if ($limite != -1) {
+            $longWeight = strlen($str);
+            if ($longWeight > $limite) {
+                $frase = substr($str, 0, $limite) . '...';
+            } else {
+                $frase = $str;
+            }
+        } else {
+            $frase = $str;
+        }
+        return nl2br(ucfirst($frase));
     }
 
     public static function toNull($string) {

@@ -92,12 +92,12 @@ VALUES
 (NULL, 'PANEL_USER_LABEL_DELETE_PROJECTS', 'Borrar proyectos', '73'),
 (NULL, 'GENERIC_VIEW_PROJECT', 'Ver proyecto', '73'),
 (NULL, 'GENERIC_DELETE', 'Eliminar', '73'),
+(NULL, 'PROJECT_NOT_HAVE_IMAGES', 'No hay imágenes disponibles', '73'),
+(NULL, 'GENERIC_DESCRIPTION', 'Descripción del proyecto', '73'),
+(NULL, 'PROJECT_NOT_HAVE_TARGETS', 'No hay más información del proyecto', '73'),
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
@@ -111,3 +111,4 @@ VALUES
 -- ALTER TABLES ---
 -- ALTER TABLE `usuario` ADD `birth_date` DATE NULL AFTER `flag_activo`;
 ALTER TABLE `usuario` ADD `fullname` VARCHAR(150) NOT NULL AFTER `birth_date`;
+ALTER TABLE `tarjeta` CHANGE `valor` `valor` TEXT CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL;

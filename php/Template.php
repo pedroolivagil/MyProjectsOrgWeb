@@ -78,6 +78,38 @@ abstract class Template {
         print self::htmlEntityDecode($tpl);
     }
 
+    public static function openPanelHeader($css = NULL) {
+        print '<div class="panel-heading ' . $css . '">';
+    }
+
+    public static function closePanelHeader() {
+        print '</div>';
+    }
+
+    public static function openPanelBody($css = NULL) {
+        print '<div class="panel-body ' . $css . '">';
+    }
+
+    public static function closePanelBody() {
+        print '</div>';
+    }
+
+    public static function openPanelFooter() {
+        print '<div class="panel-footer">';
+    }
+
+    public static function closePanelFooter() {
+        print '</div>';
+    }
+
+    public static function openPanel() {
+        print '<div class="panel panel-primary panel-derecha">';
+    }
+
+    public static function closePanel() {
+        print '</div>';
+    }
+
     public static function getFooter() {
         $params = array(
             '[JS]' => _JS_PATH_,
