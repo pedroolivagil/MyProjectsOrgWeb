@@ -194,6 +194,13 @@ class Tools {
         return (strlen($string) > 0) ? $string : NULL;
     }
 
+    public static function resizeImgWH($anchoOriginal, $altoOriginal, $anchoDeseado) {
+        return ($anchoDeseado * $altoOriginal) / $anchoOriginal;
+    }
+
+    public static function resizeImgHW($altoOriginal, $anchoOriginal, $altoDeseado) {
+        return ($altoDeseado * $anchoOriginal) / $altoOriginal;
+    }
 }
 
 ?>

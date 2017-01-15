@@ -8,13 +8,19 @@ Template::getHeader();
 $id = (!is_null($_REQUEST['id'])) ? $_REQUEST['id'] : 0;
 $user = User::findById(Tools::getCookie(SESSION_USUARIO_ID));
 $project = $user->getProjectById($id);
+$sizeTable = 0;
+foreach ($project->getImagenes() as $img) {
+    $image = ImageProject::getNewImage($img);
+    $url = $project->getUrlImg($user->getId_usuario()) . $image->getUrl();
+    $size = getimagesize($url);
+    $sizeTable += Tools::resizeImgHW($size[1], $size[0], HEIGHT_THUMB_VIEW_PJT) + 4;
+}
 $breads = array(
     Translator::getTextStatic('PANEL_USER') => "user-panel",
     //Translator::getTextStatic('GENERIC_VIEW_PROJECT') => ""
     ucfirst($project->getNombre()) => ""
 );
 Template::getBreadCrumbs($breads);
-$totalProjects = $user->getAllProjects();
 ?>
 <!--// Content //-->
 <?php
@@ -40,21 +46,30 @@ Template::openPanelBody();
         </div>
         <!-- Container imgs -->
         <div class="container-img-project well well-sm mar10-tb overflow-x max-height-350">
-            <?php
-            if (count($project->getImagenes()) > 0) {
-                foreach ($project->getImagenes() as $img) {
-                    $image = ImageProject::getNewImage($img);
-                    $url = $project->getUrlImg($user->getId_usuario()) . $image->getUrl();
-                    ?>
-                    <a class="preview" href="#" data-image-id="<?php echo $image->getId_imagen(); ?>" data-toggle="modal" data-title="<?php echo $project->getNombre(); ?>" data-caption="<?php echo Tools::formatOutput($image->getDescripcion()); ?>" data-image="<?php echo $url; ?>" data-target="#image-gallery">
-                        <img src="<?php echo $url; ?>" class="img-thumbnail height-57" />
-                    </a>
+            <table style="width: <?php echo $sizeTable; ?>px;">
+                <tr>
                     <?php
-                }
-            } else {
-                echo Translator::getTextStatic('PROJECT_NOT_HAVE_IMAGES');
-            }
-            ?>
+                    if (count($project->getImagenes()) > 0) {
+                        foreach ($project->getImagenes() as $img) {
+                            $image = ImageProject::getNewImage($img);
+                            $url = $project->getUrlImg($user->getId_usuario()) . $image->getUrl();
+                            $size = getimagesize($url);
+                            if ($image->getFlag_activo()) {
+                                ?>
+                                <td>
+                                    <a class="preview" href="#" data-image-id="<?php echo $image->getId_imagen(); ?>" data-toggle="modal" data-title="<?php echo $project->getNombre(); ?>" data-caption="<?php echo Tools::formatOutput($image->getDescripcion()); ?>" data-image="<?php echo $url; ?>" data-target="#image-gallery">
+                                        <img src="<?php echo $url; ?>" class="img-thumbnail" style="width: <?php echo Tools::resizeImgHW($size[1], $size[0], HEIGHT_THUMB_VIEW_PJT); ?>px; height: <?php echo HEIGHT_THUMB_VIEW_PJT; ?>px;" />
+                                    </a>
+                                </td>
+                                <?php
+                            }
+                        }
+                    } else {
+                        echo Translator::getTextStatic('PROJECT_NOT_HAVE_IMAGES');
+                    }
+                    ?>
+                </tr>
+            </table>
         </div>
         <div class="well well-sm"> <!-- container description -->
             <h4 class="h4"><span><?php echo Translator::getTextStatic('GENERIC_DESCRIPTION') ?></span></h4>
@@ -66,12 +81,14 @@ Template::openPanelBody();
         if (count($project->getTarjetas()) > 0) {
             foreach ($project->getTarjetas() as $tjs) {
                 $target = TargetProject::getNewTarget($tjs);
-                ?>
-                <div class="well well-sm mar10-b">
-                    <h4 class="h4"><span><?php echo Tools::formatOutput($target->getLabel(), 40); ?></span></h4>
-                    <p class="text-justify"><?php echo Tools::formatOutput($target->getValor()); ?></p>
-                </div>
-                <?php
+                if ($target->getFlag_activo()) {
+                    ?>
+                    <div class="well well-sm mar10-b">
+                        <h4 class="h4"><span><?php echo Tools::formatOutput($target->getLabel(), 40); ?></span></h4>
+                        <p class="text-justify"><?php echo Tools::formatOutput($target->getValor()); ?></p>
+                    </div>
+                    <?php
+                }
             }
         } else {
             echo Translator::getTextStatic('PROJECT_NOT_HAVE_TARGETS');
