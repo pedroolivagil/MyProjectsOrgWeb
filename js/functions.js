@@ -5,12 +5,15 @@ function showAlert(title, texto) {
     $('.modal-body p').html(texto);
 }
 
-
 function showAlertDelete(itemName, itemID, action) {
     $('#modal_delete_btn').click();
     $('#modal-delete .modal-body p > strong').html(itemName);
     $('#modal-delete .modal-body input#id').val(itemID);
     $('#modal-delete .modal-body form').attr('action', action);
+}
+
+function clickElement(id){
+    $("#"+id).click();
 }
 
 // OnLoad
@@ -24,7 +27,7 @@ $(document).ready(function () {
         $(this).parent().animate({opacity: 0}, 250).hide('fast');
     });
     $("input").attr("autocomplete", "off");
-
+    $('[data-toggle="tooltip"]').tooltip({animation: true});
 
     loadGallery(true, 'a.preview');
 

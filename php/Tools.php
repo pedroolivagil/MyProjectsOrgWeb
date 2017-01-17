@@ -201,6 +201,19 @@ class Tools {
     public static function resizeImgHW($altoOriginal, $anchoOriginal, $altoDeseado) {
         return ($altoDeseado * $anchoOriginal) / $altoOriginal;
     }
-}
 
-?>
+    public static function formatDate($date, $format = "d-m-Y, H:i") {
+        return date_format(date_create($date), $format);
+    }
+
+    public function printLiteralBool($bool) {
+        $str = '';
+        if ($bool) {
+            $str = Translator::getTextStatic('GENERIC_TRUE');
+        } else {
+            $str = Translator::getTextStatic('GENERIC_FALSE');
+        }
+        return $str;
+    }
+
+}

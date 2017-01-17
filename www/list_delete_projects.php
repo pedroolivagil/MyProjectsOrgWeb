@@ -27,25 +27,50 @@ Template::openPanelHeader();
 Template::closePanelHeader();
 Template::openPanelBody();
 ?>
-<table class="table table-bordered table-striped table-hover table-responsive">
+<table class="table table-bordered table-hover table-responsive">
     <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>F. Creación</th>
-        <th>Opciones</th>
+        <th><span data-toggle="tooltip" title="Seleccionados">Sel.</span></th>
+        <th><span data-toggle="tooltip" title="Nombre">Nombre</span></th>
+        <th><span data-toggle="tooltip" title="Terminado">Term.</span></th>
+        <th><span data-toggle="tooltip" title="Descripción">Descrip.</span></th>
+        <th><span data-toggle="tooltip" title="Fecha de creación">F. Creación</span></th>
+        <th><span data-toggle="tooltip" title="Última actualización">Últ. act.</span></th>
     </tr>
-    <?php foreach ($projects as $pjt) { ?>
-        <tr>
-            <td><?php echo $pjt->getId_proyecto(); ?></td>
+    <?php
+    $x = 0;
+    foreach ($projects as $pjt) {
+        ?>
+    <tr onclick="clickElement('row_table<?php echo $x; ?>')">
+            <td class="text-center"><input type="checkbox" id="row_table<?php echo $x; ?>" name="row_table" value="<?php echo $pjt->getId_proyecto(); ?>" /></td>
             <td><?php echo $pjt->getNombre(); ?></td>
-            <td><?php echo $pjt->getFecha_creacion(); ?></td>
-            <td>ver/editar/borrar</td>
+            <td><?php echo Tools::printLiteralBool($pjt->getFlag_finish()); ?></td>
+            <td><?php echo Tools::formatOutput($pjt->getDescription(), 20); ?></td>
+            <td><?php echo Tools::formatDate($pjt->getFecha_creacion()); ?></td>
+            <td><?php
+                if ($pjt->getFecha_creacion() != $pjt->getFecha_actualizacion()) {
+                    echo Tools::formatDate($pjt->getFecha_actualizacion());
+                } else {
+                    echo '- - -';
+                }
+                ?></td>
         </tr>
-    <?php } ?>
-
+        <?php
+        $x++;
+    }
+    ?>
 </table>
 <?php
 Template::closePanelBody();
+Template::openPanelFooter();
+?>
+<div class="text-right">
+    <div class="btn-group" role="group">
+        <a href="<?php echo _ROOT_PATH_ . 'user-panel' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
+        <a class="btn btn-danger" onclick="showAlertDelete('<?php echo 'Eliminar'; ?>', 'row_table', '<?php echo _ROOT_PATH_ . 'user-panel/delete-project' ?>')"><?php echo Translator::getTextStatic('GENERIC_DELETE'); ?></a>
+    </div>
+</div>
+<?php
+Template::closePanelFooter();
 Template::closePanel();
 
 Template::getFooter();

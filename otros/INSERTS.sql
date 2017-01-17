@@ -101,11 +101,11 @@ VALUES
 (NULL, 'GENERIC_NEXT', 'Siguiente', '73'),
 (NULL, 'GENERIC_PREV', 'Anterior', '73'),
 (NULL, 'PANEL_TITLE_LIST_TABLE', 'Lista de proyectos', '73'),
+(NULL, 'GENERIC_TRUE', 'Si', '73'),
+(NULL, 'GENERIC_FALSE', 'No', '73'),
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

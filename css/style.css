@@ -217,6 +217,12 @@ body { padding-top: 70px; padding-bottom: 50px; }
     /*border-bottom: 1px solid #337ab7;
     padding-right: 5px;*/
 }
+.tooltip-inner{
+    font-size: 1.2em;
+}
+tr{
+    cursor: pointer !important;
+}
 
 /* MEDIDAS */
 .width100 {
