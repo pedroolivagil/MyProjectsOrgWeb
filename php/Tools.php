@@ -169,7 +169,7 @@ class Tools {
     public static function cutOutput($str, $limite) {
         $longWeight = strlen($str);
         if ($longWeight > $limite) {
-            $frase = substr($str, 0, $limite) . '...';
+            $frase = trim(substr($str, 0, $limite)) . '...';
         } else {
             $frase = $str;
         }
@@ -214,6 +214,14 @@ class Tools {
             $str = Translator::getTextStatic('GENERIC_FALSE');
         }
         return $str;
+    }
+
+    public static function isEmpty($var) {
+        /* Devuelve TRUE si variable es NULL o esta vacía */
+        if ($var != '' or $var != NULL) {
+            return false;
+        }
+        return true;
     }
 
 }

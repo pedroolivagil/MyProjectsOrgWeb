@@ -49,7 +49,9 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
                             <div class="thumbnail">
                                 <img src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" alt="...">
                                 <div class="caption">
-                                    <h3><?php echo $project->getNombre(); ?></h3>
+                                    <div data-toggle="tooltip" title="<?php echo $project->getNombre(); ?>">
+                                        <h3><?php echo Tools::cutOutput($project->getNombre(),15); ?></h3>
+                                    </div>
                                     <p class="text-justify">
                                         <?php echo Tools::cutOutput($project->getDescription(), 50); ?>
                                     </p>
@@ -63,7 +65,7 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
                 ?>
             </div>
         <?php } else { ?>
-            <p><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NO_HAVE_PROJECTS'); ?></p>
+            <div class="alert alert-warning"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NO_HAVE_PROJECTS'); ?></div>
         <?php } ?>
     </div>
     <div class="panel-footer">

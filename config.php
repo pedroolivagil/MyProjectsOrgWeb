@@ -13,6 +13,7 @@ define('LOCALE', 'es');
 define('LIMIT_RESULT_LIST', 3);
 define('LIMIT_PAGINATOR_NUMS', 10);
 define('HEIGHT_THUMB_VIEW_PJT', 57);
+define('EXPLODE_DELIMITER', ';');
 
 // PDIGen Constants
 define('DOWNLOAD', 'D');
