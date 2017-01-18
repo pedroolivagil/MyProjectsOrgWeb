@@ -28,7 +28,7 @@ Template::closePanelHeader();
 Template::openPanelBody();
 ?>
 <table class="table table-bordered table-hover table-responsive">
-    <tr>
+    <tr class="bg-gray-10">
         <th><span data-toggle="tooltip" title="Seleccionados">Sel.</span></th>
         <th><span data-toggle="tooltip" title="Nombre">Nombre</span></th>
         <th><span data-toggle="tooltip" title="Terminado">Term.</span></th>
@@ -40,19 +40,22 @@ Template::openPanelBody();
     $x = 0;
     foreach ($projects as $pjt) {
         ?>
-    <tr onclick="clickElement('row_table<?php echo $x; ?>')">
-            <td class="text-center"><input type="checkbox" id="row_table<?php echo $x; ?>" name="row_table" value="<?php echo $pjt->getId_proyecto(); ?>" /></td>
-            <td><?php echo $pjt->getNombre(); ?></td>
-            <td><?php echo Tools::printLiteralBool($pjt->getFlag_finish()); ?></td>
-            <td><?php echo Tools::formatOutput($pjt->getDescription(), 20); ?></td>
-            <td><?php echo Tools::formatDate($pjt->getFecha_creacion()); ?></td>
-            <td><?php
+        <tr>
+            <td class="text-center">
+                <input type="checkbox" id="row_table<?php echo $x; ?>" name="row_table" value="<?php echo $pjt->getId_proyecto(); ?>" />
+            </td>
+            <td onclick="clickElement('row_table<?php echo $x; ?>')"><?php echo $pjt->getNombre(); ?></td>
+            <td onclick="clickElement('row_table<?php echo $x; ?>')" class="text-center"><?php echo Tools::printLiteralBool($pjt->getFlag_finish()); ?></td>
+            <td onclick="clickElement('row_table<?php echo $x; ?>')"><?php echo Tools::formatOutput($pjt->getDescription(), 20); ?></td>
+            <td onclick="clickElement('row_table<?php echo $x; ?>')"><?php echo Tools::formatDate($pjt->getFecha_creacion()); ?></td>
+            <td onclick="clickElement('row_table<?php echo $x; ?>')"><?php
                 if ($pjt->getFecha_creacion() != $pjt->getFecha_actualizacion()) {
                     echo Tools::formatDate($pjt->getFecha_actualizacion());
                 } else {
                     echo '- - -';
                 }
-                ?></td>
+                ?>
+            </td>
         </tr>
         <?php
         $x++;

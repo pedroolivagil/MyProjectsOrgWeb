@@ -220,8 +220,14 @@ body { padding-top: 70px; padding-bottom: 50px; }
 .tooltip-inner{
     font-size: 1.2em;
 }
-tr{
+.bg-gray-10 {
+    background: rgba(0,0,0,.05);
+}
+tr {
     cursor: pointer !important;
+}
+td {
+    color: rgba(0,0,0,.7);
 }
 
 /* MEDIDAS */

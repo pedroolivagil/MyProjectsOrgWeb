@@ -103,6 +103,7 @@ VALUES
 (NULL, 'PANEL_TITLE_LIST_TABLE', 'Lista de proyectos', '73'),
 (NULL, 'GENERIC_TRUE', 'Si', '73'),
 (NULL, 'GENERIC_FALSE', 'No', '73'),
+(NULL, 'PANEL_USER_LABEL_LIST_PROJECTS', 'Lista de proyectos', '73'),
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
