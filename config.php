@@ -3,7 +3,7 @@
 /* * ************************* */
 /*   MyProjectsOrg.com Config  */
 /* * ************************* */
-
+// Configs
 define('EXPIRE', time() + (2 * 24 * 60 * 60));     // 2 dias; 24 horas; 60 min; 60 s
 define('MAXFILESIZE', ini_get('upload_max_filesize') * 1024);  // En KB -> 3MB
 define('MAXDIRSIZE', 524288);    // en KB -> 512MB
@@ -14,6 +14,7 @@ define('LIMIT_RESULT_LIST', 3);
 define('LIMIT_PAGINATOR_NUMS', 10);
 define('HEIGHT_THUMB_VIEW_PJT', 57);
 define('EXPLODE_DELIMITER', ';');
+define('MAX_FIELDS_PROJECT', 20);
 
 // PDIGen Constants
 define('DOWNLOAD', 'D');

@@ -112,13 +112,13 @@ VALUES
 (NULL, 'PANEL_LABEL_LABEL_NEW_PROJECT_ID', 'Identificador del proyecto', '73'),
 (NULL, 'PANEL_LABEL_NEW_PROJECT_TARGET_LABEL', 'Añade un título para la tarjeta', '73'),
 (NULL, 'PANEL_LABEL_NEW_PROJECT_TARGET_VALUE', 'Añade un valor correspondiente', '73'),
+(NULL, 'GENERIC_ADD_FIELD', 'Añade una tarjeta', '73'),
+(NULL, 'GENERIC_SELECT_FILE', 'Añade una imagen', '73'),
 -- Nuevos
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, 'GENERIC_ADD_FIELD', 'Añade una celda', '73'),
-(NULL, 'GENERIC_SELECT_FILE', 'Añade una imagen', '73')
-(NULL, '', '', '73'),
+(NULL, 'PANEL_LABEL_NEW_PROJECT_ERROR_MAX_FIELDS', 'Has alcanzado el máximo de tarjetas para el proyecto', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

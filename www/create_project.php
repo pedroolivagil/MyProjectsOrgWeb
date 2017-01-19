@@ -92,7 +92,7 @@ Template::getBreadCrumbs($breads);
 </form>
 <script type="text/javascript">
     contador = 0;
-    maxfileds = 20;
+    maxfileds = <?php echo MAX_FIELDS_PROJECT; ?>;
     function addField() {
         var phdr1 = '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_LABEL'); ?>';
         var phdr2 = '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_VALUE'); ?>';
@@ -106,6 +106,8 @@ Template::getBreadCrumbs($breads);
             $('div#config_project').append(div);
             scrollBottom();
             contador++;
+        } else {
+            showAlert('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_ERROR_MAX_FIELDS'); ?>');
         }
     }
 </script>
