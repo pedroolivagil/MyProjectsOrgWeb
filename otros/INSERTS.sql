@@ -81,7 +81,6 @@ VALUES
 (NULL, 'GENERIC_SAVE', 'Guardar', '73'),
 (NULL, 'PROFILE_PREFERENCES', 'Configuración del perfil', '73'),
 (NULL, 'COMING_SOON', 'Próximamente', '73'),
--- Nuevos
 (NULL, 'GENERIC_ERROR_SAVE', 'Error al guardar los cambios', '73'),
 (NULL, 'GENERIC_SUCCESS_SAVE', 'Los cambios se han guardado correctamente', '73'),
 (NULL, 'GENERIC_ERROR_VALIDATION', 'Error de validación', '73'),
@@ -104,11 +103,21 @@ VALUES
 (NULL, 'GENERIC_TRUE', 'Si', '73'),
 (NULL, 'GENERIC_FALSE', 'No', '73'),
 (NULL, 'PANEL_USER_LABEL_LIST_PROJECTS', 'Lista de proyectos', '73'),
+(NULL, 'GENERIC_SELECTED', 'seleccionado/s', '73'),
+(NULL, 'GENERIC_NEW_PROJECT', 'Nuevo proyecto', '73'),
+(NULL, 'GENERIC_ADD_FIELD', 'Añade una celda', '73'),
+(NULL, 'GENERIC_SELECT_FILE', 'Añade una imagen', '73'),
+(NULL, 'PANEL_LABEL_NEW_PROJECT_NAME', 'Título para el proyecto', '73'),
+(NULL, 'PANEL_LABEL_NEW_PROJECT_DESCRIPTION', 'Descripción completa del proyecto', '73'),
+(NULL, 'PANEL_LABEL_LABEL_NEW_PROJECT_ID', 'Identificador del proyecto', '73'),
+(NULL, 'PANEL_LABEL_NEW_PROJECT_TARGET_LABEL', 'Añade un título para la tarjeta', '73'),
+(NULL, 'PANEL_LABEL_NEW_PROJECT_TARGET_VALUE', 'Añade un valor correspondiente', '73'),
+-- Nuevos
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, 'GENERIC_SELECTED', 'seleccionado/s', '73'),
-(NULL, 'GENERIC_NEW_PROJECT', 'Nuevo proyecto', '73'),
+(NULL, 'GENERIC_ADD_FIELD', 'Añade una celda', '73'),
+(NULL, 'GENERIC_SELECT_FILE', 'Añade una imagen', '73')
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
@@ -116,24 +125,28 @@ VALUES
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
-(NULL, '', '', '73')
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
+(NULL, '', '', '73'),
 
 -- ALTER TABLES ---
--- ALTER TABLE `usuario` ADD `birth_date` DATE NULL AFTER `flag_activo`;
-ALTER TABLE `usuario` ADD `fullname` VARCHAR(150) NOT NULL AFTER `birth_date`;
-ALTER TABLE `tarjeta` CHANGE `valor` `valor` TEXT CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL;
-ALTER TABLE `proyecto` ADD `id_usuario` VARCHAR(32) NOT NULL AFTER `fecha_creacion`, ADD INDEX (`id_usuario`) ;
+-- ALTER TABLE usuario ADD birth_date DATE NULL AFTER flag_activo;
+ALTER TABLE usuario ADD fullname VARCHAR(150) NOT NULL AFTER birth_date;
+ALTER TABLE tarjeta CHANGE valor valor TEXT CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL;
+-- innecesario al crear tabla actividad_proyecto
+--ALTER TABLE proyecto ADD id_usuario VARCHAR(32) NOT NULL AFTER fecha_creacion, ADD INDEX (id_usuario);
+--ALTER TABLE proyecto DROP id_usuario:
 
 -- NEW TABLES ---
-CREATE TABLE IF NOT EXISTS `actividad_proyecto` (
-  `id_project` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `id_usuario` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `accion` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`id_actividad_proyecto` int(10) unsigned NOT NULL
+CREATE TABLE IF NOT EXISTS actividad_proyecto (
+  id_project varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  id_usuario varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  accion varchar(300) COLLATE utf8_spanish_ci NOT NULL,
+  fecha timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+id_actividad_proyecto int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
-ALTER TABLE `actividad_proyecto`
- ADD PRIMARY KEY (`id_actividad_proyecto`), ADD KEY `id_project` (`id_project`,`id_usuario`);
-ALTER TABLE `actividad_proyecto`
-MODIFY `id_actividad_proyecto` int(10) unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE actividad_proyecto
+ ADD PRIMARY KEY (id_actividad_proyecto), ADD KEY id_project (id_project,id_usuario);
+ALTER TABLE actividad_proyecto
+MODIFY id_actividad_proyecto int(10) unsigned NOT NULL AUTO_INCREMENT;
