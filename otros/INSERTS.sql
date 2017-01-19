@@ -108,8 +108,7 @@ VALUES
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
 (NULL, 'GENERIC_SELECTED', 'seleccionado/s', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
+(NULL, 'GENERIC_NEW_PROJECT', 'Nuevo proyecto', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

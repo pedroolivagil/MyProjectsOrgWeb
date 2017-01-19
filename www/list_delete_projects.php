@@ -51,7 +51,8 @@ if (count($projects) > 0) {
                 <td onclick="clickElement('row_table<?php echo $x; ?>')" class="text-center"><?php echo Tools::printLiteralBool($pjt->getFlag_finish()); ?></td>
                 <td onclick="clickElement('row_table<?php echo $x; ?>')"><?php echo Tools::formatOutput($pjt->getDescription(), 20); ?></td>
                 <td onclick="clickElement('row_table<?php echo $x; ?>')"><?php echo Tools::formatDate($pjt->getFecha_creacion()); ?></td>
-                <td onclick="clickElement('row_table<?php echo $x; ?>')"><?php
+                <td onclick="clickElement('row_table<?php echo $x; ?>')">
+                    <?php
                     if ($pjt->getFecha_creacion() != $pjt->getFecha_actualizacion()) {
                         echo Tools::formatDate($pjt->getFecha_actualizacion());
                     } else {

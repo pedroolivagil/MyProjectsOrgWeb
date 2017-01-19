@@ -229,6 +229,11 @@ tr {
 td {
     color: rgba(0,0,0,.7);
 }
+textarea {
+    resize: none;
+    height: 132px !important;
+}
+
 
 /* MEDIDAS */
 .width100 {

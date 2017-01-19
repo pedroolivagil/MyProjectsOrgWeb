@@ -20,7 +20,7 @@
                     <?php echo Translator::getTextStatic('PANEL_USER_LABEL_PROYECTOS'); ?>
                     <span class="badge badge-primary"><?php echo $user->countActiveProjects(); ?></span>
                 </a>
-                <a href="#" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></a>
+                <a href="<?php echo _ROOT_PATH_; ?>user-panel/create-project" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></a>
                 <a href="<?php echo _ROOT_PATH_; ?>user-panel/list-projects" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_LIST_PROJECTS'); ?></a>
             </div>
         </div>

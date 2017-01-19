@@ -87,6 +87,10 @@ class Tools {
         return substr(md5(microtime()), 0, $leng);
     }
 
+    public static function generateUUID($leng) {
+        return substr(str_replace("-", "", UUID::generate(UUID::UUID_RANDOM, UUID::FMT_STRING)), 0, $leng);
+    }
+
     public static function login($user, $pass, $auto = FALSE) {
         $err = 0;
         $params = array(

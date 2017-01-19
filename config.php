@@ -71,6 +71,7 @@ require_once(_CLASS_PATH_ . 'BasicMethods.php');
 require_once(_CLASS_PATH_ . 'BasicMethodsEntities.php');
 require_once(_CLASS_PATH_ . 'EntityManager.php');
 require_once(_CLASS_PATH_ . 'PersistenceManager.php');
+require_once(_CLASS_PATH_ . 'class.uuid.php');
 // Persistence
 require_once(_CLASS_PATH_ . 'entities/User.php');
 require_once(_CLASS_PATH_ . 'entities/Project.php');
