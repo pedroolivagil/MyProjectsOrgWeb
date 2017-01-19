@@ -70,7 +70,7 @@ Template::getBreadCrumbs($breads);
     <div class="row">
         <div class="col-lg-6">
             <div class="btn-group" role="group">
-                <button type="button" onclick="addField();" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></button>
+                <button type="button" id="add_target" onclick="addField();" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></button>
                 <button type="button" onclick="clickElement('header_img');" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_SELECT_FILE'); ?></button>
             </div>
             <label class="col-md-4 hidden">
@@ -104,6 +104,7 @@ Template::getBreadCrumbs($breads);
         div += '</div>';
         if (contador < maxfileds) {
             $('div#config_project').append(div);
+            scrollBottom();
             contador++;
         }
     }

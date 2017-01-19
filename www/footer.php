@@ -12,5 +12,6 @@
 <script src="[JS]bootstrap-datepicker.min.js"></script>
 <script src="[JS]locales/bootstrap-datepicker.[LOCALE].min.js" charset="UTF-8"></script>
 <script src="[JS]functions.js" type="text/javascript"></script>
+[SCRIPTS]
 </body>
 </html>

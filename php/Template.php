@@ -116,9 +116,10 @@ abstract class Template {
         print '</div>';
     }
 
-    public static function getFooter() {
+    public static function getFooter($scripts = '') {
         $params = array(
             '[JS]' => _JS_PATH_,
+            '[SCRIPTS]' => $scripts,
             '[LOCALE]' => LOCALE
         );
         $tpl = self::getContentOfFile(_PAGES_PATH_ . 'footer.php', $params);

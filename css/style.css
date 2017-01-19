@@ -15,7 +15,7 @@ html, body {
     background: url("../img/bg4.png") fixed;
 }
 
-body { padding-top: 70px; padding-bottom: 50px; }
+body { padding-top: 70px; /*padding-bottom: 50px;*/ }
 
 /* CONTENEDORES */
 .wrapper, .navbar-fixed-top {

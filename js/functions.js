@@ -66,6 +66,9 @@ function showAlertDelete(itemName, itemID, action) {
 function clickElement(id) {
     $("#" + id).click();
 }
+function scrollBottom(){
+    $("html, body").animate({scrollTop: $(document).height() - $(window).height()});
+}
 
 // OnLoad
 $(document).ready(function () {
