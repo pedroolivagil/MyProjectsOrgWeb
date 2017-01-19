@@ -4,7 +4,7 @@
         <title>[GENERIC_TITLE]</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="refresh" content="15" >
+        <meta http-equiv="refresh" content="300" >
         <!-- Bootstrap -->
         <link href="[CSS]bootstrap.min.css" rel="stylesheet" />
         <link href="[CSS]bootstrap-datepicker3.min.css" rel="stylesheet" />

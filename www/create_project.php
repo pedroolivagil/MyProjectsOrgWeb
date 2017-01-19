@@ -23,7 +23,7 @@ $newID = Tools::generateUUID(20);
 Template::getBreadCrumbs($breads);
 ?>
 <!--// Content //-->
-<form>
+<form method="post" name="formulario" enctype="multipart/form-data" action="<?php echo _ROOT_PATH_.'user-panel/new-project'; ?>">
     <?php
     include_once(_PHP_PATH_ . 'viewuser.php');
     Template::openPanel();
@@ -39,24 +39,18 @@ Template::getBreadCrumbs($breads);
     ?>
     <div class="form-group width100">
         <label class="sr-only" for="newproject_name"><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?></label>
-        <input type="text" class="form-control width100" name="newproject_name" id="newproject_name" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?>">
+        <input type="text" maxlength="128" class="form-control width100" name="newproject_name" id="newproject_name" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?>">
     </div>
     <div class="row" id="config_project">
         <div class="form-group col-md-6">
             <label class="sr-only" for="newproject_description"><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?></label>
-            <textarea class="form-control height-new-description" name="newproject_description" id="newproject_description" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?>"></textarea>
+            <textarea maxlength="2500" class="form-control height-new-description" name="newproject_description" id="newproject_description" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?>"></textarea>
         </div>
         <div class="form-group col-md-6">
             <label class="sr-only" for="newproject_id"><?php echo Translator::getTextStatic('PANEL_LABEL_LABEL_NEW_PROJECT_ID'); ?></label>
-            <input type="text" class="form-control disabled" name="newproject_id" id="newproject_id" value="<?php echo $newID; ?>" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_'); ?>" readonly>
+            <input type="text" class="form-control disabled" disabled name="newproject_id" id="newproject_id" value="<?php echo $newID; ?>" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_'); ?>" readonly>
             <?php //usamos este -> ?><input type="hidden" name="newproject_id_project" id="newproject_id_project" value="<?php echo $newID; ?>">
         </div>
-        <!--        <div class="col-md-6">
-                    <div class="list-group width100">
-                        <input type="text" class="list-group-item width100 btn-primary-important" name="newproject_target_label[]" id="newproject_target_label[]" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_LABEL'); ?>">
-                        <textarea class="list-group-item width100 panel-primary" name="newproject_target_value[]" id="newproject_target_value[]" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_VALUE'); ?>"></textarea>
-                    </div>
-                </div>-->
     </div>
     <hr />
     <div id="project_images">
@@ -98,8 +92,8 @@ Template::getBreadCrumbs($breads);
         var phdr2 = '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_VALUE'); ?>';
         var div = '<div class="col-md-6">';
         div += '     <div class="list-group width100">';
-        div += '        <input type="text" class="list-group-item width100 btn-primary-important" name="newproject_target_label[]" id="newproject_target_label[]" placeholder="' + phdr1 + '">';
-        div += '        <textarea class="list-group-item width100 panel-primary" name="newproject_target_value[]" id="newproject_target_value[]" placeholder="' + phdr2 + '"></textarea>';
+        div += '        <input maxlength="255" type="text" class="list-group-item width100 btn-primary-important" name="newproject_target_label[]" id="newproject_target_label[]" placeholder="' + phdr1 + '">';
+        div += '        <textarea maxlength="1000" class="list-group-item width100 panel-primary" name="newproject_target_value[]" id="newproject_target_value[]" placeholder="' + phdr2 + '"></textarea>';
         div += '    </div>';
         div += '</div>';
         if (contador < maxfileds) {
