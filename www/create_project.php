@@ -69,9 +69,7 @@ Template::getBreadCrumbs($breads);
     <div class="row">
         <div class="col-lg-9">
             <div class="btn-group dropup" role="group">
-                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                    Action
-                    <span class="caret"></span>
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_BTN_ADD_MORE'); ?> <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="#" onclick="addField();"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></a></li>

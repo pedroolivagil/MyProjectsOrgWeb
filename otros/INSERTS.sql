@@ -122,7 +122,7 @@ VALUES
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
 (NULL, 'GENERIC_SELECT_FILE_MULTIPLE', 'Añade múltiples imágenes', '73'),
-(NULL, '', '', '73'),
+(NULL, 'PANEL_NEW_PROJECT_BTN_ADD_MORE', 'Añade más...', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
