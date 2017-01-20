@@ -262,6 +262,9 @@ textarea.height-new-description {
 .height-57 {
     height: 57px !important;
 }
+.max-height-thumb {
+    height: 100px !important;
+}
 
 /* PADDINGS */
 .pad5 {
