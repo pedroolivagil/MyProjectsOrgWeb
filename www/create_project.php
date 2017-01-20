@@ -58,7 +58,7 @@ Template::getBreadCrumbs($breads);
         <span class="custom-file-control"></span>
     </label>
     <!--// Imágenes de proyecto //-->
-    <label class="col-md-4">
+    <label class="hidden">
         <input type="file" id="projectImg" name="projectImg[]" multiple>
         <span class="custom-file-control"></span>
     </label>
@@ -68,10 +68,16 @@ Template::getBreadCrumbs($breads);
     ?>
     <div class="row">
         <div class="col-lg-9">
-            <div class="btn-group" role="group">
-                <button type="button" onclick="addField();" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></button>
-                <button type="button" onclick="clickElement('header_img');" class="btn btn-primary"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_HEADER_SELECT_FILE'); ?></button>
-                <button type="button" onclick="clickElement('projectImg');" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_SELECT_FILE_MULTIPLE'); ?></button>
+            <div class="btn-group dropup" role="group">
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                    Action
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="addField();"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></a></li>
+                    <li><a href="#" onclick="clickElement('header_img');"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_HEADER_SELECT_FILE'); ?></a></li>
+                    <li><a href="#" onclick="clickElement('projectImg');"><?php echo Translator::getTextStatic('GENERIC_SELECT_FILE_MULTIPLE'); ?></a></li>
+                </ul>
             </div>
         </div>
         <div class="text-right col-lg-3">
