@@ -41,7 +41,7 @@ Template::getBreadCrumbs($breads);
         <label class="sr-only" for="newproject_name"><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?></label>
         <input type="text" maxlength="128" class="form-control width100" name="newproject_name" id="newproject_name" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?>">
     </div>
-    <div class="row" id="config_project">
+    <div class="row max-height-config-pjt" id="config_project">
         <div class="form-group col-md-6">
             <label class="sr-only" for="newproject_description"><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?></label>
             <textarea maxlength="2500" class="form-control height-new-description" name="newproject_description" id="newproject_description" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?>"></textarea>
@@ -52,7 +52,7 @@ Template::getBreadCrumbs($breads);
             <?php //usamos este -> ?><input type="hidden" name="newproject_id_project" id="newproject_id_project" value="<?php echo $newID; ?>">
         </div>
     </div>
-    <hr>
+
     <div class="row">
         <div id="header_img_preview" class="col-md-3">
             <h5><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_HEADER_IMG'); ?></h5>
@@ -85,9 +85,9 @@ Template::getBreadCrumbs($breads);
                 <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_BTN_ADD_MORE'); ?> <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" onclick="addField();"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></a></li>
-                    <li><a href="#" onclick="clickElement('header_img');"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_HEADER_SELECT_FILE'); ?></a></li>
-                    <li><a href="#" onclick="clickElement('projectImg');"><?php echo Translator::getTextStatic('GENERIC_SELECT_FILE_MULTIPLE'); ?></a></li>
+                    <li><a href="javascript:addField();"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></a></li>
+                    <li><a href="javascript:clickElement('header_img');"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_HEADER_SELECT_FILE'); ?></a></li>
+                    <li><a href="javascript:clickElement('projectImg');"><?php echo Translator::getTextStatic('GENERIC_SELECT_FILE_MULTIPLE'); ?></a></li>
                 </ul>
             </div>
         </div>
@@ -119,20 +119,11 @@ Template::getBreadCrumbs($breads);
         div += '</div>';
         if (contadorFields < maxfileds) {
             $('div#config_project').append(div);
+            scrollBottom('config_project');
             scrollBottom();
             contadorFields++;
         } else {
             showAlert('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_ERROR_MAX_FIELDS'); ?>');
-        }
-    }
-    function readURL(input, container) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                alert(e.target.result);
-                $('#' + container).attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
         }
     }
     function readImg(input, divID, title) {
@@ -142,6 +133,7 @@ Template::getBreadCrumbs($breads);
         } else {
             printPreviewImage('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_ONLY_IMAGES'); ?>', input, divID, title)
         }
+        scrollBottom();
     }
 </script>
 <?php

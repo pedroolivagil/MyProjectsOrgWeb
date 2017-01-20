@@ -69,6 +69,9 @@ function clickElement(id) {
 function scrollBottom() {
     $("html, body").animate({scrollTop: $(document).height() - $(window).height()});
 }
+function scrollBottom(id) {
+    $("#" + id).animate({scrollTop: $("#" + id)[0].scrollHeight});
+}
 function convertStringDBToHTML(string) {
     return string.replace(/{/gi, '<').replace(/}/gi, '>');
 }

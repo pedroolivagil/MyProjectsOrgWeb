@@ -24,6 +24,10 @@ body { padding-top: 70px; padding-bottom: 50px; }
 .panel {
     border-radius: 5px !important;    
 }
+.panel-heading {
+    border-top-left-radius: 3px !important; 
+    border-top-right-radius: 3px !important;
+}
 .container-login, .container-signup {
     position: relative;
     left: 50%;
@@ -263,7 +267,12 @@ textarea.height-new-description {
     height: 57px !important;
 }
 .max-height-thumb {
-    height: 100px !important;
+    max-height: 100px !important;
+}
+.max-height-config-pjt {
+    max-height: 400px !important;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 /* PADDINGS */
