@@ -15,6 +15,7 @@ define('LIMIT_PAGINATOR_NUMS', 10);
 define('HEIGHT_THUMB_VIEW_PJT', 57);
 define('EXPLODE_DELIMITER', ';');
 define('MAX_FIELDS_PROJECT', 20);
+define('MAX_IMAGES_PROJECT', 12);
 
 // PDIGen Constants
 define('DOWNLOAD', 'D');

@@ -52,13 +52,13 @@ function loadGallery(setIDs, setClickAttr) {
 
 function showAlert(title, texto) {
     $('#modal_generic_btn').click();
-    $('.modal-title').html(title);
-    $('.modal-body p').html(texto);
+    $('.modal-title').html(convertStringDBToHTML(title));
+    $('.modal-body p').html(convertStringDBToHTML(texto));
 }
 
 function showAlertDelete(itemName, itemID, action) {
     $('#modal_delete_btn').click();
-    $('#modal-delete .modal-body p > strong').html(itemName);
+    $('#modal-delete .modal-body p > strong').html(convertStringDBToHTML(itemName));
     $('#modal-delete .modal-body input#id').val(itemID);
     $('#modal-delete .modal-body form').attr('action', action);
 }
@@ -66,8 +66,21 @@ function showAlertDelete(itemName, itemID, action) {
 function clickElement(id) {
     $("#" + id).click();
 }
-function scrollBottom(){
+function scrollBottom() {
     $("html, body").animate({scrollTop: $(document).height() - $(window).height()});
+}
+function convertStringDBToHTML(string){
+    return string.replace(/{/gi,'<').replace(/}/gi,'>');
+}
+
+function validateInputFiles(id, maxfiles, title, msg) {
+    var fileUpload = $("#" + id);
+    if (parseInt(fileUpload.get(0).files.length) > maxfiles) {
+        showAlert(title, msg.replace('[MAX]', maxfiles));
+        return false;
+    } else {
+        return true;
+    }
 }
 
 // OnLoad

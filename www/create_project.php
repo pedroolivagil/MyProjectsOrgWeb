@@ -23,7 +23,7 @@ $newID = Tools::generateUUID(20);
 Template::getBreadCrumbs($breads);
 ?>
 <!--// Content //-->
-<form method="post" name="formulario" enctype="multipart/form-data" action="<?php echo _ROOT_PATH_.'user-panel/new-project'; ?>">
+<form method="post" name="formulario" enctype="multipart/form-data" action="<?php echo _ROOT_PATH_ . 'user-panel/new-project'; ?>">
     <?php
     include_once(_PHP_PATH_ . 'viewuser.php');
     Template::openPanel();
@@ -52,30 +52,32 @@ Template::getBreadCrumbs($breads);
             <?php //usamos este -> ?><input type="hidden" name="newproject_id_project" id="newproject_id_project" value="<?php echo $newID; ?>">
         </div>
     </div>
-    <hr />
-    <div id="project_images">
-
-
-    </div>    
+    <!--// Imagen de cabecera //-->
+    <label class="hidden">
+        <input type="file" id="header_img" name="header_img">
+        <span class="custom-file-control"></span>
+    </label>
+    <!--// Imágenes de proyecto //-->
+    <label class="col-md-4">
+        <input type="file" id="projectImg" name="projectImg[]" multiple>
+        <span class="custom-file-control"></span>
+    </label>
     <?php
     Template::closePanelBody();
     Template::openPanelFooter();
     ?>
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-9">
             <div class="btn-group" role="group">
-                <button type="button" id="add_target" onclick="addField();" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></button>
-                <button type="button" onclick="clickElement('header_img');" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_SELECT_FILE'); ?></button>
+                <button type="button" onclick="addField();" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></button>
+                <button type="button" onclick="clickElement('header_img');" class="btn btn-primary"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_HEADER_SELECT_FILE'); ?></button>
+                <button type="button" onclick="clickElement('projectImg');" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_SELECT_FILE_MULTIPLE'); ?></button>
             </div>
-            <label class="col-md-4 hidden">
-                <input type="file" id="header_img" name="header_img">
-                <span class="custom-file-control"></span>
-            </label>
         </div>
-        <div class="text-right col-lg-6">
+        <div class="text-right col-lg-3">
             <div class="btn-group" role="group">
                 <a href="<?php echo _ROOT_PATH_ . 'user-panel' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
-                <button type="submit" class="btn btn-success"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></button>
+                <button type="submit" onclick="return validateInputFiles('projectImg',<?php echo MAX_IMAGES_PROJECT; ?>, '<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_LABEL_MAX_FILES'); ?>');" class="btn btn-success"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></button>
             </div>
         </div>
     </div>
@@ -85,8 +87,10 @@ Template::getBreadCrumbs($breads);
     ?>
 </form>
 <script type="text/javascript">
-    contador = 0;
+    contadorFields = 0;
+    contadorImages = 0;
     maxfileds = <?php echo MAX_FIELDS_PROJECT; ?>;
+    maximages = <?php echo MAX_IMAGES_PROJECT; ?>;
     function addField() {
         var phdr1 = '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_LABEL'); ?>';
         var phdr2 = '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_VALUE'); ?>';
@@ -96,10 +100,10 @@ Template::getBreadCrumbs($breads);
         div += '        <textarea maxlength="1000" class="list-group-item width100 panel-primary" name="newproject_target_value[]" id="newproject_target_value[]" placeholder="' + phdr2 + '"></textarea>';
         div += '    </div>';
         div += '</div>';
-        if (contador < maxfileds) {
+        if (contadorFields < maxfileds) {
             $('div#config_project').append(div);
             scrollBottom();
-            contador++;
+            contadorFields++;
         } else {
             showAlert('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_ERROR_MAX_FIELDS'); ?>');
         }
