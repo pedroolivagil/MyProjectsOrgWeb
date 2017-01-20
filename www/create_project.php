@@ -52,9 +52,24 @@ Template::getBreadCrumbs($breads);
             <?php //usamos este -> ?><input type="hidden" name="newproject_id_project" id="newproject_id_project" value="<?php echo $newID; ?>">
         </div>
     </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <h5><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_HEADER_IMG'); ?></h5>
+            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />
+        </div>
+        <div class="col-md-9">
+            <h5><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_PROJECT_IMG'); ?></h5>
+            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />
+            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />
+            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />
+            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />
+        </div>
+    </div>
+
     <!--// Imagen de cabecera //-->
     <label class="hidden">
-        <input type="file" id="header_img" name="header_img">
+        <input type="file" id="header_img" name="header_img" onchange="readURL(this, 'header_img_preview')">
         <span class="custom-file-control"></span>
     </label>
     <!--// Imágenes de proyecto //-->
@@ -67,7 +82,7 @@ Template::getBreadCrumbs($breads);
     Template::openPanelFooter();
     ?>
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-md-6">
             <div class="btn-group dropup" role="group">
                 <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_BTN_ADD_MORE'); ?> <span class="caret"></span>
                 </a>
@@ -78,7 +93,7 @@ Template::getBreadCrumbs($breads);
                 </ul>
             </div>
         </div>
-        <div class="text-right col-lg-3">
+        <div class="text-right col-md-6">
             <div class="btn-group" role="group">
                 <a href="<?php echo _ROOT_PATH_ . 'user-panel' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
                 <button type="submit" onclick="return validateInputFiles('projectImg',<?php echo MAX_IMAGES_PROJECT; ?>, '<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_LABEL_MAX_FILES'); ?>');" class="btn btn-success"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></button>
@@ -110,6 +125,16 @@ Template::getBreadCrumbs($breads);
             contadorFields++;
         } else {
             showAlert('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_ERROR_MAX_FIELDS'); ?>');
+        }
+    }
+    function readURL(input, container) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                alert(e.target.result);
+                $('#' + container).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
         }
     }
 </script>
