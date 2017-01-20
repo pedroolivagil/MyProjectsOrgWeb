@@ -41,7 +41,7 @@ Template::getBreadCrumbs($breads);
         <label class="sr-only" for="newproject_name"><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?></label>
         <input type="text" maxlength="128" class="form-control width100" name="newproject_name" id="newproject_name" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?>">
     </div>
-    <div class="row max-height-config-pjt" id="config_project">
+    <div class="row max-height-config-pjt well well-sm no-corners" id="config_project">
         <div class="form-group col-md-6">
             <label class="sr-only" for="newproject_description"><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?></label>
             <textarea maxlength="2500" class="form-control height-new-description" name="newproject_description" id="newproject_description" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?>"></textarea>

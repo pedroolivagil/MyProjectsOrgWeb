@@ -251,6 +251,9 @@ textarea.height-new-description {
 .inline{
     display: inline;
 }
+.no-corners{
+    border-radius: 0 !important;
+}
 
 
 /* MEDIDAS */
