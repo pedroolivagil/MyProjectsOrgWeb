@@ -269,8 +269,9 @@ textarea.height-new-description {
 .height-57 {
     height: 57px !important;
 }
-.max-height-thumb {
-    max-height: 100px !important;
+.max-width-thumb {
+    max-width: 150px !important;
+    margin-right: 5px;
 }
 .max-height-config-pjt {
     max-height: 400px !important;

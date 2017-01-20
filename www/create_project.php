@@ -42,11 +42,11 @@ Template::getBreadCrumbs($breads);
         <input type="text" maxlength="128" class="form-control width100" name="newproject_name" id="newproject_name" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?>">
     </div>
     <div class="row max-height-config-pjt well well-sm no-corners" id="config_project">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-6 pad5-lr">
             <label class="sr-only" for="newproject_description"><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?></label>
             <textarea maxlength="2500" class="form-control height-new-description" name="newproject_description" id="newproject_description" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_DESCRIPTION'); ?>"></textarea>
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-6 pad5-lr">
             <label class="sr-only" for="newproject_id"><?php echo Translator::getTextStatic('PANEL_LABEL_LABEL_NEW_PROJECT_ID'); ?></label>
             <input type="text" class="form-control disabled" disabled name="newproject_id" id="newproject_id" value="<?php echo $newID; ?>" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_'); ?>" readonly>
             <?php //usamos este -> ?><input type="hidden" name="newproject_id_project" id="newproject_id_project" value="<?php echo $newID; ?>">
@@ -82,7 +82,9 @@ Template::getBreadCrumbs($breads);
     <div class="row">
         <div class="col-md-6">
             <div class="btn-group dropup" role="group">
-                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_BTN_ADD_MORE'); ?> <span class="caret"></span>
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                    <?php echo Translator::getTextStatic('PANEL_NEW_PROJECT_BTN_ADD_MORE'); ?>&nbsp;&nbsp;
+                    <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="javascript:addField();"><?php echo Translator::getTextStatic('GENERIC_ADD_FIELD'); ?></a></li>
@@ -111,7 +113,7 @@ Template::getBreadCrumbs($breads);
     function addField() {
         var phdr1 = '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_LABEL'); ?>';
         var phdr2 = '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_TARGET_VALUE'); ?>';
-        var div = '<div class="col-md-6">';
+        var div = '<div class="col-md-6 pad5-lr">';
         div += '     <div class="list-group width100">';
         div += '        <input maxlength="255" type="text" class="list-group-item width100 btn-primary-important" name="newproject_target_label[]" id="newproject_target_label[]" placeholder="' + phdr1 + '">';
         div += '        <textarea maxlength="1000" class="list-group-item width100 panel-primary" name="newproject_target_value[]" id="newproject_target_value[]" placeholder="' + phdr2 + '"></textarea>';

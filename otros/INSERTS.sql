@@ -116,7 +116,7 @@ VALUES
 (NULL, 'GENERIC_SELECT_FILE', 'Añade una imagen', '73'),
 (NULL, 'PANEL_LABEL_NEW_PROJECT_ERROR_MAX_FIELDS', 'Has alcanzado el máximo de tarjetas para el proyecto', '73'),
 -- Nuevos
-(NULL, 'GENERIC_LABEL_MAX_FILES', 'Has superado el máximo de imágenes seleccionadas por un mismo proyecto.\n\nEl máximo es [MAX]', '73'),
+(NULL, 'GENERIC_LABEL_MAX_FILES', 'Has superado el máximo de imágenes seleccionadas por un mismo proyecto.{br}{br}El máximo es {strong}[MAX]{/strong}', '73'),
 (NULL, 'PANEL_NEW_PROJECT_HEADER_SELECT_FILE', 'Añade imagen de proyecto', '73'),
 (NULL, 'GENERIC_SELECT_FILE_MULTIPLE', 'Añade múltiples imágenes', '73'),
 (NULL, 'PANEL_NEW_PROJECT_BTN_ADD_MORE', 'Añade más...', '73'),

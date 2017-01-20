@@ -95,14 +95,29 @@ function printPreviewImage(titleAlert, msg, input, divID, title) {
         image_holder.append('<h5>' + title + '</h5>');
         if (typeof (FileReader) != "undefined") {
             //loop for each file selected for uploaded.
-            for (var i = 0; i < countFiles; i++)
-            {
+            for (var i = 0; i < countFiles; i++) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    $("<img />", {
+                    var img = $("<img />", {
                         "src": e.target.result,
-                        "class": "thumbnail inline max-height-thumb"
-                    }).appendTo(image_holder);
+                        "class": "thumbnail inline"
+                    });
+                    img.load(function () {
+                        var w = $(this).width();
+                        var h = $(this).height();
+                        if (w > h) {
+                            $(this).width(150);
+                            $(this).height(resizeImgWH(w, h, 150));
+                        } else if (h > w) {
+                            $(this).height(150);
+                            $(this).width(resizeImgWH(h, w, 150));
+                        } else {
+                            $(this).width(150);
+                            $(this).height(150);
+                        }
+                        console.log($(this).width() + 'x' + $(this).height());
+                    });
+                    img.appendTo(image_holder);
                 }
                 image_holder.show();
                 reader.readAsDataURL($(input)[0].files[i]);
@@ -117,6 +132,13 @@ function printPreviewImage(titleAlert, msg, input, divID, title) {
         $(input).val('');
         showAlert(titleAlert, msg);
     }
+}
+
+function resizeImgHW(altoOriginal, anchoOriginal, altoDeseado) {
+    return (altoDeseado * anchoOriginal) / altoOriginal;
+}
+function resizeImgWH(anchoOriginal, altoOriginal, anchoDeseado) {
+    return (anchoDeseado * altoOriginal) / anchoOriginal;
 }
 
 // OnLoad
