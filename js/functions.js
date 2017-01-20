@@ -69,8 +69,8 @@ function clickElement(id) {
 function scrollBottom() {
     $("html, body").animate({scrollTop: $(document).height() - $(window).height()});
 }
-function convertStringDBToHTML(string){
-    return string.replace(/{/gi,'<').replace(/}/gi,'>');
+function convertStringDBToHTML(string) {
+    return string.replace(/{/gi, '<').replace(/}/gi, '>');
 }
 
 function validateInputFiles(id, maxfiles, title, msg) {
@@ -80,6 +80,39 @@ function validateInputFiles(id, maxfiles, title, msg) {
         return false;
     } else {
         return true;
+    }
+}
+function printPreviewImage(titleAlert, msg, input, divID, title) {
+    var countFiles = $(input)[0].files.length;
+    var imgPath = $(input)[0].value;
+    var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+    var image_holder = $("#" + divID);
+    if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+        image_holder.empty();
+        image_holder.append('<h5>' + title + '</h5>');
+        if (typeof (FileReader) != "undefined") {
+            //loop for each file selected for uploaded.
+            for (var i = 0; i < countFiles; i++)
+            {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("<img />", {
+                        "src": e.target.result,
+                        "class": "thumbnail inline max-height-thumb"
+                    }).appendTo(image_holder);
+                }
+                image_holder.show();
+                reader.readAsDataURL($(input)[0].files[i]);
+            }
+        } else {
+            // Navigator not suported FileReader
+            $(input).val('');
+            showAlert(titleAlert, msg);
+        }
+    } else {
+        // Select images only
+        $(input).val('');
+        showAlert(titleAlert, msg);
     }
 }
 

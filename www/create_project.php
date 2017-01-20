@@ -56,26 +56,23 @@ Template::getBreadCrumbs($breads);
     <div class="row">
         <div id="header_img_preview" class="col-md-3">
             <h5><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_HEADER_IMG'); ?></h5>
-            <!--<img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />-->
+            <h6><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_HEADER_IMG_EMPTY'); ?></h6>
         </div>
         <div id="image-holder" class="col-md-9">
             <h5><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_PROJECT_IMG'); ?></h5>
-<!--            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />
-            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />
-            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />
-            <img id="header_img_preview" class="thumbnail inline" src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" style="max-height: 100px;" />-->
+            <h6><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_PROJECT_IMG_EMPTY'); ?></h6>
         </div>
     </div>
 
     <!--// Imagen de cabecera //-->
     <label class="hidden">
         <!--<input type="file" id="header_img" name="header_img" onchange="readURL(this, 'header_img_preview')">-->
-        <input type="file" id="header_img" name="header_img" onchange="readImg(this, 'header_img_preview')">
+        <input type="file" id="header_img" name="header_img" onchange="readImg(this, 'header_img_preview', '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_HEADER_IMG'); ?>')">
         <span class="custom-file-control"></span>
     </label>
     <!--// Imágenes de proyecto //-->
     <label class="hidden">
-        <input type="file" id="projectImg" name="projectImg[]" multiple onchange="readImg(this, 'image-holder')">
+        <input type="file" id="projectImg" name="projectImg[]" multiple onchange="readImg(this, 'image-holder', '<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_PROJECT_IMG'); ?>')">
         <span class="custom-file-control"></span>
     </label>
     <?php
@@ -138,33 +135,12 @@ Template::getBreadCrumbs($breads);
             reader.readAsDataURL(input.files[0]);
         }
     }
-    function readImg(input, divID) {
+    function readImg(input, divID, title) {
         //Get count of selected files
-        var countFiles = $(input)[0].files.length;
-        var imgPath = $(input)[0].value;
-        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-        var image_holder = $("#" + divID);
-        image_holder.empty();
-        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
-            if (typeof (FileReader) != "undefined") {
-                //loop for each file selected for uploaded.
-                for (var i = 0; i < countFiles; i++)
-                {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        $("<img />", {
-                            "src": e.target.result,
-                            "class": "thumbnail inline max-height-thumb"
-                        }).appendTo(image_holder);
-                    }
-                    image_holder.show();
-                    reader.readAsDataURL($(input)[0].files[i]);
-                }
-            } else {
-                alert("This browser does not support FileReader.");
-            }
+        if ($(input).attr('id') == 'header_img') {
+            printPreviewImage('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_ONLY_IMAGES'); ?>', input, divID, title)
         } else {
-            alert("Pls select only images");
+            printPreviewImage('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_ONLY_IMAGES'); ?>', input, divID, title)
         }
     }
 </script>
