@@ -14,6 +14,7 @@
 class TargetProject extends PersistenceManager implements BasicMethodsEntities {
 
     //put your code here
+    private $id_proyecto;
     private $id_target;
     private $label;
     private $valor;
@@ -62,12 +63,31 @@ class TargetProject extends PersistenceManager implements BasicMethodsEntities {
         $this->flag_activo = $flag_activo;
     }
 
+    function getId_proyecto() {
+        return $this->id_proyecto;
+    }
+
+    function setId_proyecto($id_proyecto) {
+        $this->id_proyecto = $id_proyecto;
+    }
+
     public function toArray() {
-        return get_object_vars($this);        
+        return get_object_vars($this);
     }
 
     public function create() {
-        
+        $params = $this->toArray();
+        unset($params['id_proyecto']);
+        if (parent::getEm()->create($params, TABLE_TARJETA)) {
+            $relacion = array(
+                COL_ID_PROYECTO => $this->getId_proyecto(),
+                COL_ID_TARJETA => $this->getId_target()
+            );
+            if (parent::getEm()->create($relacion, TABLE_REL_PJT_TARJETA)) {
+                return TRUE;
+            }
+        }
+        return FALSE;
     }
 
     public function delete() {

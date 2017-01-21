@@ -129,13 +129,13 @@ Template::getBreadCrumbs($breads);
         }
     }
     function readImg(input, divID, title) {
-        //Get count of selected files
-        if ($(input).attr('id') == 'header_img') {
-            printPreviewImage('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_ONLY_IMAGES'); ?>', input, divID, title)
+        //Get count of selected file
+        if (contadorImages <= maximages) {
+            printPreviewImage('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_ONLY_IMAGES'); ?>', input, divID, title);
+            scrollBottom();
         } else {
-            printPreviewImage('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_ONLY_IMAGES'); ?>', input, divID, title)
+            showAlert('<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_LABEL_MAX_FILES'); ?>');
         }
-        scrollBottom();
     }
 </script>
 <?php

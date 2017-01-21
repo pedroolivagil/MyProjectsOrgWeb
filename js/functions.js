@@ -90,6 +90,7 @@ function printPreviewImage(titleAlert, msg, input, divID, title) {
     var imgPath = $(input)[0].value;
     var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
     var image_holder = $("#" + divID);
+    var maxWH = 100;
     if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
         image_holder.empty();
         image_holder.append('<h5>' + title + '</h5>');
@@ -100,20 +101,20 @@ function printPreviewImage(titleAlert, msg, input, divID, title) {
                 reader.onload = function (e) {
                     var img = $("<img />", {
                         "src": e.target.result,
-                        "class": "thumbnail inline"
+                        "class": "thumbnail inline mar5"
                     });
                     img.load(function () {
                         var w = $(this).width();
                         var h = $(this).height();
                         if (w > h) {
-                            $(this).width(150);
-                            $(this).height(resizeImgWH(w, h, 150));
+                            $(this).width(maxWH);
+                            $(this).height(resizeImgWH(w, h, maxWH));
                         } else if (h > w) {
-                            $(this).height(150);
-                            $(this).width(resizeImgWH(h, w, 150));
+                            $(this).height(maxWH);
+                            $(this).width(resizeImgWH(h, w, maxWH));
                         } else {
-                            $(this).width(150);
-                            $(this).height(150);
+                            $(this).width(maxWH);
+                            $(this).height(maxWH);
                         }
                         console.log($(this).width() + 'x' + $(this).height());
                     });

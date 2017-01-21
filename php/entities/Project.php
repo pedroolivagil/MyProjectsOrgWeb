@@ -23,7 +23,9 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
     private $fecha_actualizacion;
     private $directorio_root;
     private $home_image;
+    // array multidimesional asociativo con los valores clave identicos a las propiedades de la clase
     private $tarjetas;
+    // array multidimesional asociativo con los valores clave identicos a las propiedades de la clase
     private $imagenes;
 
     function __construct($id_proyecto, $nombre, $description = NULL, $flag_finish = NULL, $flag_activo = NULL, $fecha_creacion = NULL, $fecha_actualizacion = NULL, $directorio_root = NULL, $home_image = NULL, $tarjetas = NULL, $imagenes = NULL) {
@@ -42,12 +44,29 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
     }
 
     public function create() {
-        return parent::getEm()->create($this->toArray(), TABLE_PROYECTO);
+        $params = $this->toArray();
+        unset($params['tarjetas'], $params['imagenes']);
+        if (parent::getEm()->create($params, TABLE_PROYECTO)) {
+            if ($this->getTarjetas() != NULL && count($this->getTarjetas()) > 0) {
+                foreach ($this->getTarjetas() as $tarjet) {
+                    $tarjet->setId_proyecto($this->getId_proyecto());
+                    $tarjet->create();
+                }
+            }
+            if ($this->getImagenes() != NULL && count($this->getImagenes()) > 0) {
+                foreach ($this->getImagenes() as $imagen) {
+                    $imagen->setId_proyecto($this->getId_proyecto());
+                    $imagen->create();
+                }
+            }
+        }
     }
 
     public function update() {
         $id = array(COL_ID_USUARIO => $this->getId_usuario());
-        return parent::getEm()->update(TABLE_PROYECTO, $this->toArray(), $id);
+        $params = $this->toArray();
+        unset($params['tarjetas'], $params['imagenes']);
+        return parent::getEm()->update(TABLE_PROYECTO, $params, $id);
     }
 
     public function delete() {
