@@ -129,6 +129,7 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
     public function create() {
         $params = $this->toArray();
         unset($params['id_proyecto']);
+        unset($params['realname']);
         $params['url'] = $this->getRealname();
         if (parent::getEm()->create($params, TABLE_IMAGEN)) {
             $relacion = array(

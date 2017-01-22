@@ -17,7 +17,7 @@ define('EXPLODE_DELIMITER', ';');
 define('MAX_FIELDS_PROJECT', 15);
 define('MAX_IMAGES_PROJECT', 12);
 define('UUID_LENGHT', 20);
-define('UUID_LENGHT_XL', 40);
+define('UUID_LENGHT_XL', 32);
 
 // PDIGen Constants
 define('DOWNLOAD', 'D');
