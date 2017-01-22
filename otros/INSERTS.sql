@@ -152,6 +152,10 @@ UPDATE parametros SET etiqueta = 'PANEL_LABEL_NEW_PROJECT_ID' WHERE etiqueta LIK
 -- ALTER TABLE usuario ADD birth_date DATE NULL AFTER flag_activo;
 ALTER TABLE usuario ADD fullname VARCHAR(150) NOT NULL AFTER birth_date;
 ALTER TABLE tarjeta CHANGE valor valor TEXT CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL;
+ALTER TABLE `imagen` ADD `header` BOOLEAN NOT NULL DEFAULT FALSE AFTER `descripcion`;
+ALTER TABLE `proyecto`
+  DROP `directorio_root`,
+  DROP `home_image`;
 -- innecesario al crear tabla actividad_proyecto
 --ALTER TABLE proyecto ADD id_usuario VARCHAR(32) NOT NULL AFTER fecha_creacion, ADD INDEX (id_usuario);
 --ALTER TABLE proyecto DROP id_usuario:

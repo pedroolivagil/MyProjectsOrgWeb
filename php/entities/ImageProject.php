@@ -17,13 +17,17 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
     private $id_proyecto;
     private $id_imagen;
     private $url;
+    private $realname;
     private $descripcion;
     private $width;
     private $height;
     private $fecha_subida;
     private $flag_activo;
+    private $header;
 
-    function __construct($id_imagen, $url, $descripcion, $width, $height, $fecha_subida, $flag_activo) {
+    function __construct($id_proyecto, $id_imagen, $url, $descripcion, $width, $height, $fecha_subida, $flag_activo, $header) {
+        parent::__construct();
+        $this->id_proyecto = $id_proyecto;
         $this->id_imagen = $id_imagen;
         $this->url = $url;
         $this->descripcion = $descripcion;
@@ -31,6 +35,7 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
         $this->height = $height;
         $this->fecha_subida = $fecha_subida;
         $this->flag_activo = $flag_activo;
+        $this->header = $header;
     }
 
     static function getNewImage($img) {
@@ -65,6 +70,22 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
         return $this->flag_activo;
     }
 
+    function getId_proyecto() {
+        return $this->id_proyecto;
+    }
+
+    function getHeader() {
+        return $this->header;
+    }
+
+    function getRealname() {
+        return $this->realname;
+    }
+
+    function setRealname($realname) {
+        $this->realname = $realname;
+    }
+
     function setId_imagen($id_imagen) {
         $this->id_imagen = $id_imagen;
     }
@@ -93,21 +114,22 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
         $this->flag_activo = $flag_activo;
     }
 
-    function getId_proyecto() {
-        return $this->id_proyecto;
-    }
-
     function setId_proyecto($id_proyecto) {
         $this->id_proyecto = $id_proyecto;
     }
 
+    function setHeader($header) {
+        $this->header = $header;
+    }
+
     public function toArray() {
-        return get_object_vars($this);        
+        return get_object_vars($this);
     }
 
     public function create() {
         $params = $this->toArray();
         unset($params['id_proyecto']);
+        $params['url'] = $this->getRealname();
         if (parent::getEm()->create($params, TABLE_IMAGEN)) {
             $relacion = array(
                 COL_ID_PROYECTO => $this->getId_proyecto(),
@@ -117,7 +139,7 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
                 return TRUE;
             }
         }
-        return FALSE;        
+        return FALSE;
     }
 
     public function delete() {
@@ -130,6 +152,15 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
 
     public static function findById($id) {
         
+    }
+
+    public function upload($id_usuario) {
+        $result = FALSE;
+        $url_f = ($this->getHeader() == TRUE) ? _CLIENT_PATH_ . $id_usuario . '/' . $this->getId_proyecto() . '/' . $this->getRealname() : _CLIENT_PATH_ . $id_usuario . '/' . $this->getId_proyecto() . '/' . _USER_IMG_PATH_ . '/' . $this->getRealname();
+        if (move_uploaded_file($this->getUrl(), $url_f)) {
+            $result = TRUE;
+        }
+        return $result;
     }
 
 }

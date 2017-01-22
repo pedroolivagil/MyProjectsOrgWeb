@@ -21,8 +21,8 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
     private $flag_activo;
     private $fecha_creacion;
     private $fecha_actualizacion;
-    private $directorio_root;
-    private $home_image;
+//    private $directorio_root;
+//    private $home_image;
     // array multidimesional asociativo con los valores clave identicos a las propiedades de la clase
     private $tarjetas;
     // array multidimesional asociativo con los valores clave identicos a las propiedades de la clase
@@ -47,16 +47,24 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
         $params = $this->toArray();
         unset($params['tarjetas'], $params['imagenes']);
         if (parent::getEm()->create($params, TABLE_PROYECTO)) {
-            if ($this->getTarjetas() != NULL && count($this->getTarjetas()) > 0) {
-                foreach ($this->getTarjetas() as $tarjet) {
-                    $tarjet->setId_proyecto($this->getId_proyecto());
-                    $tarjet->create();
+            $params = array(
+                COL_ID_PROYECTO => $this->getId_proyecto(),
+                COL_ID_USUARIO => self::getId_usuario()
+            );
+            if (parent::getEm()->create($params, TABLE_REL_PJT_USUARIO)) {
+                if ($this->getTarjetas() != NULL && count($this->getTarjetas()) > 0) {
+                    foreach ($this->getTarjetas() as $tarjet) {
+                        $tarjet->setId_proyecto($this->getId_proyecto());
+                        $tarjet->create();
+                    }
                 }
-            }
-            if ($this->getImagenes() != NULL && count($this->getImagenes()) > 0) {
-                foreach ($this->getImagenes() as $imagen) {
-                    $imagen->setId_proyecto($this->getId_proyecto());
-                    $imagen->create();
+                if ($this->getImagenes() != NULL && count($this->getImagenes()) > 0) {
+                    foreach ($this->getImagenes() as $imagen) {
+                        $imagen->setId_proyecto($this->getId_proyecto());
+                        if ($imagen->create()) {
+                            $imagen->upload($this->getId_usuario());
+                        }
+                    }
                 }
             }
         }

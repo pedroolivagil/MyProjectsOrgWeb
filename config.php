@@ -16,6 +16,8 @@ define('HEIGHT_THUMB_VIEW_PJT', 57);
 define('EXPLODE_DELIMITER', ';');
 define('MAX_FIELDS_PROJECT', 15);
 define('MAX_IMAGES_PROJECT', 12);
+define('UUID_LENGHT', 20);
+define('UUID_LENGHT_XL', 40);
 
 // PDIGen Constants
 define('DOWNLOAD', 'D');
@@ -53,7 +55,7 @@ define('_PAGES_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/www/');
 define('_PHP_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/www/php/');
 define('_TEMP_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/temp/');
 define('_FORM_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/forms/');
-//define('_USER_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/clients/');
+define('_CLIENT_PATH_', $_SERVER['DOCUMENT_ROOT'] . $root . '/clients/');
 define('_ROOT_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/');
 define('_IMAGE_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/img/');
 define('_CSS_PATH_', 'http://' . $_SERVER['SERVER_NAME'] . $port . $root . '/css/');

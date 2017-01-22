@@ -20,7 +20,9 @@ class TargetProject extends PersistenceManager implements BasicMethodsEntities {
     private $valor;
     private $flag_activo;
 
-    function __construct($id_target, $label, $valor, $flag_activo) {
+    function __construct($id_proyecto, $id_target, $label, $valor, $flag_activo) {
+        parent::__construct();
+        $this->id_proyecto = $id_proyecto;
         $this->id_target = $id_target;
         $this->label = $label;
         $this->valor = $valor;

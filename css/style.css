@@ -237,7 +237,7 @@ textarea {
     resize: none;
     height: 132px !important;
     text-align: justify !important;
-    white-space: normal;
+    /*white-space: normal;*/
 }
 textarea.height-new-description {
     resize: none;
