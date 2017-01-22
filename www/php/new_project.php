@@ -33,7 +33,8 @@ if (!is_null($_POST) && Tools::isUserSession()) {
         $imagenes = array();
         if (!is_null($_FILES['header_img'])) {
             $size = getimagesize($_FILES['header_img']['tmp_name']);
-            $image = new ImageProject($p->getId_proyecto(), Tools::generateUUID(UUID_LENGHT_XL), $_FILES['header_img']['tmp_name'], NULL, $size[0], $size[1], NULL, 1, 1);
+            $image = new ImageProject($p->getId_proyecto(), Tools::generateUUID(UUID_LENGHT), $_FILES['header_img']['tmp_name'], NULL, $size[0], $size[1], NULL, 1, 1);
+            $image->setRealname(Tools::generateUUID(UUID_LENGHT_XL));
             array_push($imagenes, $image);
         }
         if (!is_null($_FILES['projectImg'])) {
@@ -42,6 +43,7 @@ if (!is_null($_POST) && Tools::isUserSession()) {
             for ($x = 0; $x < $countImg; $x++) {
                 $size = getimagesize($pjtImages['tmp_name'][$x]);
                 $image = new ImageProject($p->getId_proyecto(), Tools::generateUUID(UUID_LENGHT), $pjtImages['tmp_name'][$x], NULL, $size[0], $size[1], NULL, 1, 0);
+                $image->setRealname(Tools::generateUUID(UUID_LENGHT_XL));
                 array_push($imagenes, $image);
             }
         }
