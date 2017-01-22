@@ -15,15 +15,15 @@ class TargetProject extends PersistenceManager implements BasicMethodsEntities {
 
     //put your code here
     private $id_proyecto;
-    private $id_target;
+    private $id_tarjeta;
     private $label;
     private $valor;
     private $flag_activo;
 
-    function __construct($id_proyecto, $id_target, $label, $valor, $flag_activo) {
+    function __construct($id_proyecto, $id_tarjeta, $label, $valor, $flag_activo) {
         parent::__construct();
         $this->id_proyecto = $id_proyecto;
-        $this->id_target = $id_target;
+        $this->id_tarjeta = $id_tarjeta;
         $this->label = $label;
         $this->valor = $valor;
         $this->flag_activo = $flag_activo;
@@ -33,8 +33,8 @@ class TargetProject extends PersistenceManager implements BasicMethodsEntities {
         return new TargetProject($target['id_target'], $target['label'], $target['valor'], $target['flag_activo']);
     }
 
-    function getId_target() {
-        return $this->id_target;
+    function getId_tarjeta() {
+        return $this->id_tarjeta;
     }
 
     function getLabel() {
@@ -49,8 +49,8 @@ class TargetProject extends PersistenceManager implements BasicMethodsEntities {
         return $this->flag_activo;
     }
 
-    function setId_target($id_target) {
-        $this->id_target = $id_target;
+    function setId_target($id_tarjeta) {
+        $this->id_tarjeta = $id_tarjeta;
     }
 
     function setLabel($label) {
@@ -83,7 +83,7 @@ class TargetProject extends PersistenceManager implements BasicMethodsEntities {
         if (parent::getEm()->create($params, TABLE_TARJETA)) {
             $relacion = array(
                 COL_ID_PROYECTO => $this->getId_proyecto(),
-                COL_ID_TARJETA => $this->getId_target()
+                COL_ID_TARJETA => $this->getId_tarjeta()
             );
             if (parent::getEm()->create($relacion, TABLE_REL_PJT_TARJETA)) {
                 return TRUE;

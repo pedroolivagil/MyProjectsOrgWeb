@@ -29,7 +29,7 @@ RewriteRule ^user-panel/view-project/(.+)$ www/view_project.php?id=$1
 RewriteRule ^user-panel/delete-project$ www/php/delete_project.php
 RewriteRule ^user-panel/list-projects$ www/list_delete_projects.php
 RewriteRule ^user-panel/create-project$ www/create_project.php
-RewriteRule ^user-panel/new-project$ www/php/new_project.php
+RewriteRule ^user-panel/new-project$ www/php/new_project.php?XDEBUG_SESSION_START=netbeans-xdebug
 RewriteRule ^user-profile$ www/user_profile.php
 RewriteRule ^user-profile/edit$ www/user_profile.php?editable=true
 RewriteRule ^user-profile/save$ www/php/user_profile_save.php

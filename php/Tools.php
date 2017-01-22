@@ -7,7 +7,7 @@
  */
 class Tools {
 
-    public function crearDirs($var) {
+    public static function crearDirs($var) {
         if (is_dir($var)) {
             return chmod($var, 0777);
         } else {
@@ -15,7 +15,7 @@ class Tools {
         }
     }
 
-    public function eliminarDir($url) {
+    public static function eliminarDir($url) {
         $abrir = opendir($url);
         while ($ficheros = readdir($abrir)) {
             if (($ficheros != '.')and ( $ficheros != '..')) {
@@ -30,7 +30,7 @@ class Tools {
         closedir($abrir);
     }
 
-    public function createFile($urlPath, $obj) {
+    public static function createFile($urlPath, $obj) {
         chmod($urlPath, 0777);
         $fp = fopen($urlPath, 'w');
         fwrite($fp, $obj . PHP_EOL);
@@ -41,7 +41,7 @@ class Tools {
         }
     }
 
-    public function readFile($urlPath) {
+    public static function readFile($urlPath) {
         chmod($urlPath, 0777);
         return file_get_contents($urlPath);
     }
@@ -226,6 +226,28 @@ class Tools {
             return false;
         }
         return true;
+    }
+
+    public static function typeImg($img) {
+        $type = exif_imagetype($img);
+        $returntype = '';
+        switch ($type) {
+            case IMAGETYPE_PNG:
+                $returntype = 'png';
+                break;
+            case IMAGETYPE_GIF:
+                $returntype = 'gif';
+                break;
+            case IMAGETYPE_BMP:
+                $returntype = 'bmp';
+                break;
+            case IMAGETYPE_JPEG:
+                $returntype = 'jpg';
+                break;
+            default :
+                throw new Exception("No se ha porido convertir la imagen");
+        }
+        return $returntype;
     }
 
 }
