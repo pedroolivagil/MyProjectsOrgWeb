@@ -28,45 +28,58 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
     // array multidimesional asociativo con los valores clave identicos a las propiedades de la clase
     private $imagenes;
 
-    function __construct($id_proyecto, $nombre, $description = NULL, $flag_finish = NULL, $flag_activo = NULL, $fecha_creacion = NULL, $fecha_actualizacion = NULL, $directorio_root = NULL, $home_image = NULL, $tarjetas = NULL, $imagenes = NULL) {
+    function __construct($id_proyecto, $nombre, $description = NULL, $flag_finish = NULL, $flag_activo = NULL, $fecha_creacion = NULL, $fecha_actualizacion = NULL, $tarjetas = NULL, $imagenes = NULL) {
         parent::__construct();
-        $this->id_proyecto = Tools::toNull($id_proyecto);
-        $this->nombre = Tools::toNull($nombre);
-        $this->description = Tools::toNull($description);
-        $this->flag_finish = Tools::toNull($flag_finish);
-        $this->flag_activo = Tools::toNull($flag_activo);
-        $this->fecha_creacion = Tools::toNull($fecha_creacion);
-        $this->fecha_actualizacion = Tools::toNull($fecha_actualizacion);
-        $this->directorio_root = Tools::toNull($directorio_root);
-        $this->home_image = Tools::toNull($home_image);
+        $this->id_proyecto = $id_proyecto;
+        $this->nombre = $nombre;
+        $this->description = $description;
+        $this->flag_finish = $flag_finish;
+        $this->flag_activo = $flag_activo;
+        $this->fecha_creacion = $fecha_creacion;
+        $this->fecha_actualizacion = $fecha_actualizacion;
         $this->tarjetas = $tarjetas;
         $this->imagenes = $imagenes;
     }
 
     public function create() {
+        $errors = 0;
         $params = $this->toArray();
         unset($params['tarjetas'], $params['imagenes']);
         if (parent::getEm()->create($params, TABLE_PROYECTO)) {
+            Tools::crearDirs(_CLIENT_PATH_ . Tools::getCookie(SESSION_USUARIO_ID));
+            Tools::crearDirs(_CLIENT_PATH_ . Tools::getCookie(SESSION_USUARIO_ID) . '/' . $this->getId_proyecto());
+            Tools::crearDirs(_CLIENT_PATH_ . Tools::getCookie(SESSION_USUARIO_ID) . '/' . $this->getId_proyecto() . '/' . _USER_IMG_PATH_);
             $params = array(
                 COL_ID_PROYECTO => $this->getId_proyecto(),
-                COL_ID_USUARIO => self::getId_usuario()
+                COL_ID_USUARIO => Tools::getCookie(SESSION_USUARIO_ID)
             );
             if (parent::getEm()->create($params, TABLE_REL_PJT_USUARIO)) {
                 if ($this->getTarjetas() != NULL && count($this->getTarjetas()) > 0) {
                     foreach ($this->getTarjetas() as $tarjet) {
-                        $tarjet->setId_proyecto($this->getId_proyecto());
-                        $tarjet->create();
+                        $t = new TargetProject($this->getId_proyecto(), $tarjet->getId_tarjeta(), $tarjet->getLabel(), $tarjet->getValor(), $tarjet->getFlag_activo());
+                        if (!$t->create()) {
+                            $errors++;
+                        }
                     }
                 }
                 if ($this->getImagenes() != NULL && count($this->getImagenes()) > 0) {
                     foreach ($this->getImagenes() as $imagen) {
-                        $imagen->setId_proyecto($this->getId_proyecto());
-                        if ($imagen->create()) {
-                            $imagen->upload($this->getId_usuario());
+                        $i = new ImageProject($this->getId_proyecto(), $imagen->getId_imagen(), $imagen->getUrl(), $imagen->getDescripcion(), $imagen->getWidth(), $imagen->getHeight(), NULL, 1, $imagen->getHeader());
+                        if ($i->create()) {
+                            if (!$i->upload(Tools::getCookie(SESSION_USUARIO_ID))) {
+                                $errors++;
+                            }
+                        } else {
+                            $errors++;
                         }
                     }
                 }
             }
+        }
+        if ($errors == 0) {
+            return TRUE;
+        } else {
+            return FALSE;
         }
     }
 
