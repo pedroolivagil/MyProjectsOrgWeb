@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-01-2017 a las 13:39:22
+-- Tiempo de generación: 22-01-2017 a las 04:51:06
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -42,8 +42,9 @@ CREATE TABLE `error_log` (
 
 CREATE TABLE `imagen` (
   `id_imagen` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `url` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `url` varchar(32) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `header` tinyint(1) NOT NULL DEFAULT '0',
   `width` int(11) NOT NULL,
   `height` int(11) NOT NULL,
   `fecha_subida` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -411,7 +412,29 @@ INSERT INTO `parametros` (`id`, `etiqueta`, `texto`, `id_idioma`) VALUES
 (89, 'GENERIC_BODY_DELETE', '¿Seguro que desea eliminar el item ', 73),
 (90, 'GENERIC_CLOSE', 'Cerrar', 73),
 (91, 'GENERIC_NEXT', 'Siguiente', 73),
-(92, 'GENERIC_PREV', 'Anterior', 73);
+(92, 'GENERIC_PREV', 'Anterior', 73),
+(93, 'PANEL_TITLE_LIST_TABLE', 'Lista de proyectos', 73),
+(94, 'GENERIC_TRUE', 'Si', 73),
+(95, 'GENERIC_FALSE', 'No', 73),
+(96, 'PANEL_USER_LABEL_LIST_PROJECTS', 'Lista de proyectos', 73),
+(97, 'PANEL_LABEL_NEW_PROJECT_ERROR_MAX_FIELDS', 'Has alcanzado el máximo de tarjetas para el proyecto', 73),
+(117, 'GENERIC_NEW_PROJECT', 'Nuevo proyecto', 73),
+(118, 'PANEL_LABEL_NEW_PROJECT_NAME', 'Título para el proyecto', 73),
+(119, 'PANEL_LABEL_NEW_PROJECT_DESCRIPTION', 'Descripción completa del proyecto', 73),
+(120, 'PANEL_LABEL_NEW_PROJECT_ID', 'Identificador del proyecto', 73),
+(121, 'PANEL_LABEL_NEW_PROJECT_TARGET_LABEL', 'Añade un título para la tarjeta', 73),
+(122, 'PANEL_LABEL_NEW_PROJECT_TARGET_VALUE', 'Añade un valor correspondiente', 73),
+(123, 'GENERIC_ADD_FIELD', 'Añade una tarjeta', 73),
+(124, 'GENERIC_SELECT_FILE', 'Añade una imagen', 73),
+(125, 'GENERIC_LABEL_MAX_FILES', 'Has superado el máximo de imágenes seleccionadas por un mismo proyecto.{br}{br}El máximo es {strong}[MAX]{/strong}', 73),
+(126, 'PANEL_NEW_PROJECT_HEADER_SELECT_FILE', 'Añade imagen de proyecto', 73),
+(127, 'GENERIC_SELECT_FILE_MULTIPLE', 'Añade múltiples imágenes', 73),
+(128, 'PANEL_NEW_PROJECT_BTN_ADD_MORE', 'Añade más...', 73),
+(129, 'PANEL_LABEL_NEW_PROJECT_PROJECT_IMG', 'Imágenes del proyecto', 73),
+(130, 'PANEL_LABEL_NEW_PROJECT_HEADER_IMG', 'Imagen del proyecto', 73),
+(131, 'GENERIC_ONLY_IMAGES', 'Solo se permiten imágenes', 73),
+(132, 'PANEL_LABEL_NEW_PROJECT_PROJECT_IMG_EMPTY', 'No hay imágenes añadidas al proyecto', 73),
+(133, 'PANEL_LABEL_NEW_PROJECT_HEADER_IMG_EMPTY', 'No hay imagen de cabecera', 73);
 
 -- --------------------------------------------------------
 
@@ -426,9 +449,7 @@ CREATE TABLE `proyecto` (
   `flag_finish` tinyint(1) NOT NULL DEFAULT '0',
   `flag_activo` tinyint(1) NOT NULL DEFAULT '1',
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_actualizacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `directorio_root` varchar(32) COLLATE utf8_spanish_ci NOT NULL,
-  `home_image` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
+  `fecha_actualizacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -496,6 +517,13 @@ CREATE TABLE `usuario` (
   `id_pais` int(11) DEFAULT NULL,
   `poblacion` varchar(80) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `correo`, `user_pass`, `fecha_alta`, `flag_activo`, `birth_date`, `fullname`, `nif`, `telefono`, `id_pais`, `poblacion`) VALUES
+('d6edfbf0a46a571cf0562daf23d90e81', 'olivadevelop@gmail.com', '$2a$07$MiProJectSoRG52570b6fOeJpIhl5WDvM0D01rnKWIRTWooSnGeT.', '2017-01-12 23:00:00', 1, '1991-07-25', 'Pedro jhgfcvvjghb  gjcfjhgcghfcmj', '369852147e', '', 73, 'Tarragona');
 
 --
 -- Índices para tablas volcadas
@@ -589,7 +617,7 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `parametros`
 --
 ALTER TABLE `parametros`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 --
 -- Restricciones para tablas volcadas
 --
