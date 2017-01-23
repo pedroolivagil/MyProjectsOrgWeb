@@ -17,8 +17,7 @@ foreach ($project->getImagenes() as $img) {
 }
 $breads = array(
     Translator::getTextStatic('PANEL_USER') => "user-panel",
-    //Translator::getTextStatic('GENERIC_VIEW_PROJECT') => ""
-    ucfirst($project->getNombre()) => ""
+    Tools::cutOutput(ucfirst($project->getNombre()), 30) => ""
 );
 Template::getBreadCrumbs($breads);
 ?>
@@ -40,7 +39,7 @@ Template::openPanelBody();
 <div class="row mar1-l">
     <div class="float-container-left"> <!-- container Img/s -->
         <!-- Container img -->
-        <div class="img-thumbnail container-img-principal overflow-hidden" style="display: inherit;">
+        <div class="img-thumbnail container-img-principal overflow-hidden pad0" style="display: inherit;">
 
             <?php
             if (count($project->getImagenes()) > 0) {
@@ -51,7 +50,7 @@ Template::openPanelBody();
                     if ($image->getFlag_activo() && $image->getHeader() == HEADER_IMG) {
                         ?>
                         <a class="preview" href="#" data-image-id="<?php echo $user->getId_usuario(); ?>" data-toggle="modal" data-title="<?php echo $project->getNombre(); ?>" data-caption="" data-image="<?php echo $url; ?>" data-target="#image-gallery">
-                            <img src="<?php echo $url; ?>" class="img-thumbnail img-responsive vertical-center center-block" style="width: <?php echo Tools::resizeImgHW($size[1], $size[0], HEIGHT_THUMB_VIEW_PJT); ?>px; height: <?php echo HEIGHT_THUMB_VIEW_PJT; ?>px;" />
+                            <img src="<?php echo $url; ?>" class="img-responsive vertical-center center-block pad0"  />
                         </a>
                         <?php
                     }

@@ -285,6 +285,10 @@ textarea.height-new-description {
 }
 
 /* PADDINGS */
+.pad0 {
+    padding: 0px !important;
+}
+
 .pad5 {
     padding: 5px;
 }
