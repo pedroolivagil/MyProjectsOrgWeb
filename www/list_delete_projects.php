@@ -75,8 +75,8 @@ Template::openPanelFooter();
 ?>
 <div class="text-right">
     <div class="btn-group" role="group">
-        <a href="<?php echo _ROOT_PATH_ . 'user-panel' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
-        <button id="deleteAllPjts" class="btn btn-danger" disabled onclick="showAlertDelete('<?php echo Translator::getTextStatic('GENERIC_SELECTED'); ?>', checkboxSelected(), '<?php echo _ROOT_PATH_ . 'user-panel/delete-project' ?>')">
+        <a href="<?php echo _ROOT_PATH_ . 'user-project' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
+        <button id="deleteAllPjts" class="btn btn-danger" disabled onclick="showAlertDelete('<?php echo Translator::getTextStatic('GENERIC_SELECTED'); ?>', checkboxSelected(), '<?php echo _ROOT_PATH_ . 'user-project/delete-project' ?>')">
             <?php echo Translator::getTextStatic('GENERIC_DELETE'); ?>
         </button>
     </div>

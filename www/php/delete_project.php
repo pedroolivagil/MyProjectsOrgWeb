@@ -17,7 +17,7 @@ if (!is_null($_POST) && Tools::isUserSession()) {
         }
     }
     Database::close_db();
-    header("Location: " . _ROOT_PATH_ . "user-panel");
+    header("Location: " . _ROOT_PATH_ . "user-project/pag/1");
 } else {
     Tools::invalidPost();
 }

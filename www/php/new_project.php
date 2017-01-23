@@ -1,20 +1,12 @@
 <?php
 
 require_once('../../config.php');
-error_reporting(1);
-header('Content-type: text/plain; charset=UTF-8;');
 if (!is_null($_POST) && Tools::isUserSession()) {
     Database::init_db();
     $project_id = $_POST['newproject_id_project'];
     $project_name = $_POST['newproject_name'];
     $project_desc = $_POST['newproject_description'];
     $project_flag_finish = $_POST['newproject_flag_finish'];
-
-    // function __construct($id_proyecto, $nombre, $description = NULL, 
-    // $flag_finish = NULL, $flag_activo = NULL, 
-    // $fecha_creacion = NULL, $fecha_actualizacion = NULL, 
-    // $directorio_root = NULL, $home_image = NULL, 
-    // $tarjetas = NULL, $imagenes = NULL) {
 
     $p = new Project($project_id, $project_name, $project_desc, $project_flag_finish, 1);
     if (!Tools::isEmpty($p)) {
@@ -62,10 +54,8 @@ if (!is_null($_POST) && Tools::isUserSession()) {
             }
             $p->setImagenes($imagenes);
         }
-        /* print_r($p);
-          print_r($_FILES); */
 
-        $url = _ROOT_PATH_ . "user-panel";
+        $url = _ROOT_PATH_ . "user-project";
         if ($p->create()) {
             $url .= "/create-success";
         } else {

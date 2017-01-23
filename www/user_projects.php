@@ -66,7 +66,7 @@ $createpjt = ($_REQUEST['createpjt'] == TRUE) ? TRUE : FALSE;
                                     <p class="text-justify">
                                         <?php echo Tools::cutOutput($project->getDescription(), 50); ?>
                                     </p>
-                                    <p><a href="<?php echo _ROOT_PATH_ . 'user-panel/view-project/' . $project->getId_proyecto(); ?>" class="btn btn-primary" role="button"><?php echo Translator::getTextStatic('GENERIC_VIEW_PROJECT'); ?></a></p>
+                                    <p><a href="<?php echo _ROOT_PATH_ . 'user-project/view-project/' . $project->getId_proyecto(); ?>" class="btn btn-primary" role="button"><?php echo Translator::getTextStatic('GENERIC_VIEW_PROJECT'); ?></a></p>
                                 </div>
                             </div>
                         </div>
@@ -86,15 +86,15 @@ $createpjt = ($_REQUEST['createpjt'] == TRUE) ? TRUE : FALSE;
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li <?php echo ($pagina <= 1) ? 'class="disabled"' : '' ?>>
-                            <a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo ($pagina - 1 < 1) ? 1 : $pagina - 1; ?>" aria-label="Previous">
+                            <a href="<?php echo _ROOT_PATH_; ?>user-project/pag/<?php echo ($pagina - 1 < 1) ? 1 : $pagina - 1; ?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <?php for ($x = 1; $x <= ceil($user->countActiveProjects() / LIMIT_RESULT_LIST); $x++) { ?>
-                            <li <?php echo ($pagina == $x) ? 'class="active"' : '' ?>><a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo $x; ?>"><?php echo $x; ?></a></li>
+                            <li <?php echo ($pagina == $x) ? 'class="active"' : '' ?>><a href="<?php echo _ROOT_PATH_; ?>user-project/pag/<?php echo $x; ?>"><?php echo $x; ?></a></li>
                         <?php } ?>
                         <li <?php echo ($pagina >= ceil($user->countActiveProjects() / LIMIT_RESULT_LIST)) ? 'class="disabled"' : '' ?>>
-                            <a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/<?php echo ($pagina + 1 > ceil($user->countActiveProjects() / LIMIT_RESULT_LIST)) ? ceil($user->countActiveProjects() / LIMIT_RESULT_LIST) : $pagina + 1; ?>" aria-label="Next">
+                            <a href="<?php echo _ROOT_PATH_; ?>user-project/pag/<?php echo ($pagina + 1 > ceil($user->countActiveProjects() / LIMIT_RESULT_LIST)) ? ceil($user->countActiveProjects() / LIMIT_RESULT_LIST) : $pagina + 1; ?>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

@@ -16,12 +16,12 @@
                 <a href="<?php echo _ROOT_PATH_; ?>user-panel" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_DELETE_ACCOUNT'); ?></a>
             </div>
             <div class="list-group">
-                <a href="<?php echo _ROOT_PATH_; ?>user-panel/pag/1" class="list-group-item">
+                <a href="<?php echo _ROOT_PATH_; ?>user-project/pag/1" class="list-group-item">
                     <?php echo Translator::getTextStatic('PANEL_USER_LABEL_PROYECTOS'); ?>
                     <span class="badge badge-primary"><?php echo $user->countActiveProjects(); ?></span>
                 </a>
-                <a href="<?php echo _ROOT_PATH_; ?>user-panel/create-project" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></a>
-                <a href="<?php echo _ROOT_PATH_; ?>user-panel/list-projects" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_LIST_PROJECTS'); ?></a>
+                <a href="<?php echo _ROOT_PATH_; ?>user-project/create-project" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></a>
+                <a href="<?php echo _ROOT_PATH_; ?>user-project/list-projects" class="list-group-item"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_LIST_PROJECTS'); ?></a>
             </div>
         </div>
     </div>

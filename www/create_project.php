@@ -24,7 +24,7 @@ Template::getBreadCrumbs($breads);
 $createpjt = ($_REQUEST['error'] == TRUE) ? TRUE : FALSE;
 ?>
 <!--// Content //-->
-<form method="post" name="formulario" enctype="multipart/form-data" action="<?php echo _ROOT_PATH_ . 'user-panel/new-project'; ?>">
+<form method="post" name="formulario" enctype="multipart/form-data" action="<?php echo _ROOT_PATH_ . 'user-project/new-project'; ?>">
     <?php
     include_once(_PHP_PATH_ . 'viewuser.php');
     Template::openPanel();
@@ -104,7 +104,7 @@ $createpjt = ($_REQUEST['error'] == TRUE) ? TRUE : FALSE;
         </div>
         <div class="text-right col-md-6">
             <div class="btn-group" role="group">
-                <a href="<?php echo _ROOT_PATH_ . 'user-panel' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
+                <a href="<?php echo _ROOT_PATH_ . 'user-project' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
                 <button type="submit" onclick="return validateInputFiles('projectImg',<?php echo MAX_IMAGES_PROJECT; ?>, '<?php echo Translator::getTextStatic('GENERIC_ERROR_VALIDATION'); ?>', '<?php echo Translator::getTextStatic('GENERIC_LABEL_MAX_FILES'); ?>');" class="btn btn-success"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></button>
             </div>
         </div>

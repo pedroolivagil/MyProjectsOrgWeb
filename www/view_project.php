@@ -123,9 +123,9 @@ Template::openPanelFooter();
 ?>
 <div class="text-right">
     <div class="btn-group" role="group">
-        <a href="<?php echo _ROOT_PATH_ . 'user-panel' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
+        <a href="<?php echo _ROOT_PATH_ . 'user-project' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
         <button type="button" class="btn btn-primary"><?php echo Translator::getTextStatic('GENERIC_EDIT'); ?></button>
-        <button type="button" class="btn btn-primary" onclick="showAlertDelete('<?php echo $project->getNombre(); ?>', '<?php echo $project->getId_proyecto(); ?>', '<?php echo _ROOT_PATH_ . 'user-panel/delete-project' ?>')"><?php echo Translator::getTextStatic('GENERIC_DELETE'); ?></button>
+        <button type="button" class="btn btn-primary" onclick="showAlertDelete('<?php echo $project->getNombre(); ?>', '<?php echo $project->getId_proyecto(); ?>', '<?php echo _ROOT_PATH_ . 'user-project/delete-project' ?>')"><?php echo Translator::getTextStatic('GENERIC_DELETE'); ?></button>
     </div>
 </div>
 <?php
