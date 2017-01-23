@@ -35,14 +35,31 @@ Template::openPanelHeader();
 <?php
 Template::closePanelHeader();
 Template::openPanelBody();
+//print_r($project);
 ?>
 <div class="row mar1-l">
     <div class="float-container-left"> <!-- container Img/s -->
         <!-- Container img -->
-        <div class="container-img-principal overflow-hidden">
-            <a class="preview" href="#" data-image-id="<?php echo $user->getId_usuario(); ?>" data-toggle="modal" data-title="<?php echo $project->getNombre(); ?>" data-caption="" data-image="<?php echo $project->getHomeImg($user->getId_usuario()); ?>" data-target="#image-gallery">
-                <img src="<?php echo $project->getHomeImg($user->getId_usuario()); ?>" />
-            </a>
+        <div class="img-thumbnail container-img-principal overflow-hidden" style="display: inherit;">
+
+            <?php
+            if (count($project->getImagenes()) > 0) {
+                foreach ($project->getImagenes() as $img) {
+                    $image = ImageProject::getNewImage($img);
+                    $url = $project->getHeaderImg($user->getId_usuario()) . $image->getUrl();
+                    $size = getimagesize($url);
+                    if ($image->getFlag_activo() && $image->getHeader() == HEADER_IMG) {
+                        ?>
+                        <a class="preview" href="#" data-image-id="<?php echo $user->getId_usuario(); ?>" data-toggle="modal" data-title="<?php echo $project->getNombre(); ?>" data-caption="" data-image="<?php echo $url; ?>" data-target="#image-gallery">
+                            <img src="<?php echo $url; ?>" class="img-thumbnail img-responsive vertical-center center-block" style="width: <?php echo Tools::resizeImgHW($size[1], $size[0], HEIGHT_THUMB_VIEW_PJT); ?>px; height: <?php echo HEIGHT_THUMB_VIEW_PJT; ?>px;" />
+                        </a>
+                        <?php
+                    }
+                }
+            } else {
+                echo Translator::getTextStatic('PROJECT_NOT_HAVE_IMAGES');
+            }
+            ?>
         </div>
         <!-- Container imgs -->
         <div class="container-img-project well well-sm mar10-tb overflow-x max-height-350">
@@ -54,7 +71,7 @@ Template::openPanelBody();
                             $image = ImageProject::getNewImage($img);
                             $url = $project->getUrlImg($user->getId_usuario()) . $image->getUrl();
                             $size = getimagesize($url);
-                            if ($image->getFlag_activo()) {
+                            if ($image->getFlag_activo() && $image->getHeader() != HEADER_IMG) {
                                 ?>
                                 <td>
                                     <a class="preview" href="#" data-image-id="<?php echo $image->getId_imagen(); ?>" data-toggle="modal" data-title="<?php echo $project->getNombre(); ?>" data-caption="<?php echo Tools::formatOutput($image->getDescripcion()); ?>" data-image="<?php echo $url; ?>" data-target="#image-gallery">

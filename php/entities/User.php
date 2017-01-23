@@ -66,7 +66,7 @@ class User extends PersistenceManager implements BasicMethodsEntities {
         $proyecto = Database::preparedQuery(ProyectoFindById, $params);
         $tarjetas = Database::preparedQuery(TarjetasFindAllById, $params);
         $imagenes = Database::preparedQuery(ImagenesFindAllById, $params);
-        return new Project($proyecto[0]['id_proyecto'], $proyecto[0]['nombre'], $proyecto[0]['description'], $proyecto[0]['flag_finish'], $proyecto[0]['flag_activo'], $proyecto[0]['fecha_creacion'], $proyecto[0]['fecha_actualizacion'], $proyecto[0]['directorio_root'], $proyecto[0]['home_image'], $tarjetas, $imagenes);
+        return new Project($proyecto[0]['id_proyecto'], $proyecto[0]['nombre'], $proyecto[0]['description'], $proyecto[0]['flag_finish'], $proyecto[0]['flag_activo'], $proyecto[0]['fecha_creacion'], $proyecto[0]['fecha_actualizacion'], $tarjetas, $imagenes);
     }
 
     public function getAllActiveProjects() {

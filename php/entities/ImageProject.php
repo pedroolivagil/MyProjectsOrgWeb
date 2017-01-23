@@ -39,7 +39,7 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
     }
 
     static function getNewImage($img) {
-        return new ImageProject($img['id_imagen'], $img['url'], $img['descripcion'], $img['width'], $img['height'], $img['fecha_subida'], $img['flag_activo']);
+        return new ImageProject("", $img['id_imagen'], $img['url'], $img['descripcion'], $img['width'], $img['height'], $img['fecha_subida'], $img['flag_activo'], $img['header']);
     }
 
     function getId_imagen() {

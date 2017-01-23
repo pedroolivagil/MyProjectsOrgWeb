@@ -30,7 +30,7 @@ class TargetProject extends PersistenceManager implements BasicMethodsEntities {
     }
 
     public static function getNewTarget($target) {
-        return new TargetProject($target['id_target'], $target['label'], $target['valor'], $target['flag_activo']);
+        return new TargetProject("",$target['id_tarjeta'], $target['label'], $target['valor'], $target['flag_activo']);
     }
 
     function getId_tarjeta() {

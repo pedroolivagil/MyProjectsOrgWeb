@@ -107,8 +107,8 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
         return new Project($proyecto[0]['id_proyecto'], $proyecto[0]['nombre'], $proyecto[0]['description'], $proyecto[0]['flag_finish'], $proyecto[0]['flag_activo'], $proyecto[0]['fecha_creacion'], $proyecto[0]['fecha_actualizacion'], $proyecto[0]['directorio_root'], $proyecto[0]['home_image'], NULL, NULL);
     }
 
-    function getHomeImg($id) {
-        return _USER_PATH_ . $id . '/' . $this->getId_proyecto() . '/' . $this->getHome_image();
+    function getHeaderImg($id) {
+        return _USER_PATH_ . $id . '/' . $this->getId_proyecto() . '/';
     }
 
     function getUrlImg($id) {

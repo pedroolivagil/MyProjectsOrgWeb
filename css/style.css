@@ -254,6 +254,11 @@ textarea.height-new-description {
 .no-corners{
     border-radius: 0 !important;
 }
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 
 /* MEDIDAS */

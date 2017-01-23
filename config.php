@@ -18,6 +18,7 @@ define('MAX_FIELDS_PROJECT', 15);
 define('MAX_IMAGES_PROJECT', 12);
 define('UUID_LENGHT', 20);
 define('UUID_LENGHT_XL', 32);
+define('HEADER_IMG', 1);
 
 // PDIGen Constants
 define('DOWNLOAD', 'D');
