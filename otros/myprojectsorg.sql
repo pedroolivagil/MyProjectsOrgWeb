@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-01-2017 a las 01:00:51
+-- Tiempo de generación: 23-01-2017 a las 01:27:12
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `myprojectsorg`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `actividad_proyecto`
+--
+
+CREATE TABLE `actividad_proyecto` (
+  `id_project` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `id_usuario` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `accion` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_actividad_proyecto` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -42,7 +56,7 @@ CREATE TABLE `error_log` (
 
 CREATE TABLE `imagen` (
   `id_imagen` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `url` varchar(32) COLLATE utf8_spanish_ci NOT NULL,
+  `url` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `header` tinyint(1) NOT NULL DEFAULT '0',
   `width` int(11) NOT NULL,
@@ -530,6 +544,13 @@ INSERT INTO `usuario` (`id_usuario`, `correo`, `user_pass`, `fecha_alta`, `flag_
 --
 
 --
+-- Indices de la tabla `actividad_proyecto`
+--
+ALTER TABLE `actividad_proyecto`
+  ADD PRIMARY KEY (`id_actividad_proyecto`),
+  ADD KEY `id_project` (`id_project`,`id_usuario`);
+
+--
 -- Indices de la tabla `error_log`
 --
 ALTER TABLE `error_log`
@@ -603,6 +624,11 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `actividad_proyecto`
+--
+ALTER TABLE `actividad_proyecto`
+  MODIFY `id_actividad_proyecto` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `error_log`
 --
