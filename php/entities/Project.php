@@ -56,17 +56,17 @@ class Project extends PersistenceManager implements BasicMethodsEntities {
             if (parent::getEm()->create($params, TABLE_REL_PJT_USUARIO)) {
                 if ($this->getTarjetas() != NULL && count($this->getTarjetas()) > 0) {
                     foreach ($this->getTarjetas() as $tarjet) {
-                        $t = new TargetProject($this->getId_proyecto(), $tarjet->getId_tarjeta(), $tarjet->getLabel(), $tarjet->getValor(), $tarjet->getFlag_activo());
-                        if (!$t->create()) {
+                        //$t = new TargetProject($this->getId_proyecto(), $tarjet->getId_tarjeta(), $tarjet->getLabel(), $tarjet->getValor(), $tarjet->getFlag_activo());
+                        if (!$tarjet->create()) {
                             $errors++;
                         }
                     }
                 }
                 if ($this->getImagenes() != NULL && count($this->getImagenes()) > 0) {
                     foreach ($this->getImagenes() as $imagen) {
-                        $i = new ImageProject($this->getId_proyecto(), $imagen->getId_imagen(), $imagen->getUrl(), $imagen->getDescripcion(), $imagen->getWidth(), $imagen->getHeight(), NULL, 1, $imagen->getHeader());
-                        if ($i->create()) {
-                            if (!$i->upload(Tools::getCookie(SESSION_USUARIO_ID))) {
+                        //$i = new ImageProject($this->getId_proyecto(), $imagen->getId_imagen(), $imagen->getUrl(), $imagen->getDescripcion(), $imagen->getWidth(), $imagen->getHeight(), NULL, 1, $imagen->getHeader());
+                        if ($imagen->create()) {
+                            if (!$imagen->upload(Tools::getCookie(SESSION_USUARIO_ID))) {
                                 $errors++;
                             }
                         } else {
