@@ -30,12 +30,12 @@ if (count($projects) > 0) {
     ?>
     <table class="table table-bordered table-hover table-responsive">
         <tr class="bg-gray-10">
-            <th><span data-toggle="tooltip" title="Seleccionados">Sel.</span></th>
-            <th><span data-toggle="tooltip" title="Nombre">Nombre</span></th>
-            <th><span data-toggle="tooltip" title="Terminado">Term.</span></th>
-            <th><span data-toggle="tooltip" title="Descripción">Descrip.</span></th>
-            <th><span data-toggle="tooltip" title="Fecha de creación">F. Creación</span></th>
-            <th><span data-toggle="tooltip" title="Última actualización">Últ. act.</span></th>
+            <th><div data-toggle="tooltip" title="<?php echo Translator::getTextStatic('PANEL_LIST_TABLE_CHECKBOX'); ?>"><?php echo Translator::getTextStatic('PANEL_LIST_TABLE_CHECKBOX_ABR'); ?></div></th>
+            <th><div data-toggle="tooltip" title="<?php echo Translator::getTextStatic('PANEL_LIST_TABLE_NAME'); ?>"><?php echo Translator::getTextStatic('PANEL_LIST_TABLE_NAME_ABR'); ?></div></th>
+            <th><div data-toggle="tooltip" title="<?php echo Translator::getTextStatic('PANEL_LIST_TABLE_FINISH'); ?>"><?php echo Translator::getTextStatic('PANEL_LIST_TABLE_FINISH_ABR'); ?></div></th>
+            <th><div data-toggle="tooltip" title="<?php echo Translator::getTextStatic('PANEL_LIST_TABLE_DESCRIPTION'); ?>"><?php echo Translator::getTextStatic('PANEL_LIST_TABLE_DESCRIPTION_ABR'); ?></div></th>
+            <th><div data-toggle="tooltip" title="<?php echo Translator::getTextStatic('PANEL_LIST_TABLE_CREATE_DATE'); ?>"><?php echo Translator::getTextStatic('PANEL_LIST_TABLE_CREATE_DATE_ABR'); ?></div></th>
+            <th><div data-toggle="tooltip" title="<?php echo Translator::getTextStatic('PANEL_LIST_TABLE_LAST_UPDATE'); ?>"><?php echo Translator::getTextStatic('PANEL_LIST_TABLE_LAST_UPDATE_ABR'); ?></div></th>
         </tr>
         <?php
         $x = 0;
@@ -75,7 +75,7 @@ Template::openPanelFooter();
 ?>
 <div class="text-right">
     <div class="btn-group" role="group">
-        <a href="<?php echo _ROOT_PATH_ . 'user-project' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
+        <a href="<?php echo _ROOT_PATH_ . 'user-project/pag/1' ?>" class="btn btn-default"><?php echo Translator::getTextStatic('GENERIC_BACK'); ?></a>
         <button id="deleteAllPjts" class="btn btn-danger" disabled onclick="showAlertDelete('<?php echo Translator::getTextStatic('GENERIC_SELECTED'); ?>', checkboxSelected(), '<?php echo _ROOT_PATH_ . 'user-project/delete-project' ?>')">
             <?php echo Translator::getTextStatic('GENERIC_DELETE'); ?>
         </button>

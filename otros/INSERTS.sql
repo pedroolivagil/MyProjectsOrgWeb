@@ -115,7 +115,6 @@ VALUES
 (NULL, 'GENERIC_ADD_FIELD', 'Añade una tarjeta', '73'),
 (NULL, 'GENERIC_SELECT_FILE', 'Añade una imagen', '73'),
 (NULL, 'PANEL_LABEL_NEW_PROJECT_ERROR_MAX_FIELDS', 'Has alcanzado el máximo de tarjetas para el proyecto', '73'),
--- Nuevos
 (NULL, 'GENERIC_LABEL_MAX_FILES', 'Has superado el máximo de imágenes seleccionadas por un mismo proyecto.{br}{br}El máximo es {strong}[MAX]{/strong}', '73'),
 (NULL, 'PANEL_NEW_PROJECT_HEADER_SELECT_FILE', 'Añade imagen de proyecto', '73'),
 (NULL, 'GENERIC_SELECT_FILE_MULTIPLE', 'Añade múltiples imágenes', '73'),
@@ -125,12 +124,22 @@ VALUES
 (NULL, 'GENERIC_ONLY_IMAGES', 'Solo se permiten imágenes', '73'),
 (NULL, 'PANEL_LABEL_NEW_PROJECT_PROJECT_IMG_EMPTY', 'No hay imágenes añadidas al proyecto', '73'),
 (NULL, 'PANEL_LABEL_NEW_PROJECT_HEADER_IMG_EMPTY', 'No hay imagen de cabecera', '73'),
+-- Nuevos
+(NULL, 'PANEL_LIST_TABLE_CHECKBOX_ABR', 'Sel.', '73'),
+(NULL, 'PANEL_LIST_TABLE_NAME_ABR', 'Nombre', '73'),
+(NULL, 'PANEL_LIST_TABLE_FINISH_ABR', 'Term.', '73'),
+(NULL, 'PANEL_LIST_TABLE_DESCRIPTION_ABR', 'Descrip.', '73'),
+(NULL, 'PANEL_LIST_TABLE_CREATE_DATE_ABR', 'F. creación', '73'),
+(NULL, 'PANEL_LIST_TABLE_LAST_UPDATE_ABR', 'Últ. act.', '73'),
+(NULL, 'PANEL_LIST_TABLE_CHECKBOX', 'Seleccionados', '73'),
+(NULL, 'PANEL_LIST_TABLE_NAME', 'Nombre del proyecto', '73'),
+(NULL, 'PANEL_LIST_TABLE_FINISH', 'Terminado', '73'),
+(NULL, 'PANEL_LIST_TABLE_DESCRIPTION', 'Descripción', '73'),
+(NULL, 'PANEL_LIST_TABLE_CREATE_DATE', 'Fecha de creación', '73'),
+(NULL, 'PANEL_LIST_TABLE_LAST_UPDATE', 'Última actualización', '73'),
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
-(NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
