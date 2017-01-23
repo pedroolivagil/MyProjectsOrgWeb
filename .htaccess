@@ -24,6 +24,7 @@ RewriteRule ^signup-finish$ www/signup_finish.php
 RewriteRule ^legal-warning$ www/aviso_legal.php
 RewriteRule ^logout$ www/php/logout_user.php
 RewriteRule ^user-panel$ www/user_panel.php
+RewriteRule ^user-panel/create-success$ www/user_panel.php?createpjt=true
 RewriteRule ^user-panel/pag/([0-9]+)$ www/user_panel.php?pagina=$1
 RewriteRule ^user-panel/view-project/(.+)$ www/view_project.php?id=$1
 RewriteRule ^user-panel/delete-project$ www/php/delete_project.php
@@ -41,6 +42,7 @@ RewriteRule ^login-error$ www/login.php?fail=error
 RewriteRule ^signup-error$ www/signup.php?fail=error
 RewriteRule ^signup-warning$ www/signup.php?fail=warning
 RewriteRule ^user-profile/save-error$ www/user_profile.php?saved=true&saved_msg=false
+RewriteRule ^user-panel/create-project/error$ www/create_project.php?error=true
 
 
 # RewriteRule ^lineas-de-voz$ www/lineasvoz.php 

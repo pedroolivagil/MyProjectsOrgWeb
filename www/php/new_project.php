@@ -33,15 +33,16 @@ if (!is_null($_POST) && Tools::isUserSession()) {
         // imagenes
         if (!is_null($_FILES)) {
             $imagenes = array();
-            if (!is_null($_FILES['header_img'])) {
+            $img_head = $_FILES['header_img'];
+            if (!is_null($img_head)) {
                 try {
-                    $size = getimagesize($_FILES['header_img']['tmp_name']);
-                    $extension = Tools::typeImg($pjtImages['tmp_name'][$x]);
-                    $image = new ImageProject($p->getId_proyecto(), Tools::generateUUID(UUID_LENGHT), $_FILES['header_img']['tmp_name'], NULL, $size[0], $size[1], NULL, 1, 1);
+                    $size = getimagesize($img_head['tmp_name']);
+                    $extension = Tools::typeImg($img_head['tmp_name']);
+                    $image = new ImageProject($p->getId_proyecto(), Tools::generateUUID(UUID_LENGHT), $img_head['tmp_name'], NULL, $size[0], $size[1], NULL, 1, 1);
                     $image->setRealname(Tools::generateUUID(UUID_LENGHT_XL) . '.' . $extension);
                     array_push($imagenes, $image);
                 } catch (Exception $e) {
-                    // llenamos el error_log de la DB con el texto de la excepcion                
+                    // llenamos el error_log de la DB con el texto de la excepcion
                 }
             }
             if (!is_null($_FILES['projectImg'])) {
@@ -61,16 +62,18 @@ if (!is_null($_POST) && Tools::isUserSession()) {
             }
             $p->setImagenes($imagenes);
         }
-        //print_r($p);
+        /* print_r($p);
+          print_r($_FILES); */
 
+        $url = _ROOT_PATH_ . "user-panel";
         if ($p->create()) {
-            echo 'proyecto creado';
+            $url .= "/create-success";
         } else {
-            echo 'error al crear el proyecto';
+            $url .= "/create-project/error";
         }
     }
     Database::close_db();
-    //header("Location: " . _ROOT_PATH_ . "user-panel");
+    header("Location: " . $url);
 } else {
     Tools::invalidPost();
 }

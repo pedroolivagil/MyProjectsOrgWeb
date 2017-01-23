@@ -130,7 +130,6 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
         $params = $this->toArray();
         unset($params['id_proyecto']);
         unset($params['realname']);
-        print_r($this->getRealname());
         $params['url'] = $this->getRealname();
         if (parent::getEm()->create($params, TABLE_IMAGEN)) {
             $relacion = array(
@@ -159,7 +158,6 @@ class ImageProject extends PersistenceManager implements BasicMethodsEntities {
     public function upload($id_usuario) {
         $result = FALSE;
         $url_f = ($this->getHeader() == TRUE) ? _CLIENT_PATH_ . $id_usuario . '/' . $this->getId_proyecto() . '/' . $this->getRealname() : _CLIENT_PATH_ . $id_usuario . '/' . $this->getId_proyecto() . '/' . _USER_IMG_PATH_ . '/' . $this->getRealname();
-        print_r($url_f);
         if (move_uploaded_file($this->getUrl(), $url_f)) {
             $result = TRUE;
         }

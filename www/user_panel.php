@@ -10,6 +10,7 @@ Template::getBreadCrumbs($breads);
 $user = User::findById(Tools::getCookie(SESSION_USUARIO_ID));
 $totalProjects = $user->getAllActiveProjects();
 $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
+$createpjt = ($_REQUEST['createpjt'] == TRUE) ? TRUE : FALSE;
 ?>
 <!--// Content //-->
 <?php include_once(_PHP_PATH_ . 'viewuser.php'); ?>
@@ -38,7 +39,17 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
         </div>
     </div>
     <div class="panel-body">
-        <?php if ($user->countActiveProjects() > 0) { ?>
+        <?php if ($createpjt) { ?>
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p><?php echo Translator::getTextStatic('GENERIC_SUCCESS_SAVE'); ?></p>
+            </div>
+            <?php
+        }
+        if ($user->countActiveProjects() > 0) {
+            ?>
             <div class="row">
                 <?php
                 for ($x = 0; $x < LIMIT_RESULT_LIST; $x++) {
@@ -50,7 +61,7 @@ $pagina = (!is_null($_REQUEST['pagina'])) ? $_REQUEST['pagina'] : 1;
                                 <img src="<?php echo _IMAGE_PATH_ ?>avatar.jpg" alt="...">
                                 <div class="caption">
                                     <div data-toggle="tooltip" title="<?php echo $project->getNombre(); ?>">
-                                        <h3><?php echo Tools::cutOutput($project->getNombre(),15); ?></h3>
+                                        <h3><?php echo Tools::cutOutput($project->getNombre(), 15); ?></h3>
                                     </div>
                                     <p class="text-justify">
                                         <?php echo Tools::cutOutput($project->getDescription(), 50); ?>

@@ -21,6 +21,7 @@ $breads = array(
 );
 $newID = Tools::generateUUID(20);
 Template::getBreadCrumbs($breads);
+$createpjt = ($_REQUEST['error'] == TRUE) ? TRUE : FALSE;
 ?>
 <!--// Content //-->
 <form method="post" name="formulario" enctype="multipart/form-data" action="<?php echo _ROOT_PATH_ . 'user-panel/new-project'; ?>">
@@ -37,6 +38,14 @@ Template::getBreadCrumbs($breads);
     Template::closePanelHeader();
     Template::openPanelBody();
     ?>
+    <?php if ($createpjt) { ?>
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <p><?php echo Translator::getTextStatic('GENERIC_ERROR_SAVE'); ?></p>
+        </div>
+    <?php } ?>
     <div class="form-group width100">
         <label class="sr-only" for="newproject_name"><?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?></label>
         <input type="text" maxlength="128" class="form-control width100" name="newproject_name" id="newproject_name" placeholder="<?php echo Translator::getTextStatic('PANEL_LABEL_NEW_PROJECT_NAME'); ?>">
