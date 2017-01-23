@@ -86,13 +86,7 @@ Template::openPanelBody();
                     ?>
                 </tr>
             </table>
-        </div>
-        <div class="well well-sm"> <!-- container description -->
-            <h4 class="h4"><span><?php echo Translator::getTextStatic('GENERIC_DESCRIPTION') ?></span></h4>
-            <p class="text-justify"><?php echo Tools::formatOutput($project->getDescription()); ?></p>
-        </div>
-    </div>
-    <div class="float-container-left-15"> <!-- container targets -->
+        </div> <!-- container targets -->
         <?php
         if (count($project->getTarjetas()) > 0) {
             foreach ($project->getTarjetas() as $tjs) {
@@ -110,6 +104,12 @@ Template::openPanelBody();
             echo Translator::getTextStatic('PROJECT_NOT_HAVE_TARGETS');
         }
         ?>
+    </div>
+    <div class="float-container-left-15">
+        <div class="well well-sm"> <!-- container description -->
+            <h4 class="h4"><span><?php echo Translator::getTextStatic('GENERIC_DESCRIPTION') ?></span></h4>
+            <p class="text-justify"><?php echo Tools::formatOutput($project->getDescription()); ?></p>
+        </div>
     </div>
 </div>
 <div class="row mar1-l">
