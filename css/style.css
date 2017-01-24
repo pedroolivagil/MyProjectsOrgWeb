@@ -12,10 +12,13 @@
 
 html, body {
     /*2,5*/
-    background: url("../img/bg4.png") fixed;
+    background: url("../img/bg2.png") fixed;
 }
 
-body { padding-top: 70px; padding-bottom: 50px; }
+body { 
+    padding-top: 70px; 
+    /*padding-bottom: 50px;*/ 
+}
 
 /* CONTENEDORES */
 .wrapper, .navbar-fixed-top {
@@ -210,6 +213,10 @@ body { padding-top: 70px; padding-bottom: 50px; }
 
 .panel-body-sm {
     padding: 5px 10px;
+}
+.border {
+    border-width: 1px;
+    border-style: solid;
 }
 
 .h4 {

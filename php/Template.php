@@ -25,8 +25,8 @@ abstract class Template {
                     . '<li><a href="' . _ROOT_PATH_ . 'user-panel">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PASS') . '</a></li>'
                     . '<li role="separator" class="divider"></li>'
                     . '<li class="dropdown-header">' . Translator::getTextStatic('USER_DROPDOWN_HEADER_PROJECTS') . '</li>'
-                    . '<li><a href="' . _ROOT_PATH_ . 'user-project">' . Translator::getTextStatic('USER_DROPDOWN_VIEW_PROJECTS') . '</a></li>'
-                    . '<li><a href="' . _ROOT_PATH_ . 'create-project">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PROJECT') . '</a></li>'
+                    . '<li><a href="' . _ROOT_PATH_ . 'user-project/pag/1">' . Translator::getTextStatic('USER_DROPDOWN_VIEW_PROJECTS') . '</a></li>'
+                    . '<li><a href="' . _ROOT_PATH_ . 'user-project/create-project">' . Translator::getTextStatic('USER_DROPDOWN_NEW_PROJECT') . '</a></li>'
                     . '<li role="separator" class="divider"></li>'
                     . '<li><a href="' . _ROOT_PATH_ . 'logout">' . Translator::getTextStatic('USER_DROPDOWN_LOGOUT') . '</a></li>'
                     . '</ul>'
@@ -59,7 +59,7 @@ abstract class Template {
 
     public static function getBreadCrumbs($breads) {
         $breadcrumbs = '<!--// BreadCrumbs //-->';
-        $breadcrumbs .= '<ol class="breadcrumb">';
+        $breadcrumbs .= '<ol class="breadcrumb panel-primary border">';
         $breadcrumbs .= '<li><a href="' . _ROOT_PATH_ . 'home">' . Translator::getTextStatic('HOME_PAGE') . '</a></li>';
         $x = 0;
         foreach ($breads as $title => $url) {
