@@ -104,8 +104,8 @@ $createpjt = ($_REQUEST['createpjt'] == TRUE) ? TRUE : FALSE;
         <?php } else { ?>
             <div class="text-right">
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-default"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></button>
-                    <button type="button" class="btn btn-default"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_RECOVERY_DELETED'); ?></button>
+                    <a href="<?php echo _ROOT_PATH_; ?>user-project/create-project" class="btn btn-default"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_NEW_PROJECT'); ?></a>
+                    <a href="#" class="btn btn-default"><?php echo Translator::getTextStatic('PANEL_USER_LABEL_RECOVERY_DELETED'); ?></a>
                 </div>
             </div>
         <?php } ?>
