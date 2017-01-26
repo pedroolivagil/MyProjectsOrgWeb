@@ -140,7 +140,7 @@ VALUES
 -- ^^^ añadidos ^^^ -----------
 INSERT INTO parametros (id, etiqueta, texto, id_idioma) 
 VALUES 
-(NULL, '', '', '73'),
+(NULL, 'BANNER_ADS', 'publicidad', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),
 (NULL, '', '', '73'),

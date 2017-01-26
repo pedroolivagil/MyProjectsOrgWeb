@@ -11,8 +11,7 @@
 }
 
 html, body {
-    /*2,5,9,10,11*/
-    background: url("../img/bg12.png") fixed;
+    background: url("../img/bg.png") fixed;
 }
 
 body { 
@@ -25,7 +24,7 @@ body {
     min-width: 350px;
 }
 .panel {
-    border-radius: 5px !important;    
+    border-radius: 5px !important;
 }
 .panel-heading {
     border-top-left-radius: 3px !important; 
@@ -160,7 +159,7 @@ body {
     margin: 0 !important;
     padding: 0 !important;
 }
-.shadow {
+.shadow, .panel {
     box-shadow: rgba(0,0,0,.2) 0 0 2px;    
 }
 .shadow-5 {
@@ -248,7 +247,7 @@ textarea {
 }
 textarea.height-new-description {
     resize: none;
-    height: 225px !important;
+    height: 223px !important;
 }
 .btn-primary-important {
     color: #fff !important;
@@ -265,6 +264,10 @@ textarea.height-new-description {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+.publicidad {
+    font-size: .7em;
+    text-transform: uppercase;
 }
 
 

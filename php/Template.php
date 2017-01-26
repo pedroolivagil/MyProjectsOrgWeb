@@ -59,7 +59,7 @@ abstract class Template {
 
     public static function getBreadCrumbs($breads) {
         $breadcrumbs = '<!--// BreadCrumbs //-->';
-        $breadcrumbs .= '<ol class="breadcrumb panel-primary border">';
+        $breadcrumbs .= '<ol class="breadcrumb panel-primary shadow">';
         $breadcrumbs .= '<li><a href="' . _ROOT_PATH_ . 'home">' . Translator::getTextStatic('HOME_PAGE') . '</a></li>';
         $x = 0;
         foreach ($breads as $title => $url) {
@@ -120,6 +120,7 @@ abstract class Template {
         $params = array(
             '[JS]' => _JS_PATH_,
             '[SCRIPTS]' => $scripts,
+            '[PUBLICIDAD]' => Translator::getTextStatic('BANNER_ADS'),
             '[LOCALE]' => LOCALE
         );
         $tpl = self::getContentOfFile(_PAGES_PATH_ . 'footer.php', $params);
