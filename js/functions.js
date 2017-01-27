@@ -156,4 +156,7 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip({animation: true});
 
     loadGallery(true, 'a.preview');
+
+    //ADS google
+    (adsbygoogle = window.adsbygoogle || []).push({});
 });

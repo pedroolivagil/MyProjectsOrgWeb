@@ -150,4 +150,22 @@ abstract class Template {
         return $txt;
     }
 
+    public static function showADSLargo() {
+        return '<!-- banner largo -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2083012446340886"
+                data-ad-slot="7976441102"
+                data-ad-format="auto"></ins>';
+    }
+
+    public static function showADSAdaptable() {
+        return '<!-- banner inferior MyProjectsOrg -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2083012446340886"
+                 data-ad-slot="7720919102"
+                 data-ad-format="auto"></ins>';
+    }
+
 }
